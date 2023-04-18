@@ -1,8 +1,7 @@
-const fastify = require('fastify')({
-    logger: true
-})
+const fastify = require('fastify')()
 const autoload = require('@fastify/autoload')
 const path = require('path')
+const Database = require('./database')
 
 fastify.register(autoload, {
     dir: `${__dirname}/api`,

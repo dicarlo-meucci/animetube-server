@@ -12,7 +12,34 @@ module.exports = class Database {
     })
     
     constructor() {
-        Database.connection.connect()
+        Database.db.connect()
     }
     
+    static getAnimeList() {
+        return new Promise((resolve, reject) => {
+            Database.db.query("SELECT * FROM anime", (err, res, fields) => {
+                if (err)
+                    return reject(err);
+
+                resolve(res);
+            })
+        });
+    }
+    
+    static login(username, password) {
+        return new Promise((resolve, reject) => {
+            let statement = `SELECT username, email, psw
+            FROM Utente WHERE username = ? OR email = ? AND psw = ?`
+            let data = [username, username, password]
+            let query = mysql.format(statement, data)
+            console.log(query)
+            Database.db.query(query, (err, res, fields) => {
+                if (err)
+                    return reject(err);
+
+                resolve(res);
+            })
+        });
+    }
 }
+
