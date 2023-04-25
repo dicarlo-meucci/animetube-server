@@ -27,12 +27,27 @@ module.exports = class Database {
         })
     }
 
-    static getAnime(name) {
+    static getAnime(id) {
         return new Promise((resolve, reject) => {
             let query = Database.prepareQuery(
-                `SELECT * FROM Anime WHERE nome = ?`,
-                [name]
+                `SELECT * FROM Anime WHERE id = ?`,
+                [id]
             )
+            Database.db.query(query, (err, res, fields) => {
+                if (err) return reject(err)
+
+                resolve(res)
+            })
+        })
+    }
+
+    static searchAnime(title) {
+        return new Promise((resolve, reject) => {
+            let query = Database.prepareQuery(
+                `SELECT * FROM Anime WHERE nome LIKE ? LIMIT 5`,
+                [`%${title}%`]
+            )
+            
             Database.db.query(query, (err, res, fields) => {
                 if (err) return reject(err)
 
@@ -73,7 +88,27 @@ module.exports = class Database {
                     return resolve(res[0])
                 }
 
-                reject("Invalid token")
+                reject('Invalid token')
+            })
+        })
+    }
+
+    static getUserPassword(username) {
+        return new Promise((resolve, reject) => {
+            let query = Database.prepareQuery(
+                `SELECT psw
+            FROM Utente WHERE username = ?`,
+                [username]
+            )
+
+            Database.db.query(query, (err, res, fields) => {
+                if (err) return reject(err)
+
+                if (res.length != 0) {
+                    return resolve(res[0].psw)
+                }
+
+                reject('User does not exist')
             })
         })
     }
@@ -103,32 +138,39 @@ module.exports = class Database {
                     })
                 }
 
-                reject("Invalid token")
+                reject('Invalid token')
             })
         })
     }
 
     static login(username, password) {
-        return new Promise((resolve, reject) => {
-            // need to implement hash check
+        return new Promise(async (resolve, reject) => {
+            let hashedPassword
+
+            try {
+                hashedPassword = await this.getUserPassword(username)
+            } catch (error) {
+                return reject('User does not exist')
+            }
+
+            if (!bcrypt.compareSync(password, hashedPassword))
+                return reject('Invalid password')
 
             let query = Database.prepareQuery(
                 `SELECT username, token
             FROM Utente WHERE (username = ? OR email = ?) AND psw = ?`,
-                [username, username, password]
+                [username, username, hashedPassword]
             )
 
             Database.db.query(query, (err, res, fields) => {
                 if (err) return reject(err)
 
                 if (res.length != 0) {
-                    return resolve({ 
+                    return resolve({
                         username: res[0].username,
-                        token: res[0].token 
+                        token: res[0].token
                     })
                 }
-
-                return reject('User does not exist')
             })
         })
     }
@@ -145,7 +187,10 @@ module.exports = class Database {
                 if (res.length != 0) {
                     return reject('User already exists')
                 }
-                let hashedPassword = bcrypt.hashSync(password, parseInt(process.env.SALT_ROUNDS))
+                let hashedPassword = bcrypt.hashSync(
+                    password,
+                    parseInt(process.env.SALT_ROUNDS)
+                )
                 let token = Database.generateToken()
                 let query = Database.prepareQuery(
                     `INSERT INTO Utente

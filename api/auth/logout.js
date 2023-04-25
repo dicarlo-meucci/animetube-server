@@ -7,7 +7,7 @@ module.exports = async function (fastify, options) {
             let result = await Database.logout(token)
             res.send(result)
         } catch (error) {
-            res.code(403).send({error})
+            res.code(403).send({ error })
         }
     })
 }

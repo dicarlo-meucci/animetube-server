@@ -7,7 +7,7 @@ module.exports = async function (fastify, options) {
             let result = await Database.register(email, username, password)
             res.code(200).send(result)
         } catch (error) {
-            res.code(403).send({error})
+            res.code(403).send({ error })
         }
     })
 }
