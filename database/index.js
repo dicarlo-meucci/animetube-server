@@ -1,10 +1,11 @@
 const mysql = require('mysql')
 const dotenv = require('dotenv')
+const crypto = require('crypto')
+const bcrypt = require('bcrypt')
 dotenv.config()
 const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME } = process.env
 
-module.exports = class Database
-{
+module.exports = class Database {
     static db = mysql.createConnection({
         host: DB_HOST,
         user: DB_USER,
@@ -12,17 +13,13 @@ module.exports = class Database
         database: DB_NAME
     })
 
-    constructor()
-    {
+    constructor() {
         Database.db.connect()
     }
 
-    static getAnimeList()
-    {
-        return new Promise((resolve, reject) =>
-        {
-            Database.db.query('SELECT * FROM Anime', (err, res, fields) =>
-            {
+    static getAnimeList() {
+        return new Promise((resolve, reject) => {
+            Database.db.query('SELECT * FROM Anime', (err, res, fields) => {
                 if (err) return reject(err)
 
                 resolve(res)
@@ -30,13 +27,13 @@ module.exports = class Database
         })
     }
 
-    static getAnime(name)
-    {
-        return new Promise((resolve, reject) =>
-        {
-            let query = Database.prepareQuery(`SELECT * FROM Anime WHERE nome = ?`, [name])
-            Database.db.query(query, (err, res, fields) =>
-            {
+    static getAnime(name) {
+        return new Promise((resolve, reject) => {
+            let query = Database.prepareQuery(
+                `SELECT * FROM Anime WHERE nome = ?`,
+                [name]
+            )
+            Database.db.query(query, (err, res, fields) => {
                 if (err) return reject(err)
 
                 resolve(res)
@@ -44,59 +41,134 @@ module.exports = class Database
         })
     }
 
-    static postReview()
-    {
+    static postReview() {}
 
+    static getAnimeScore() {}
+
+    static getCarouselImages() {
+        return new Promise((resolve, reject) => {
+            let query = Database.db.query(`SELECT trailer
+            FROM Carousel`)
+
+            Database.db.query(query, (err, res, fields) => {
+                if (err) return reject(err)
+
+                resolve(res)
+            })
+        })
     }
 
-    static getAnimeScore()
-    {
+    static findUserByToken(token) {
+        return new Promise((resolve, reject) => {
+            let query = Database.prepareQuery(
+                `SELECT *
+            FROM Utente WHERE token = ?`,
+                [token]
+            )
 
+            Database.db.query(query, (err, res, fields) => {
+                if (err) return reject(err)
+
+                if (res.length != 0) {
+                    return resolve(res[0])
+                }
+
+                reject("Invalid token")
+            })
+        })
     }
 
-    static getCarouselImages()
-    {
+    static logout(token) {
+        return new Promise((resolve, reject) => {
+            let query = Database.prepareQuery(
+                `SELECT token
+            FROM Utente WHERE token = ?`,
+                [token]
+            )
 
+            Database.db.query(query, (err, res, fields) => {
+                if (err) return reject(err)
+
+                if (res.length != 0) {
+                    let newToken = Database.generateToken()
+                    let query = Database.prepareQuery(
+                        `UPDATE Utente
+                    SET token = ? WHERE token = ?`,
+                        [newToken, token]
+                    )
+                    Database.db.query(query, (err, res, fields) => {
+                        if (err) return reject(err)
+
+                        return resolve(res)
+                    })
+                }
+
+                reject("Invalid token")
+            })
+        })
     }
 
-    static login(username, password)
-    {
-        return new Promise((resolve, reject) =>
-        {
-            let query = Database.prepareQuery(`SELECT username, email, psw
+    static login(username, password) {
+        return new Promise((resolve, reject) => {
+            // need to implement hash check
+
+            let query = Database.prepareQuery(
+                `SELECT username, token
             FROM Utente WHERE (username = ? OR email = ?) AND psw = ?`,
-                [username, username, password])
+                [username, username, password]
+            )
 
-            Database.db.query(query, (err, res, fields) =>
-            {
+            Database.db.query(query, (err, res, fields) => {
                 if (err) return reject(err)
 
-                resolve(res)
+                if (res.length != 0) {
+                    return resolve({ 
+                        username: res[0].username,
+                        token: res[0].token 
+                    })
+                }
+
+                return reject('User does not exist')
             })
         })
     }
 
-    static register(email, username, password)
-    {
-        return new Promise((resolve, reject) =>
-        {
-            let statement = `INSERT INTO Utente
-            VALUES (default, ?, ?, ?, 'abc')`
-            let data = [username, email, password]
-            let query = mysql.format(statement, data)
-            console.log(query)
-            Database.db.query(query, (err, res, fields) =>
-            {
-                if (err) return reject(err)
+    static register(email, username, password) {
+        return new Promise((resolve, reject) => {
+            let check = Database.prepareQuery(
+                `SELECT email, username
+            FROM Utente WHERE username = ? OR email = ?`,
+                [username, email]
+            )
 
-                resolve(res)
+            Database.db.query(check, (err, res, fields) => {
+                if (res.length != 0) {
+                    return reject('User already exists')
+                }
+                let hashedPassword = bcrypt.hashSync(password, parseInt(process.env.SALT_ROUNDS))
+                let token = Database.generateToken()
+                let query = Database.prepareQuery(
+                    `INSERT INTO Utente
+                VALUES (default, ?, ?, ?, ?)`,
+                    [username, email, hashedPassword, token]
+                )
+
+                Database.db.query(query, (err, res, fields) => {
+                    if (err) return reject(err)
+
+                    resolve({ token })
+                })
             })
         })
     }
 
+    static generateToken() {
+        return crypto
+            .randomBytes(parseInt(process.env.AUTH_TOKEN_LENGTH) / 2)
+            .toString('hex')
+    }
 
-    static prepareQuery(statement, params)
-    {
+    static prepareQuery(statement, params) {
         return mysql.format(statement, params)
     }
 }
