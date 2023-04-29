@@ -17,7 +17,6 @@ fastify.register(require('@fastify/cors'), {
 })
 
 fastify.addHook('onRequest', (request, reply, done) => {
-    console.log(request.url)
     if(!request.url.startsWith('/api'))
     {
         done()
