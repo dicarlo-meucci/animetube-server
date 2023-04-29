@@ -36,7 +36,7 @@ module.exports = class Database {
             Database.db.query(query, (err, res, fields) => {
                 if (err) return reject(err)
 
-                resolve(res)
+                resolve(res[0])
             })
         })
     }

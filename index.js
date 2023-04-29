@@ -12,8 +12,13 @@ fastify.register(require('@fastify/static'), {
     root: path.join(__dirname, 'public')
 })
 
+fastify.register(require('@fastify/cors'), {
+    origin: '*'
+})
+
 fastify.addHook('onRequest', (request, reply, done) => {
-    if(!request.params['*'].startsWith('api'))
+    console.log(request.url)
+    if(!request.url.startsWith('/api'))
     {
         done()
         return
