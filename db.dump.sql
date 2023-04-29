@@ -1,64 +1,65 @@
-drop database if exists animetube;
+DROP DATABASE IF EXISTS animetube;
 CREATE DATABASE animetube;
-use animetube;
+USE animetube;
 
 CREATE TABLE Anime (
-    id int primary key auto_increment,
-    nome varchar(255) not null,
-    studio varchar(255) not null,
-    data date not null,
-    descrizione varchar(2048) not null,
-    copertina varchar(512) not null
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    studio VARCHAR(255) NOT NULL,
+    date date NOT NULL,
+    description VARCHAR(2048) NOT NULL,
+    cover VARCHAR(512) NOT NULL
 );
 
-CREATE TABLE Utente (
-    id int primary key auto_increment,
-    username varchar(255) not null,
-    email varchar(255) not null,
-    psw varchar(128) not null,
-    token varchar(2048) not null
+CREATE TABLE User (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(128) NOT NULL,
+    token VARCHAR(2048) NOT NULL
 );
 
-CREATE TABLE Recensione (
-    id int primary key auto_increment,
-    testo varchar(2048) not null,
-    voto_c double not null,
-    UtenteID int,
-    FOREIGN KEY (UtenteID) REFERENCES Utente(id)
+CREATE TABLE Review (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    text VARCHAR(2048) NOT NULL,
+    score DOUBLE NOT NULL,
+    user INT,
+    FOREIGN KEY (user) REFERENCES User(id)
 );
 
-CREATE TABLE Lista (
-    id int,
+CREATE TABLE List (
+    id INT,
     FOREIGN KEY (id) REFERENCES Anime(id),
-    UtenteID int,
-    FOREIGN KEY (UtenteID) REFERENCES Utente(id)
+    user INT,
+    FOREIGN KEY (user) REFERENCES User(id)
 );
 
 CREATE TABLE Tag (
-    id int primary key auto_increment,
-    nome varchar(255) not null,
-    UtenteID int,
-    FOREIGN KEY (UtenteID) REFERENCES Utente(id)    
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    user INT,
+    FOREIGN KEY (user) REFERENCES User(id)    
 );
 
-CREATE TABLE Episodio (
-    id int primary key auto_increment,
-    link varchar(512) not null,
-    AnimeID int,
-    FOREIGN KEY (AnimeID) REFERENCES Anime(id)
+CREATE TABLE Episode (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    link VARCHAR(512) NOT NULL,
+    anime INT,
+    FOREIGN KEY (anime) REFERENCES Anime(id)
 );
 
-CREATE TABLE Filtro (
-    id int,
+CREATE TABLE Filter (
+    id INT,
     FOREIGN KEY (id) REFERENCES Anime(id),
-    TagID int,
-    FOREIGN KEY (TagID) REFERENCES Tag(id)
+    tag INT,
+    FOREIGN KEY (tag) REFERENCES Tag(id)
 );
 
 CREATE TABLE Carousel (
-    trailer varchar(512) not null,
-    img varchar(512) not null
+    trailer VARCHAR(512) NOT NULL,
+    img VARCHAR(512) NOT NULL
 );
+
 
 -- \/\/\/\/\/ANIME\/\/\/\/\/
 
@@ -209,13 +210,13 @@ INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
 VALUES (default, 'Fire Force 2', 'David Production', '2020-12-12', 'Arthur Boyle, autoprofessatosi "Re dei cavalieri", si unisce all\'ottava brigata e immediatamente nasce della tensione tra lui e Shinra. Con i giochi delle reclute in arrivo, il tenente Hinawa vuole vedere di cosa sono capaci i due nuovi arrivati.', 'https://myanimelist.net/anime/40956/Enen_no_Shouboutai__Ni_no_Shou/pics');
 
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Il castello errante di Howl', 'Studio Ghibli', '2005-09-09', 'Il Castello errante di Howl potrebbe inserirsi almeno in parte nel genere e l\'arte di Miyazaki stesso è un\'arte composita in cui resti del passato suo personale (l\'esperienza della guerra) e della cultura giapponese (lo shintoismo) si mescolano con la tecnologia avanzata delle sue opere di animazione.', 'https://upload.wikimedia.org/wikipedia/en/a/a0/Howls-moving-castleposter.jpg');
+VALUES (default, 'Il castello errante di Howl', 'Studio Ghibli', '2005-09-09', 'Il Castello errante di Howl potrebbe inserirsi almeno in parte nel genere e l\'arte di Miyazaki stesso è un\'arte composita in cui resti del passato suo personale (l\'esperienza della guerra) e della cultura giapponese (lo shINToismo) si mescolano con la tecnologia avanzata delle sue opere di animazione.', 'https://upload.wikimedia.org/wikipedia/en/a/a0/Howls-moving-castleposter.jpg');
 
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
 VALUES (default, 'Kiseijū', 'Madhouse', '2014-10-08', 'Un adolescente combatte l\'attacco di parassiti provenienti dallo spazio con l\'aiuto di Migi, una docile creatura che ha preso possesso della sua mano destra.', 'https://myanimelist.net/anime/22535/Kiseijuu__Sei_no_Kakuritsu/pics');
 
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Ao no Orchestra', 'Nippon Animation', '2023-0-1', 'Hajime Aono era un violinista prodigio finché non ha smesso di suonare il violino per motivi personali. Ora frequenta il terzo anno delle medie e fatica a decidere quale percorso accademico intraprendere. Un giorno, incontra a scuola Ritsuko Akine, una violinista alle prime armi dalla testa calda che vuole iscriversi a una scuola superiore che abbia un\'orchestra di rilievo. Hajime poco a poco si avvicina a Ritsuko e, riportato nel mondo dei violinisti, realizza che il tempo ha ripreso a muoversi per lui.', 'https://www.animelove.tv/assets/img/AoNoOrchestra.jpg');
+VALUES (default, 'Ao no Orchestra', 'Nippon Animation', '2023-0-1', 'Hajime Aono era un violinista prodigio finché non ha smesso di suonare il violino per motivi personali. Ora frequenta il terzo anno delle medie e fatica a decidere quale percorso accademico INTraprendere. Un giorno, incontra a scuola Ritsuko Akine, una violinista alle prime armi dalla testa calda che vuole iscriversi a una scuola superiore che abbia un\'orchestra di rilievo. Hajime poco a poco si avvicina a Ritsuko e, riportato nel mondo dei violinisti, realizza che il tempo ha ripreso a muoversi per lui.', 'https://www.animelove.tv/assets/img/AoNoOrchestra.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2349-Ao-no-Orchestra/1/', (SELECT id FROM Anime WHERE nome = 'Ao no Orchestra'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2349-Ao-no-Orchestra/2/', (SELECT id FROM Anime WHERE nome = 'Ao no Orchestra'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
@@ -233,7 +234,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2288-Akiba\'s-Trip-The-Animation/11/', (SELECT id FROM Anime WHERE nome = 'Akiba\'s Trip The Animation'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2288-Akiba\'s-Trip-The-Animation/12/', (SELECT id FROM Anime WHERE nome = 'Akiba\'s Trip The Animation'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Alice Academy (ITA)', 'Group TAC', '2004-0-1', 'La protagonista è una ragazzina come tante altre, ma la sua esperienza scolastica decolla con l\'arrivo di un\'altra studentessa. Nonostante si dimostri superiore a lei in tutto e che in ogni situazione in cui nasce rivalità lei abbia la peggio, fra le due nasce una grande amicizia. Questo piccolo idillio non dura a lungo visto che come arrivata da un giorno all\'altro se ne va, ma la protagonista non si dà per vinta e decide di partire per andarla a trovare, scappando di casa e dirigendosi a Tokyo. Scopre che è all\'interno di una scuola di Alice, ovvero di ragazzi dotati di particolari talenti. Le viene negato l\'ingresso per incontrarla, tuttavia uno degli insegnanti nota in lei un talento particolare e le offre la possibilità di affrontare il test d\'ingresso. Ma non essendo un genio e non possedendo poteri soprannaturali, quale mai sarà questo talento???', 'https://www.animelove.tv/assets/img/AliceAcademyITA.jpg');
+VALUES (default, 'Alice Academy (ITA)', 'Group TAC', '2004-0-1', 'La protagonista è una ragazzina come tante altre, ma la sua esperienza scolastica decolla con l\'arrivo di un\'altra studentessa. Nonostante si dimostri superiore a lei in tutto e che in ogni situazione in cui nasce rivalità lei abbia la peggio, fra le due nasce una grande amicizia. Questo piccolo idillio non dura a lungo visto che come arrivata da un giorno all\'altro se ne va, ma la protagonista non si dà per vINTa e decide di partire per andarla a trovare, scappando di casa e dirigendosi a Tokyo. Scopre che è all\'INTerno di una scuola di Alice, ovvero di ragazzi dotati di particolari talenti. Le viene negato l\'ingresso per incontrarla, tuttavia uno degli insegnanti nota in lei un talento particolare e le offre la possibilità di affrontare il test d\'ingresso. Ma non essendo un genio e non possedendo poteri soprannaturali, quale mai sarà questo talento???', 'https://www.animelove.tv/assets/img/AliceAcademyITA.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2260-Alice-Academy-(ITA)/1/', (SELECT id FROM Anime WHERE nome = 'Alice Academy (ITA)'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2260-Alice-Academy-(ITA)/2/', (SELECT id FROM Anime WHERE nome = 'Alice Academy (ITA)'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2260-Alice-Academy-(ITA)/3/', (SELECT id FROM Anime WHERE nome = 'Alice Academy (ITA)'));
@@ -261,7 +262,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2260-Alice-Academy-(ITA)/25/', (SELECT id FROM Anime WHERE nome = 'Alice Academy (ITA)'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2260-Alice-Academy-(ITA)/26/', (SELECT id FROM Anime WHERE nome = 'Alice Academy (ITA)'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Ai Yori Aoshi', 'J.C.Staff', '2002-0-1', 'Kaoru è il successore della potente famiglia degli Hanabishi. In realtà i suoi parenti hanno dovuto accettarlo in quanto tale solo a causa dell\'assenza di altri possibili eredi: il ragazzo, infatti, è il frutto di una relazione "sconveniente" per il casato. Per questo motivo deve sopportare le angherie dei suoi familiari fino a che, ormai stanco per il perdurare di questa situazione, decide di rinunciare al suo ruolo e di andarsene via di casa. Kaoru, però, Però era già stato promesso in sposo ad Aoi, la discendente di un\'altra potente famiglia; e quest\'ultima non ha nessuna intenzione di rinunciare all\'uomo a cui aveva deciso di dedicare la sua vita.', 'https://www.animelove.tv/assets/img/AiYoriAoshi.jpg');
+VALUES (default, 'Ai Yori Aoshi', 'J.C.Staff', '2002-0-1', 'Kaoru è il successore della potente famiglia degli Hanabishi. In realtà i suoi parenti hanno dovuto accettarlo in quanto tale solo a causa dell\'assenza di altri possibili eredi: il ragazzo, infatti, è il frutto di una relazione "sconveniente" per il casato. Per questo motivo deve sopportare le angherie dei suoi familiari fino a che, ormai stanco per il perdurare di questa situazione, decide di rinunciare al suo ruolo e di andarsene via di casa. Kaoru, però, Però era già stato promesso in sposo ad Aoi, la discendente di un\'altra potente famiglia; e quest\'ultima non ha nessuna INTenzione di rinunciare all\'uomo a cui aveva deciso di dedicare la sua vita.', 'https://www.animelove.tv/assets/img/AiYoriAoshi.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2257-Ai-Yori-Aoshi/1/', (SELECT id FROM Anime WHERE nome = 'Ai Yori Aoshi'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2257-Ai-Yori-Aoshi/2/', (SELECT id FROM Anime WHERE nome = 'Ai Yori Aoshi'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2257-Ai-Yori-Aoshi/3/', (SELECT id FROM Anime WHERE nome = 'Ai Yori Aoshi'));
@@ -302,7 +303,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2255-Abenobashi---Il-quartiere-commerciale-di-magia/12/', (SELECT id FROM Anime WHERE nome = 'Abenobashi - Il quartiere commerciale di magia'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2255-Abenobashi---Il-quartiere-commerciale-di-magia/13/', (SELECT id FROM Anime WHERE nome = 'Abenobashi - Il quartiere commerciale di magia'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Ayashi no Ceres (ITA)', 'Pierrot', '2000-0-1', 'Protagonisti delle vicende sono due gemelli, Aya e Aki Mikage. Hanno vissuto una vita normalissima e si apprestano a festeggiare il loro sedicesimo compleanno, ignari che la festa con i propri familiari si trasformarà in un incubo. Vengono sottoposti ad una curiosa prova, per vedere se in loro è incarnato uno spirito carico di rancore che porterà sciagure nell’intera famiglia. Il corpo di Aki si riempie di ferite, mentre Aya mostra di avere terribili poteri. In procinto di essere eliminata riesce a salvarsi grazie all’aiuto di un misterioso ragazzo. I due fratelli sono la reincarnazione di un pescatore e della Dea Ceres. Quest’ultima un giorno venne derubata del suo velo e costretta a rimanere sulle Terra, dove sposò proprio il pescatore che glielo rubò, dando origine alla famiglia Mikage. Ancor oggi il suo spirito è carico del rancore per l’ingiustizia subita. Proprio per questo Aya deve essere eliminata, porterebbe sciagure sui Mikage e potrebbe persino essere la causa della fine della potente casata.', 'https://www.animelove.tv/assets/img/AyashiNoCeresITA.jpg');
+VALUES (default, 'Ayashi no Ceres (ITA)', 'Pierrot', '2000-0-1', 'Protagonisti delle vicende sono due gemelli, Aya e Aki Mikage. Hanno vissuto una vita normalissima e si apprestano a festeggiare il loro sedicesimo compleanno, ignari che la festa con i propri familiari si trasformarà in un incubo. Vengono sottoposti ad una curiosa prova, per vedere se in loro è incarnato uno spirito carico di rancore che porterà sciagure nell’INTera famiglia. Il corpo di Aki si riempie di ferite, mentre Aya mostra di avere terribili poteri. In procINTo di essere eliminata riesce a salvarsi grazie all’aiuto di un misterioso ragazzo. I due fratelli sono la reincarnazione di un pescatore e della Dea Ceres. Quest’ultima un giorno venne derubata del suo velo e costretta a rimanere sulle Terra, dove sposò proprio il pescatore che glielo rubò, dando origine alla famiglia Mikage. Ancor oggi il suo spirito è carico del rancore per l’ingiustizia subita. Proprio per questo Aya deve essere eliminata, porterebbe sciagure sui Mikage e potrebbe persino essere la causa della fine della potente casata.', 'https://www.animelove.tv/assets/img/AyashiNoCeresITA.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2251-Ayashi-no-Ceres-(ITA)/1/', (SELECT id FROM Anime WHERE nome = 'Ayashi no Ceres (ITA)'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2251-Ayashi-no-Ceres-(ITA)/2/', (SELECT id FROM Anime WHERE nome = 'Ayashi no Ceres (ITA)'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2251-Ayashi-no-Ceres-(ITA)/3/', (SELECT id FROM Anime WHERE nome = 'Ayashi no Ceres (ITA)'));
@@ -406,7 +407,7 @@ VALUES (default, 'Aoi Umi no Tristia', 'ufotable', '2004-0-1', 'La famosa invent
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2177-Aoi-Umi-no-Tristia/1/', (SELECT id FROM Anime WHERE nome = 'Aoi Umi no Tristia'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2177-Aoi-Umi-no-Tristia/2/', (SELECT id FROM Anime WHERE nome = 'Aoi Umi no Tristia'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Aru Tabibito no Nikki', 'None found, add some', '2003-0-1', 'Tortov Roddle è un uomo di poche parole in un viaggio attraverso una nuova terra calma e oscura, interagendo con i suoi abitanti lungo la strada. Mentre cavalca il suo maiale dalle lunghe gambe attraverso il deserto di città in città, osserva le usanze interessanti e bizzarre della gente del posto e ricorda il suo passato di lui.', 'https://www.animelove.tv/assets/img/AruTabibitonoNikki.jpg');
+VALUES (default, 'Aru Tabibito no Nikki', 'None found, add some', '2003-0-1', 'Tortov Roddle è un uomo di poche parole in un viaggio attraverso una nuova terra calma e oscura, INTeragendo con i suoi abitanti lungo la strada. Mentre cavalca il suo maiale dalle lunghe gambe attraverso il deserto di città in città, osserva le usanze INTeressanti e bizzarre della gente del posto e ricorda il suo passato di lui.', 'https://www.animelove.tv/assets/img/AruTabibitonoNikki.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2171-Aru-Tabibito-no-Nikki/1/', (SELECT id FROM Anime WHERE nome = 'Aru Tabibito no Nikki'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2171-Aru-Tabibito-no-Nikki/2/', (SELECT id FROM Anime WHERE nome = 'Aru Tabibito no Nikki'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2171-Aru-Tabibito-no-Nikki/3/', (SELECT id FROM Anime WHERE nome = 'Aru Tabibito no Nikki'));
@@ -509,7 +510,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2323-Boku-no-Kokoro-no-Yabai-Yatsu/2/', (SELECT id FROM Anime WHERE nome = 'Boku no Kokoro no Yabai Yatsu'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2323-Boku-no-Kokoro-no-Yabai-Yatsu/3/', (SELECT id FROM Anime WHERE nome = 'Boku no Kokoro no Yabai Yatsu'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Buzzer Beater', 'TMS Entertainment', '2005-0-1', 'Il sogno del vecchio miliardario Yoshimune è riunire i più forti giocatori di basket della Terra, per creare una squadra degna di far parte della Lega Intergalattica. Alle selezioni partecipano centinaia di migliaia di giocatori, e solo i più forti otterranno un ingaggio da cento milioni di dollari! Tra i candidati c\'è Hideyoshi, un simpatico quattordicenne dai capelli azzurri, interessato forse più ai soldi che alla sete di gloria. Buzzer Beater è il secondo manga di Inoue ad incentrarsi sulla pallacanestro , a seguito della sua famosa seconda serie manga, Slam Dunk. Il nome del manga deriva dal termine utilizzato quando un canestro viene segnato nel momento in cui finisce un tempo di gioco. La storia narra di un team di pallacanestro della Terra assemblato per partecipare in una competizione intergalattica di pallacanestro.', 'https://www.animelove.tv/assets/img/BuzzerBeater.jpg');
+VALUES (default, 'Buzzer Beater', 'TMS Entertainment', '2005-0-1', 'Il sogno del vecchio miliardario Yoshimune è riunire i più forti giocatori di basket della Terra, per creare una squadra degna di far parte della Lega INTergalattica. Alle selezioni partecipano centinaia di migliaia di giocatori, e solo i più forti otterranno un ingaggio da cento milioni di dollari! Tra i candidati c\'è Hideyoshi, un simpatico quattordicenne dai capelli azzurri, INTeressato forse più ai soldi che alla sete di gloria. Buzzer Beater è il secondo manga di Inoue ad incentrarsi sulla pallacanestro , a seguito della sua famosa seconda serie manga, Slam Dunk. Il nome del manga deriva dal termine utilizzato quando un canestro viene segnato nel momento in cui finisce un tempo di gioco. La storia narra di un team di pallacanestro della Terra assemblato per partecipare in una competizione INTergalattica di pallacanestro.', 'https://www.animelove.tv/assets/img/BuzzerBeater.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2278-Buzzer-Beater/1/', (SELECT id FROM Anime WHERE nome = 'Buzzer Beater'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2278-Buzzer-Beater/2/', (SELECT id FROM Anime WHERE nome = 'Buzzer Beater'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2278-Buzzer-Beater/3/', (SELECT id FROM Anime WHERE nome = 'Buzzer Beater'));
@@ -593,7 +594,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2046-B-gata-H-kei/11/', (SELECT id FROM Anime WHERE nome = 'B gata H kei'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2046-B-gata-H-kei/12/', (SELECT id FROM Anime WHERE nome = 'B gata H kei'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Baka to Test to Shoukanjuu', 'SILVER LINK.', '2010-0-1', 'In una speciale scuola dove i voti prendono forma virtuale e gli studenti possono combattere contro di loro, vige una regola spietata. Se l\'esame viene lasciato a metà o incompleto si ottiene sempre il punteggio più basso. Così una ragazza intelligente e brillante come Mizuki Himeji, rimasta malata durante gli esami, si trova di colpo catapultata nella peggior sezione (la sezione F), al livello dei peggiori elementi della scuola! Abituata alla sezione A, dove agli studenti era concesso ogni genere di confort e lusso, Mizuki si trova ora in un ambiente sudicio, un\'aula coi vetri rotti e col pavimento fatto di vecchi tatami. Per conquistare i beni di prima necessità da ora sarà guerra alla sezione A!', 'https://www.animelove.tv/assets/img/BakaToTestToShoukanjuu.jpg');
+VALUES (default, 'Baka to Test to Shoukanjuu', 'SILVER LINK.', '2010-0-1', 'In una speciale scuola dove i voti prendono forma virtuale e gli studenti possono combattere contro di loro, vige una regola spietata. Se l\'esame viene lasciato a metà o incompleto si ottiene sempre il punteggio più basso. Così una ragazza INTelligente e brillante come Mizuki Himeji, rimasta malata durante gli esami, si trova di colpo catapultata nella peggior sezione (la sezione F), al livello dei peggiori elementi della scuola! Abituata alla sezione A, dove agli studenti era concesso ogni genere di confort e lusso, Mizuki si trova ora in un ambiente sudicio, un\'aula coi vetri rotti e col pavimento fatto di vecchi tatami. Per conquistare i beni di prima necessità da ora sarà guerra alla sezione A!', 'https://www.animelove.tv/assets/img/BakaToTestToShoukanjuu.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2045-Baka-to-Test-to-Shoukanjuu/1/', (SELECT id FROM Anime WHERE nome = 'Baka to Test to Shoukanjuu'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2045-Baka-to-Test-to-Shoukanjuu/2/', (SELECT id FROM Anime WHERE nome = 'Baka to Test to Shoukanjuu'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2045-Baka-to-Test-to-Shoukanjuu/3/', (SELECT id FROM Anime WHERE nome = 'Baka to Test to Shoukanjuu'));
@@ -625,7 +626,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/1989-By-the-Grace-of-the-Gods-2/11/', (SELECT id FROM Anime WHERE nome = 'By the Grace of the Gods 2'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/1989-By-the-Grace-of-the-Gods-2/12/', (SELECT id FROM Anime WHERE nome = 'By the Grace of the Gods 2'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Buddy Daddies', 'AUTORE: N/A', '2023-0-1', 'Kazuki Kurusu è un intermediario criminale che vive con il suo migliore amico Rei Suwa, un assassino professionista addestrato fin dall\'infanzia per essere un killer a pagamento. Kazuki è estroverso ed ama il gioco d\'azzardo e le donne, mentre Rei è di poche parole e spende la maggior parte del suo tempo giocando ai videogiochi. Un giorno i due compagni finiscono per prendersi cura di Miri Unasaka, una bambina di quattro anni figlia di un boss mafioso, che era finita accidentalmente in mezzo ad una sparatoria mentre era alla ricerca del padre.', 'https://www.animelove.tv/assets/img/BuddyDaddies.jpg');
+VALUES (default, 'Buddy Daddies', 'AUTORE: N/A', '2023-0-1', 'Kazuki Kurusu è un INTermediario criminale che vive con il suo migliore amico Rei Suwa, un assassino professionista addestrato fin dall\'infanzia per essere un killer a pagamento. Kazuki è estroverso ed ama il gioco d\'azzardo e le donne, mentre Rei è di poche parole e spende la maggior parte del suo tempo giocando ai videogiochi. Un giorno i due compagni finiscono per prendersi cura di Miri Unasaka, una bambina di quattro anni figlia di un boss mafioso, che era finita accidentalmente in mezzo ad una sparatoria mentre era alla ricerca del padre.', 'https://www.animelove.tv/assets/img/BuddyDaddies.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/1974-Buddy-Daddies/1/', (SELECT id FROM Anime WHERE nome = 'Buddy Daddies'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/1974-Buddy-Daddies/2/', (SELECT id FROM Anime WHERE nome = 'Buddy Daddies'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/1974-Buddy-Daddies/3/', (SELECT id FROM Anime WHERE nome = 'Buddy Daddies'));
@@ -827,7 +828,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2190-Capitan-Futuro/51/', (SELECT id FROM Anime WHERE nome = 'Capitan Futuro'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2190-Capitan-Futuro/52/', (SELECT id FROM Anime WHERE nome = 'Capitan Futuro'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Cyborg 009', 'Toei Animation', '1966-0-1', 'Durante una corsa automobilistica il pilota Joe Shimamura ha un grave incidente causato dall\'organizzazione dei Black Ghost. Essendo dotato di abilità particolari intendono trasformarlo in un cyborg. Proprio mentre sta per entrare nelle fila dei Black Ghost succede qualcosa di imprevisto...', 'https://www.animelove.tv/assets/img/Cyborg009.jpg');
+VALUES (default, 'Cyborg 009', 'Toei Animation', '1966-0-1', 'Durante una corsa automobilistica il pilota Joe Shimamura ha un grave incidente causato dall\'organizzazione dei Black Ghost. Essendo dotato di abilità particolari INTendono trasformarlo in un cyborg. Proprio mentre sta per entrare nelle fila dei Black Ghost succede qualcosa di imprevisto...', 'https://www.animelove.tv/assets/img/Cyborg009.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2183-Cyborg-009/1/', (SELECT id FROM Anime WHERE nome = 'Cyborg 009'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
 VALUES (default, 'Cue!', 'Yumeta Company, Graphinica', '2022-0-1', 'Con la nascita di una nuova agenzia dedicata al reclutamento di aspiranti doppiatrici, sedici ragazze verranno improvvisamente gettate in pasto ad uno studio di doppiaggio, per effettuare un\'audizione che potrà rivelarsi determinante per la loro tanto agognata carriera. Anche in caso di successo, però, le giovani ragazze dovranno continuare ad impegnarsi al massimo nei ruoli che gli verranno assegnati, al fine di assicurarsi dei nuovi ingaggi.', 'https://www.animelove.tv/assets/img/Cue.jpeg');
@@ -856,10 +857,10 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2157-Cue!/23/', (SELECT id FROM Anime WHERE nome = 'Cue!'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2157-Cue!/24/', (SELECT id FROM Anime WHERE nome = 'Cue!'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Code Geass: Fukkatsu no Lelouch', 'Sunrise', '2019-0-1', 'Dalla scomparsa dell\'uomo ritenuto l\'imperatore più malvagio della Britannia un anno fa, il mondo ha goduto di una pace senza precedenti sotto la guida della Federazione delle Nazioni Unite. Tuttavia, questa fragile calma viene infranta quando militanti armati rapiscono con successo l\'ex principessa Nunnally vi Britannia e Suzaku Kururugi, il principale consigliere dei Cavalieri Neri, scatenando una crisi internazionale. Il potente e inaffidabile Regno di Zilkhstan è accusato di aver orchestrato la loro cattura. Per indagare, le autorità mondiali inviano Kallen Stadtfeld e i suoi soci in un\'operazione segreta nel paese. Lì incontrano la strega immortale C.C., che è in missione per completare la resurrezione dell\'uomo responsabile della più grande rivoluzione della storia, una leggenda che risorgerà, prenderà il comando e salverà il mondo dal pericolo ancora una volta.', 'https://www.animelove.tv/assets/img/CodeGeassFukkatsunoLelouch.jpg');
+VALUES (default, 'Code Geass: Fukkatsu no Lelouch', 'Sunrise', '2019-0-1', 'Dalla scomparsa dell\'uomo ritenuto l\'imperatore più malvagio della Britannia un anno fa, il mondo ha goduto di una pace senza precedenti sotto la guida della Federazione delle Nazioni Unite. Tuttavia, questa fragile calma viene infranta quando militanti armati rapiscono con successo l\'ex principessa Nunnally vi Britannia e Suzaku Kururugi, il principale consigliere dei Cavalieri Neri, scatenando una crisi INTernazionale. Il potente e inaffidabile Regno di Zilkhstan è accusato di aver orchestrato la loro cattura. Per indagare, le autorità mondiali inviano Kallen Stadtfeld e i suoi soci in un\'operazione segreta nel paese. Lì incontrano la strega immortale C.C., che è in missione per completare la resurrezione dell\'uomo responsabile della più grande rivoluzione della storia, una leggenda che risorgerà, prenderà il comando e salverà il mondo dal pericolo ancora una volta.', 'https://www.animelove.tv/assets/img/CodeGeassFukkatsunoLelouch.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2072-Code-Geass:-Fukkatsu-no-Lelouch/1/', (SELECT id FROM Anime WHERE nome = 'Code Geass: Fukkatsu no Lelouch'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Cardcaptor Sakura', 'Madhouse', '1998-0-1', 'Sakura Kinomoto è una studentessa del quarto anno alla scuola elementare privata Tomoeda. Un giorno, aprendo per caso un volume della biblioteca paterna, provoca accidentalmente lo scioglimento del sigillo delle Clow Cards, carte magiche create dal potente stregone anglo-cinese Clow Reed. All\'apertura del tomo, da esso fuoriesce la Bestia del Sigillo (Kero-chan/Cerberus), custode del sigillo stesso, il quale si premura di spiegare a Sakura quanto avvenuto alle carte, sparpagliatesi nei dintorni sotto altra forma allo scopo di far danni o semplicemente confusione in ragione delle loro caratteristiche di personalità. Sakura riceve da Kero-chan la Chiave del Sigillo, trasformabile in un bastone/scettro pronunciando l\'appropriata formula magica. Comincia così la missione di Sakura, volta a rintracciare le carte disperse e a riportarle al loro vero aspetto. Qualora il compito non venisse svolto, una non meglio precisata catastrofe si abbatterebbe su questo mondo.', 'https://www.animelove.tv/assets/img/CardCaptorSakura.jpg');
+VALUES (default, 'Cardcaptor Sakura', 'Madhouse', '1998-0-1', 'Sakura Kinomoto è una studentessa del quarto anno alla scuola elementare privata Tomoeda. Un giorno, aprendo per caso un volume della biblioteca paterna, provoca accidentalmente lo scioglimento del sigillo delle Clow Cards, carte magiche create dal potente stregone anglo-cinese Clow Reed. All\'apertura del tomo, da esso fuoriesce la Bestia del Sigillo (Kero-chan/Cerberus), custode del sigillo stesso, il quale si premura di spiegare a Sakura quanto avvenuto alle carte, sparpagliatesi nei dINTorni sotto altra forma allo scopo di far danni o semplicemente confusione in ragione delle loro caratteristiche di personalità. Sakura riceve da Kero-chan la Chiave del Sigillo, trasformabile in un bastone/scettro pronunciando l\'appropriata formula magica. Comincia così la missione di Sakura, volta a rINTracciare le carte disperse e a riportarle al loro vero aspetto. Qualora il compito non venisse svolto, una non meglio precisata catastrofe si abbatterebbe su questo mondo.', 'https://www.animelove.tv/assets/img/CardCaptorSakura.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2043-Cardcaptor-Sakura/1/', (SELECT id FROM Anime WHERE nome = 'Cardcaptor Sakura'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2043-Cardcaptor-Sakura/2/', (SELECT id FROM Anime WHERE nome = 'Cardcaptor Sakura'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2043-Cardcaptor-Sakura/3/', (SELECT id FROM Anime WHERE nome = 'Cardcaptor Sakura'));
@@ -986,7 +987,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2215-Death-Parade-(ITA)/11/', (SELECT id FROM Anime WHERE nome = 'Death Parade (ITA)'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2215-Death-Parade-(ITA)/12/', (SELECT id FROM Anime WHERE nome = 'Death Parade (ITA)'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Dororo to Hyakkimaru', 'Mushi Production', '1969-0-1', 'Hyakkimaru è un giovane uomo a cui mancano 48 parti del corpo, queste sono state prese dai demoni prima della sua nascita, come pagamento per aver esaudito il desidero di suo padre, Kagemitsu Daigo, di regnare sull’intero Giappone. Il giorno della sua nascita, a causa delle sue mutilazioni, Hyakkimaru fu abbandonato e gettato in un fiume. Oramai però si è fatto uomo e ha ottenuto delle parti del corpo artificiali, così da poter eliminare i 48 demoni e recuperare le sue parti mancanti. Viene accompagnato nella sua lunga difficile impresa da un giovane ladro, Dororo, con il quale stringerà un indissolubile amicizia!', 'https://www.animelove.tv/assets/img/Dororo1969.jpg');
+VALUES (default, 'Dororo to Hyakkimaru', 'Mushi Production', '1969-0-1', 'Hyakkimaru è un giovane uomo a cui mancano 48 parti del corpo, queste sono state prese dai demoni prima della sua nascita, come pagamento per aver esaudito il desidero di suo padre, Kagemitsu Daigo, di regnare sull’INTero Giappone. Il giorno della sua nascita, a causa delle sue mutilazioni, Hyakkimaru fu abbandonato e gettato in un fiume. Oramai però si è fatto uomo e ha ottenuto delle parti del corpo artificiali, così da poter eliminare i 48 demoni e recuperare le sue parti mancanti. Viene accompagnato nella sua lunga difficile impresa da un giovane ladro, Dororo, con il quale stringerà un indissolubile amicizia!', 'https://www.animelove.tv/assets/img/Dororo1969.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2185-Dororo-to-Hyakkimaru/1/', (SELECT id FROM Anime WHERE nome = 'Dororo to Hyakkimaru'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2185-Dororo-to-Hyakkimaru/2/', (SELECT id FROM Anime WHERE nome = 'Dororo to Hyakkimaru'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2185-Dororo-to-Hyakkimaru/3/', (SELECT id FROM Anime WHERE nome = 'Dororo to Hyakkimaru'));
@@ -1041,19 +1042,19 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2105-Doukyonin-wa-Hiza,-Tokidoki,-Atama-no-Ue./11/', (SELECT id FROM Anime WHERE nome = 'Doukyonin wa Hiza, Tokidoki, Atama no Ue.'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2105-Doukyonin-wa-Hiza,-Tokidoki,-Atama-no-Ue./12/', (SELECT id FROM Anime WHERE nome = 'Doukyonin wa Hiza, Tokidoki, Atama no Ue.'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Double Decker! Doug & Kirill', 'Sunrise', '2018-0-1', 'Città-stato di Risvaletta, mentre la popolazione conduce una apparentemente tranquilla esistenza, all’ombra dei due soli, il crimine e il traffico di droga prosperano. La nuova piaga si chiama “Anthem”, una nuova pericolosissima droga, che sta provocando un escalation di morti. La speciale unità investigativa “Seven-O”, incaricata di indagare sull’ Anthem, istituisce una pratica denominata “Double Decker System”, per la quale le squadre di ispettori devono lavorare in coppia. Doug Billingham un veterano scontroso ed enigmatico, dalla grande fama, viene affiancato a Kirill Vrubel, un novellino, impaziente di gettarsi nella mischia. Seguiremo la storia di questo mal assortito duo di ispettori.', 'https://www.animelove.tv/assets/img/DoubleDecker.jpg');
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/1/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/2/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/3/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/4/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/5/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/6/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/7/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/8/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/9/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/10/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/11/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
-INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/12/', (SELECT id FROM Anime WHERE nome = 'Double Decker! Doug & Kirill'));
+VALUES (default, 'DOUBLE Decker! Doug & Kirill', 'Sunrise', '2018-0-1', 'Città-stato di Risvaletta, mentre la popolazione conduce una apparentemente tranquilla esistenza, all’ombra dei due soli, il crimine e il traffico di droga prosperano. La nuova piaga si chiama “Anthem”, una nuova pericolosissima droga, che sta provocando un escalation di morti. La speciale unità investigativa “Seven-O”, incaricata di indagare sull’ Anthem, istituisce una pratica denominata “DOUBLE Decker System”, per la quale le squadre di ispettori devono lavorare in coppia. Doug Billingham un veterano scontroso ed enigmatico, dalla grande fama, viene affiancato a Kirill Vrubel, un novellino, impaziente di gettarsi nella mischia. Seguiremo la storia di questo mal assortito duo di ispettori.', 'https://www.animelove.tv/assets/img/DOUBLEDecker.jpg');
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/1/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/2/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/3/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/4/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/5/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/6/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/7/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/8/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/9/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/10/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/11/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
+INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2030-DOUBLE-Decker!-Doug-&-Kirill/12/', (SELECT id FROM Anime WHERE nome = 'DOUBLE Decker! Doug & Kirill'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
 VALUES (default, 'D4DJ All Mix', 'AUTORE: N/A', '2023-0-1', 'Seconda stagione di D4DJ: First Mix', 'https://www.animelove.tv/assets/img/D4DJAllMix.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/1987-D4DJ-All-Mix/1/', (SELECT id FROM Anime WHERE nome = 'D4DJ All Mix'));
@@ -1093,7 +1094,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2317-Edens-Zero-2nd-Season/3/', (SELECT id FROM Anime WHERE nome = 'Edens Zero 2nd Season'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2317-Edens-Zero-2nd-Season/4/', (SELECT id FROM Anime WHERE nome = 'Edens Zero 2nd Season'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Estab-Life: Great Escape', 'Polygon Pictures', '2022-0-1', 'In un lontano futuro la popolazione mondiale ha iniziato a ridursi dopo aver raggiunto il suo picco. Tokyo ora è divisa in vari cluster, separati tra loro da imponenti mura, dove vivono popolazioni geneticamente modificate, governate da intelligenze artificiali. La maggior parte delle persone vive nel suo quartiere incuranti su cosa succede al di fuori di esso. Tuttavia, ci sono alcuni che cercano di fuggire negli altri cluster, aiutati da una misteriosa squadra.', 'https://www.animelove.tv/assets/img/Estab-LifeGreatEscape.jpg');
+VALUES (default, 'Estab-Life: Great Escape', 'Polygon Pictures', '2022-0-1', 'In un lontano futuro la popolazione mondiale ha iniziato a ridursi dopo aver raggiunto il suo picco. Tokyo ora è divisa in vari cluster, separati tra loro da imponenti mura, dove vivono popolazioni geneticamente modificate, governate da INTelligenze artificiali. La maggior parte delle persone vive nel suo quartiere incuranti su cosa succede al di fuori di esso. Tuttavia, ci sono alcuni che cercano di fuggire negli altri cluster, aiutati da una misteriosa squadra.', 'https://www.animelove.tv/assets/img/Estab-LifeGreatEscape.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2147-Estab-Life:-Great-Escape/1/', (SELECT id FROM Anime WHERE nome = 'Estab-Life: Great Escape'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2147-Estab-Life:-Great-Escape/2/', (SELECT id FROM Anime WHERE nome = 'Estab-Life: Great Escape'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2147-Estab-Life:-Great-Escape/3/', (SELECT id FROM Anime WHERE nome = 'Estab-Life: Great Escape'));
@@ -1137,13 +1138,13 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2125-Engage-Kiss/12/', (SELECT id FROM Anime WHERE nome = 'Engage Kiss'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2125-Engage-Kiss/13/', (SELECT id FROM Anime WHERE nome = 'Engage Kiss'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Eden', 'Qubic Pictures, CGCG Studio', '2021-0-1', 'Migliaia di anni nel futuro la città di Eden 3 è popolata solo da robot, i loro padroni sono svaniti molto tempo addietro. Un giorno durante un lavoro di routine, due robot-contadini risvegliano accidentalmente una bambina umana da un sonno profondo indotto. Questo incontro mette in discussione ogni loro convincimento e tutto ciò che gli era stato insegnato, ovvero che gli umani non sono mai esistiti e la loro intera permanenza sulla terra solo un antico mito tabù. I due crescono la bimba in segreto, lontano dalla città.', 'https://www.animelove.tv/assets/img/Eden.jpg');
+VALUES (default, 'Eden', 'Qubic Pictures, CGCG Studio', '2021-0-1', 'Migliaia di anni nel futuro la città di Eden 3 è popolata solo da robot, i loro padroni sono svaniti molto tempo addietro. Un giorno durante un lavoro di routine, due robot-contadini risvegliano accidentalmente una bambina umana da un sonno profondo indotto. Questo incontro mette in discussione ogni loro convincimento e tutto ciò che gli era stato insegnato, ovvero che gli umani non sono mai esistiti e la loro INTera permanenza sulla terra solo un antico mito tabù. I due crescono la bimba in segreto, lontano dalla città.', 'https://www.animelove.tv/assets/img/Eden.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2119-Eden/1/', (SELECT id FROM Anime WHERE nome = 'Eden'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2119-Eden/2/', (SELECT id FROM Anime WHERE nome = 'Eden'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2119-Eden/3/', (SELECT id FROM Anime WHERE nome = 'Eden'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2119-Eden/4/', (SELECT id FROM Anime WHERE nome = 'Eden'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'FLCL', 'Gainax, Production I.G', '2000-0-1', 'Naota, il protagonista, è un ragazzo timido e introverso. Quando il fratello ha lasciato il Giappone per seguire il suo sogno di giocatore di baseball, la sua ragazza, Mamimi, si è affezionata molto a Naota. La coprotagonista, Haruto, è una ribelle, un personaggio che crea uno squarcio nella noiosa normalità della città .', 'https://www.animelove.tv/assets/img/FLCL.jpg');
+VALUES (default, 'FLCL', 'Gainax, Production I.G', '2000-0-1', 'Naota, il protagonista, è un ragazzo timido e INTroverso. Quando il fratello ha lasciato il Giappone per seguire il suo sogno di giocatore di baseball, la sua ragazza, Mamimi, si è affezionata molto a Naota. La coprotagonista, Haruto, è una ribelle, un personaggio che crea uno squarcio nella noiosa normalità della città .', 'https://www.animelove.tv/assets/img/FLCL.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2246-FLCL/1/', (SELECT id FROM Anime WHERE nome = 'FLCL'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2246-FLCL/2/', (SELECT id FROM Anime WHERE nome = 'FLCL'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2246-FLCL/3/', (SELECT id FROM Anime WHERE nome = 'FLCL'));
@@ -1237,7 +1238,7 @@ INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
 VALUES (default, 'Fate Grand Order: Himuro no Tenchi 7 nin no Saikyou Ijin hen', 'ufotable', '2017-0-1', 'Basato sul manga comico “Himuro no Tenchi Fate/school life”. Segue le vicende di Kaede Makidera, Kane Himuro, e Yukika Saegusa, tre studentesse che però non hanno nulla a che vedere con gli sforzi per ripristinare lo Human Order.', 'https://www.animelove.tv/assets/img/FateGrandOrderspecialsubita.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2063-Fate-Grand-Order:-Himuro-no-Tenchi-7-nin-no-Saikyou-Ijin-hen/1/', (SELECT id FROM Anime WHERE nome = 'Fate Grand Order: Himuro no Tenchi 7 nin no Saikyou Ijin hen'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Fortune Arterial: Akai Yakusoku', 'feel., Zexcs', '2010-0-1', 'La storia ruota intorno alla figura del protagonista Kohei Hasekura, trasferitosi da poco in una prestigiosa scuola pubblica strutturata sul modello inglese. La scuola, chiamata Shuchikan Academy, è situata sull’isola di Tamatsu, a largo delle coste giapponesi, e può essere raggiunta solo in barca. Un’apparente normalità che tuttavia sparirà nel momento in cui Kohei scoprirà che una sua compagna di scuola, Erika Sendo, è in realtà un vampiro.', 'https://www.animelove.tv/assets/img/FortuneArterial.jpg');
+VALUES (default, 'Fortune Arterial: Akai Yakusoku', 'feel., Zexcs', '2010-0-1', 'La storia ruota INTorno alla figura del protagonista Kohei Hasekura, trasferitosi da poco in una prestigiosa scuola pubblica strutturata sul modello inglese. La scuola, chiamata Shuchikan Academy, è situata sull’isola di Tamatsu, a largo delle coste giapponesi, e può essere raggiunta solo in barca. Un’apparente normalità che tuttavia sparirà nel momento in cui Kohei scoprirà che una sua compagna di scuola, Erika Sendo, è in realtà un vampiro.', 'https://www.animelove.tv/assets/img/FortuneArterial.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2051-Fortune-Arterial:-Akai-Yakusoku/1/', (SELECT id FROM Anime WHERE nome = 'Fortune Arterial: Akai Yakusoku'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2051-Fortune-Arterial:-Akai-Yakusoku/2/', (SELECT id FROM Anime WHERE nome = 'Fortune Arterial: Akai Yakusoku'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2051-Fortune-Arterial:-Akai-Yakusoku/3/', (SELECT id FROM Anime WHERE nome = 'Fortune Arterial: Akai Yakusoku'));
@@ -1251,7 +1252,7 @@ INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2051-Fortune-Arterial:-Akai-Yakusoku/11/', (SELECT id FROM Anime WHERE nome = 'Fortune Arterial: Akai Yakusoku'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/2051-Fortune-Arterial:-Akai-Yakusoku/12/', (SELECT id FROM Anime WHERE nome = 'Fortune Arterial: Akai Yakusoku'));
 INSERT INTO Anime (id, nome, studio, data, descrizione, copertina)
-VALUES (default, 'Fuuto Tantei', 'AUTORE: N/A', '2022-0-1', 'Nell\'ecologica città di Fuuto, dei misteriosi congegni con l\'aspetto di chiavette USB chiamati Gaia Memories vengono utilizzati da criminali e altri soggetti interessati ad affari loschi per trasformarsi in mostri chiamati Dopants, impossibili da fermare anche dalle forze dell\'ordine. Peggio ancora, le Gaia Memories rilasciano una tossina che fa impazzire l\'ospite, fino a metterne a repentaglio la vita. Dopo la morte del suo capo, l\'autoproclamatosi detective hard-boiled Shoutaro Hidari e il misterioso Philip investigano sui crimini commessi da questi Dopants, usando a loro volta delle Gaia Memories che, combinate alle loro cinture, permettono loro di trasformarsi in Kamen Rider Double per combattere i Dopants e mantenere Fuuto al sicuro.', 'https://www.animelove.tv/assets/img/FuutoTantei.jpg');
+VALUES (default, 'Fuuto Tantei', 'AUTORE: N/A', '2022-0-1', 'Nell\'ecologica città di Fuuto, dei misteriosi congegni con l\'aspetto di chiavette USB chiamati Gaia Memories vengono utilizzati da criminali e altri soggetti INTeressati ad affari loschi per trasformarsi in mostri chiamati Dopants, impossibili da fermare anche dalle forze dell\'ordine. Peggio ancora, le Gaia Memories rilasciano una tossina che fa impazzire l\'ospite, fino a metterne a repentaglio la vita. Dopo la morte del suo capo, l\'autoproclamatosi detective hard-boiled Shoutaro Hidari e il misterioso Philip investigano sui crimini commessi da questi Dopants, usando a loro volta delle Gaia Memories che, combinate alle loro cINTure, permettono loro di trasformarsi in Kamen Rider DOUBLE per combattere i Dopants e mantenere Fuuto al sicuro.', 'https://www.animelove.tv/assets/img/FuutoTantei.jpg');
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/1852-Fuuto-Tantei/1/', (SELECT id FROM Anime WHERE nome = 'Fuuto Tantei'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/1852-Fuuto-Tantei/2/', (SELECT id FROM Anime WHERE nome = 'Fuuto Tantei'));
 INSERT INTO Episodio (id, link, AnimeID) VALUES (default, 'https://www.animelove.tv/anime/1852-Fuuto-Tantei/3/', (SELECT id FROM Anime WHERE nome = 'Fuuto Tantei'));

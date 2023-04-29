@@ -44,7 +44,7 @@ module.exports = class Database {
     static searchAnime(title) {
         return new Promise((resolve, reject) => {
             let query = Database.prepareQuery(
-                `SELECT * FROM Anime WHERE nome LIKE ? LIMIT 5`,
+                `SELECT * FROM Anime WHERE name LIKE ? LIMIT 5`,
                 [`%${title}%`]
             )
             
@@ -77,7 +77,7 @@ module.exports = class Database {
         return new Promise((resolve, reject) => {
             let query = Database.prepareQuery(
                 `SELECT *
-            FROM Utente WHERE token = ?`,
+            FROM User WHERE token = ?`,
                 [token]
             )
 
@@ -96,8 +96,8 @@ module.exports = class Database {
     static getUserPassword(username) {
         return new Promise((resolve, reject) => {
             let query = Database.prepareQuery(
-                `SELECT psw
-            FROM Utente WHERE username = ?`,
+                `SELECT password
+            FROM User WHERE username = ?`,
                 [username]
             )
 
@@ -117,7 +117,7 @@ module.exports = class Database {
         return new Promise((resolve, reject) => {
             let query = Database.prepareQuery(
                 `SELECT token
-            FROM Utente WHERE token = ?`,
+            FROM User WHERE token = ?`,
                 [token]
             )
 
@@ -127,7 +127,7 @@ module.exports = class Database {
                 if (res.length != 0) {
                     let newToken = Database.generateToken()
                     let query = Database.prepareQuery(
-                        `UPDATE Utente
+                        `UPDATE User
                     SET token = ? WHERE token = ?`,
                         [newToken, token]
                     )
@@ -158,7 +158,7 @@ module.exports = class Database {
 
             let query = Database.prepareQuery(
                 `SELECT username, token
-            FROM Utente WHERE (username = ? OR email = ?) AND psw = ?`,
+            FROM User WHERE (username = ? OR email = ?) AND psw = ?`,
                 [username, username, hashedPassword]
             )
 
@@ -179,7 +179,7 @@ module.exports = class Database {
         return new Promise((resolve, reject) => {
             let check = Database.prepareQuery(
                 `SELECT email, username
-            FROM Utente WHERE username = ? OR email = ?`,
+            FROM User WHERE username = ? OR email = ?`,
                 [username, email]
             )
 
@@ -193,7 +193,7 @@ module.exports = class Database {
                 )
                 let token = Database.generateToken()
                 let query = Database.prepareQuery(
-                    `INSERT INTO Utente
+                    `INSERT INTO User
                 VALUES (default, ?, ?, ?, ?)`,
                     [username, email, hashedPassword, token]
                 )
