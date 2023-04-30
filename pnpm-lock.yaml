@@ -10,6 +10,12 @@ dependencies:
     '@fastify/static':
         specifier: ^6.10.1
         version: 6.10.1
+    '@fastify/swagger':
+        specifier: ^8.3.1
+        version: 8.3.1
+    '@fastify/swagger-ui':
+        specifier: ^1.8.0
+        version: 1.8.0
     bcrypt:
         specifier: ^5.1.0
         version: 5.1.0
@@ -111,6 +117,34 @@ packages:
             glob: 8.1.0
             p-limit: 3.1.0
             readable-stream: 4.3.0
+        dev: false
+
+    /@fastify/swagger-ui@1.8.0:
+        resolution:
+            {
+                integrity: sha512-srgVsAOyj+C7uyya5mcxz9Arrt3fzUM0b1wziJ3uCwk5pMuIRBOG8xDx4ZgjtqPzRzHs+NrRjCdNWqX/RL7qNg==
+            }
+        dependencies:
+            '@fastify/static': 6.10.1
+            fastify-plugin: 4.5.0
+            openapi-types: 12.1.0
+            rfdc: 1.3.0
+            yaml: 2.2.2
+        dev: false
+
+    /@fastify/swagger@8.3.1:
+        resolution:
+            {
+                integrity: sha512-S9suS5WlRyADwobkrlcNeICkVyHFxKKdsimRsoO7h27KS86c+pE/s/8WvU793p5Ftk9QnApoilT9izJ0j3I8GA==
+            }
+        dependencies:
+            fastify-plugin: 4.5.0
+            json-schema-resolver: 2.0.0
+            openapi-types: 12.1.0
+            rfdc: 1.3.0
+            yaml: 2.2.2
+        transitivePeerDependencies:
+            - supports-color
         dev: false
 
     /@lukeed/ms@2.0.1:
@@ -728,6 +762,20 @@ packages:
             }
         dev: false
 
+    /json-schema-resolver@2.0.0:
+        resolution:
+            {
+                integrity: sha512-pJ4XLQP4Q9HTxl6RVDLJ8Cyh1uitSs0CzDBAz1uoJ4sRD/Bk7cFSXL1FUXDW3zJ7YnfliJx6eu8Jn283bpZ4Yg==
+            }
+        engines: { node: '>=10' }
+        dependencies:
+            debug: 4.3.4
+            rfdc: 1.3.0
+            uri-js: 4.4.1
+        transitivePeerDependencies:
+            - supports-color
+        dev: false
+
     /json-schema-traverse@1.0.0:
         resolution:
             {
@@ -946,6 +994,13 @@ packages:
             }
         dependencies:
             wrappy: 1.0.2
+        dev: false
+
+    /openapi-types@12.1.0:
+        resolution:
+            {
+                integrity: sha512-XpeCy01X6L5EpP+6Hc3jWN7rMZJ+/k1lwki/kTmWzbVhdPie3jd5O2ZtedEx8Yp58icJ0osVldLMrTB/zslQXA==
+            }
         dev: false
 
     /p-limit@2.3.0:
@@ -1436,6 +1491,14 @@ packages:
             {
                 integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==
             }
+        dev: false
+
+    /yaml@2.2.2:
+        resolution:
+            {
+                integrity: sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==
+            }
+        engines: { node: '>= 14' }
         dev: false
 
     /yocto-queue@0.1.0:

@@ -29,14 +29,41 @@ module.exports = class Database {
 
     static getAnime(id) {
         return new Promise((resolve, reject) => {
-            let query = Database.prepareQuery(
+            let animeQuery = Database.prepareQuery(
                 `SELECT * FROM Anime WHERE id = ?`,
                 [id]
             )
+
+            Database.db.query(animeQuery, (err, animeRes, fields) => {
+                if (err) return reject(err)
+
+                let episodesQuery = Database.prepareQuery(
+                    `SELECT link FROM Episode WHERE anime = ?`,
+                    [animeRes[0].id]
+                )
+
+                Database.db.query(episodesQuery, (err, episodesRes, fields) => {
+                    if (err) return reject(err)
+
+                    let anime = animeRes[0]
+                    anime.episodes = episodesRes
+                    resolve(anime)
+                })
+            })
+        })
+    }
+
+    static getAnimeScore(id) {
+        return new Promise((resolve, reject) => {
+            let query = Database.prepareQuery(
+                `SELECT ((SUM(score)/COUNT(*)) * 10) as score FROM Review WHERE anime = ?`,
+                [id]
+            )
+
             Database.db.query(query, (err, res, fields) => {
                 if (err) return reject(err)
 
-                resolve(res[0])
+                return resolve(res[0])
             })
         })
     }
@@ -57,8 +84,6 @@ module.exports = class Database {
     }
 
     static postReview() {}
-
-    static getAnimeScore() {}
 
     static getCarouselImages() {
         return new Promise((resolve, reject) => {
@@ -192,15 +217,33 @@ module.exports = class Database {
                 let token = Database.generateToken()
                 let query = Database.prepareQuery(
                     `INSERT INTO User
-                VALUES (default, ?, ?, ?, ?)`,
+                VALUES (default, ?, ?, ?, ?, null, null)`,
                     [username, email, hashedPassword, token]
                 )
-
                 Database.db.query(query, (err, res, fields) => {
                     if (err) return reject(err)
-
                     resolve({ username, token })
                 })
+            })
+        })
+    }
+
+    static getUserProfile(username) {
+        return new Promise((resolve, reject) => {
+            let query = Database.prepareQuery(
+                `SELECT *
+            FROM User WHERE username = ?`,
+                [username]
+            )
+
+            Database.db.query(query, (err, res, fields) => {
+                if (err) return reject(err)
+
+                if (res.length != 0) {
+                    return resolve(res[0])
+                }
+
+                reject('User does not exist')
             })
         })
     }

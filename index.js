@@ -2,6 +2,42 @@ const fastify = require('fastify')()
 const autoload = require('@fastify/autoload')
 const path = require('path')
 
+fastify.register(require('@fastify/swagger'), {
+    swagger: {
+        info: {
+            title: 'AnimeTube API',
+            description: 'AnimeTube API Documentation',
+            version: '0.1.0'
+        },
+        host: 'localhost',
+        schemes: ['http'],
+        consumes: ['application/json'],
+        produces: ['application/json']
+    }
+})
+
+fastify.register(require('@fastify/swagger-ui'), {
+    routePrefix: '/docs',
+    uiConfig: {
+        docExpansion: 'full',
+        deepLinking: false
+    },
+    uiHooks: {
+        onRequest: function (request, reply, next) {
+            next()
+        },
+        preHandler: function (request, reply, next) {
+            next()
+        }
+    },
+    staticCSP: true,
+    transformStaticCSP: (header) => header,
+    transformSpecification: (swaggerObject, request, reply) => {
+        return swaggerObject
+    },
+    transformSpecificationClone: true
+})
+
 fastify.register(autoload, {
     dir: `${__dirname}/api`,
     dirNameRoutePrefix: true,
