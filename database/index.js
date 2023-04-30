@@ -47,7 +47,7 @@ module.exports = class Database {
                 `SELECT * FROM Anime WHERE name LIKE ? LIMIT 5`,
                 [`%${title}%`]
             )
-            
+
             Database.db.query(query, (err, res, fields) => {
                 if (err) return reject(err)
 
@@ -97,15 +97,15 @@ module.exports = class Database {
         return new Promise((resolve, reject) => {
             let query = Database.prepareQuery(
                 `SELECT password
-            FROM User WHERE username = ?`,
-                [username]
+            FROM User WHERE username = ? OR email = ?`,
+                [username, username]
             )
 
             Database.db.query(query, (err, res, fields) => {
                 if (err) return reject(err)
 
                 if (res.length != 0) {
-                    return resolve(res[0].psw)
+                    return resolve(res[0].password)
                 }
 
                 reject('User does not exist')
@@ -136,9 +136,7 @@ module.exports = class Database {
 
                         return resolve(res)
                     })
-                }
-
-                reject('Invalid token')
+                } else return reject('Invalid token')
             })
         })
     }
@@ -158,7 +156,7 @@ module.exports = class Database {
 
             let query = Database.prepareQuery(
                 `SELECT username, token
-            FROM User WHERE (username = ? OR email = ?) AND psw = ?`,
+            FROM User WHERE (username = ? OR email = ?) AND password = ?`,
                 [username, username, hashedPassword]
             )
 
@@ -201,7 +199,7 @@ module.exports = class Database {
                 Database.db.query(query, (err, res, fields) => {
                     if (err) return reject(err)
 
-                    resolve({ token })
+                    resolve({ username, token })
                 })
             })
         })

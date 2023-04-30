@@ -17,16 +17,19 @@ fastify.register(require('@fastify/cors'), {
 })
 
 fastify.addHook('onRequest', (request, reply, done) => {
-    if(!request.url.startsWith('/api'))
-    {
+    if (!request.url.startsWith('/api')) {
         done()
         return
     }
 
     let now = new Date()
-    console.log(`[${now.toLocaleDateString('it')} - ${now.toLocaleTimeString('it')}] ${request.method} ${request.url}`)
+    console.log(
+        `[${now.toLocaleDateString('it')} - ${now.toLocaleTimeString('it')}] ${
+            request.method
+        } ${request.url}`
+    )
     done()
-  })
+})
 
 fastify.listen({ host: '0.0.0.0', port: 3000 }, function (err, address) {
     if (err) {
