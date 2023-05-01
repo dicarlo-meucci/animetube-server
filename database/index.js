@@ -36,6 +36,7 @@ module.exports = class Database {
 
             Database.db.query(animeQuery, (err, animeRes, fields) => {
                 if (err) return reject(err)
+                if (animeRes.length == 0) return reject('Anime does not exist')
 
                 let episodesQuery = Database.prepareQuery(
                     `SELECT link FROM Episode WHERE anime = ?`,

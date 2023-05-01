@@ -4,8 +4,8 @@
 
 ### Requirements
 
-- MariaDB
-- Node.js
+-   MariaDB
+-   Node.js
 
 ### Clone the repository
 
@@ -15,10 +15,9 @@ cd animetube-server
 mv .env.example .env
 ```
 
-
 ### Configure
 
-- edit the `.env` file
+-   edit the `.env` file
 
 ```
 DB_HOST=localhost
@@ -30,9 +29,10 @@ AUTH_TOKEN_LENGTH=2048
 SALT_ROUNDS=10
 ```
 
-- run the queries present in the `db.dump.sql` file on your MariaDB instance
+-   run the queries present in the `db.dump.sql` file on your MariaDB instance
 
 ### Run
+
 ```bash
 node .
 ```
