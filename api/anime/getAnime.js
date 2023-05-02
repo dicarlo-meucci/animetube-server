@@ -50,7 +50,6 @@ module.exports = async function (fastify, options) {
             try {
                 res.code(200).send(await Database.getAnime(id))
             } catch (error) {
-                console.log(error)
                 res.code(403).send({ error })
             }
         }

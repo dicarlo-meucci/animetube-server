@@ -1,4 +1,4 @@
-const mysql = require('mysql')
+const mysql = require('mysql2')
 const dotenv = require('dotenv')
 const crypto = require('crypto')
 const bcrypt = require('bcrypt')
@@ -14,7 +14,9 @@ module.exports = class Database {
     })
 
     constructor() {
-        Database.db.connect()
+        Database.db.connect((err) => {
+            if (err) throw err
+        })
     }
 
     static getAnimeList() {
