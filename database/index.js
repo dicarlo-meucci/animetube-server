@@ -86,7 +86,13 @@ module.exports = class Database {
         })
     }
 
-    static postReview() {}
+    static postReview(token, text, score, anime) {
+
+    }
+
+    static updatePfp(token, link) {
+         
+    }
 
     static getCarouselImages() {
         return new Promise((resolve, reject) => {

@@ -32,8 +32,8 @@ CREATE TABLE Review (
 );
 
 CREATE TABLE List (
-    id INT,
-    FOREIGN KEY (id) REFERENCES Anime(id),
+    anime INT,
+    FOREIGN KEY (anime) REFERENCES Anime(id),
     user INT,
     FOREIGN KEY (user) REFERENCES User(id)
 );

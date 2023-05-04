@@ -22,6 +22,8 @@ module.exports = async function (fastify, options) {
                         properties: {
                             id: { type: 'number' },
                             name: { type: 'string' },
+                            studio: {type: 'string'},
+                            description: {type: 'string'},
                             date: { type: 'string' },
                             cover: { type: 'string' },
                             episodes: {
