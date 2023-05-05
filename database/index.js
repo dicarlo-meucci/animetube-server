@@ -1,269 +1,222 @@
-const mysql = require('mysql2')
+const mysql = require('mysql2/promise')
 const dotenv = require('dotenv')
 const crypto = require('crypto')
 const bcrypt = require('bcrypt')
 dotenv.config()
 const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME } = process.env
 
-module.exports = class Database {
-    static db = mysql.createConnection({
+let instance = null
+
+async function createInstance() {
+    const db = mysql.createPool({
         host: DB_HOST,
         user: DB_USER,
         password: DB_PASSWORD,
         database: DB_NAME
     })
 
-    constructor() {
-        Database.db.connect((err) => {
-            if (err) throw err
+    this.instance = db
+
+    return this.instance
+}
+
+async function getInstance() {
+    return this.instance ?? (await createInstance())
+}
+
+function searchAnime(title) {
+    return new Promise((resolve, reject) => {
+        let query = prepareQuery(
+            `SELECT * FROM Anime WHERE name LIKE ? LIMIT 5`,
+            [`%${title}%`]
+        )
+
+        db.query(query, (err, res, fields) => {
+            if (err) return reject(err)
+
+            resolve(res)
         })
-    }
+    })
+}
 
-    static getAnimeList() {
-        return new Promise((resolve, reject) => {
-            Database.db.query('SELECT * FROM Anime', (err, res, fields) => {
-                if (err) return reject(err)
+function postReview(token, text, score, anime) {}
 
-                resolve(res)
-            })
-        })
-    }
+function updatePfp(token, link) {}
 
-    static getAnime(id) {
-        return new Promise((resolve, reject) => {
-            let animeQuery = Database.prepareQuery(
-                `SELECT * FROM Anime WHERE id = ?`,
-                [id]
-            )
-
-            Database.db.query(animeQuery, (err, animeRes, fields) => {
-                if (err) return reject(err)
-                if (animeRes.length == 0) return reject('Anime does not exist')
-
-                let episodesQuery = Database.prepareQuery(
-                    `SELECT link FROM Episode WHERE anime = ?`,
-                    [animeRes[0].id]
-                )
-
-                Database.db.query(episodesQuery, (err, episodesRes, fields) => {
-                    if (err) return reject(err)
-
-                    let anime = animeRes[0]
-                    anime.episodes = episodesRes
-                    resolve(anime)
-                })
-            })
-        })
-    }
-
-    static getAnimeScore(id) {
-        return new Promise((resolve, reject) => {
-            let query = Database.prepareQuery(
-                `SELECT ((SUM(score)/COUNT(*)) * 10) as score FROM Review WHERE anime = ?`,
-                [id]
-            )
-
-            Database.db.query(query, (err, res, fields) => {
-                if (err) return reject(err)
-
-                return resolve(res[0])
-            })
-        })
-    }
-
-    static searchAnime(title) {
-        return new Promise((resolve, reject) => {
-            let query = Database.prepareQuery(
-                `SELECT * FROM Anime WHERE name LIKE ? LIMIT 5`,
-                [`%${title}%`]
-            )
-
-            Database.db.query(query, (err, res, fields) => {
-                if (err) return reject(err)
-
-                resolve(res)
-            })
-        })
-    }
-
-    static postReview(token, text, score, anime) {
-
-    }
-
-    static updatePfp(token, link) {
-         
-    }
-
-    static getCarouselImages() {
-        return new Promise((resolve, reject) => {
-            let query = Database.db.query(`SELECT trailer
+function getCarouselImages() {
+    return new Promise((resolve, reject) => {
+        let query = db.query(`SELECT trailer
             FROM Carousel`)
 
-            Database.db.query(query, (err, res, fields) => {
-                if (err) return reject(err)
+        db.query(query, (err, res, fields) => {
+            if (err) return reject(err)
 
-                resolve(res)
-            })
+            resolve(res)
         })
-    }
+    })
+}
 
-    static findUserByToken(token) {
-        return new Promise((resolve, reject) => {
-            let query = Database.prepareQuery(
-                `SELECT *
+function findUserByToken(token) {
+    return new Promise((resolve, reject) => {
+        let query = prepareQuery(
+            `SELECT *
             FROM User WHERE token = ?`,
-                [token]
-            )
+            [token]
+        )
 
-            Database.db.query(query, (err, res, fields) => {
-                if (err) return reject(err)
+        db.query(query, (err, res, fields) => {
+            if (err) return reject(err)
 
-                if (res.length != 0) {
-                    return resolve(res[0])
-                }
-
-                reject('Invalid token')
-            })
-        })
-    }
-
-    static getUserPassword(username) {
-        return new Promise((resolve, reject) => {
-            let query = Database.prepareQuery(
-                `SELECT password
-            FROM User WHERE username = ? OR email = ?`,
-                [username, username]
-            )
-
-            Database.db.query(query, (err, res, fields) => {
-                if (err) return reject(err)
-
-                if (res.length != 0) {
-                    return resolve(res[0].password)
-                }
-
-                reject('User does not exist')
-            })
-        })
-    }
-
-    static logout(token) {
-        return new Promise((resolve, reject) => {
-            let query = Database.prepareQuery(
-                `SELECT token
-            FROM User WHERE token = ?`,
-                [token]
-            )
-
-            Database.db.query(query, (err, res, fields) => {
-                if (err) return reject(err)
-
-                if (res.length != 0) {
-                    let newToken = Database.generateToken()
-                    let query = Database.prepareQuery(
-                        `UPDATE User
-                    SET token = ? WHERE token = ?`,
-                        [newToken, token]
-                    )
-                    Database.db.query(query, (err, res, fields) => {
-                        if (err) return reject(err)
-
-                        return resolve(res)
-                    })
-                } else return reject('Invalid token')
-            })
-        })
-    }
-
-    static login(username, password) {
-        return new Promise(async (resolve, reject) => {
-            let hashedPassword
-
-            try {
-                hashedPassword = await this.getUserPassword(username)
-            } catch (error) {
-                return reject('User does not exist')
+            if (res.length != 0) {
+                return resolve(res[0])
             }
 
-            if (!bcrypt.compareSync(password, hashedPassword))
-                return reject('Invalid password')
-
-            let query = Database.prepareQuery(
-                `SELECT username, token
-            FROM User WHERE (username = ? OR email = ?) AND password = ?`,
-                [username, username, hashedPassword]
-            )
-
-            Database.db.query(query, (err, res, fields) => {
-                if (err) return reject(err)
-
-                if (res.length != 0) {
-                    return resolve({
-                        username: res[0].username,
-                        token: res[0].token
-                    })
-                }
-            })
+            reject('Invalid token')
         })
-    }
+    })
+}
 
-    static register(email, username, password) {
-        return new Promise((resolve, reject) => {
-            let check = Database.prepareQuery(
-                `SELECT email, username
+function getUserPassword(username) {
+    return new Promise((resolve, reject) => {
+        let query = prepareQuery(
+            `SELECT password
             FROM User WHERE username = ? OR email = ?`,
-                [username, email]
-            )
+            [username, username]
+        )
 
-            Database.db.query(check, (err, res, fields) => {
-                if (res.length != 0) {
-                    return reject('User already exists')
-                }
-                let hashedPassword = bcrypt.hashSync(
-                    password,
-                    parseInt(process.env.SALT_ROUNDS)
+        db.query(query, (err, res, fields) => {
+            if (err) return reject(err)
+
+            if (res.length != 0) {
+                return resolve(res[0].password)
+            }
+
+            reject('User does not exist')
+        })
+    })
+}
+
+function logout(token) {
+    return new Promise((resolve, reject) => {
+        let query = prepareQuery(
+            `SELECT token
+            FROM User WHERE token = ?`,
+            [token]
+        )
+
+        db.query(query, (err, res, fields) => {
+            if (err) return reject(err)
+
+            if (res.length != 0) {
+                let newToken = generateToken()
+                let query = prepareQuery(
+                    `UPDATE User
+                    SET token = ? WHERE token = ?`,
+                    [newToken, token]
                 )
-                let token = Database.generateToken()
-                let query = Database.prepareQuery(
-                    `INSERT INTO User
-                VALUES (default, ?, ?, ?, ?, null, null)`,
-                    [username, email, hashedPassword, token]
-                )
-                Database.db.query(query, (err, res, fields) => {
+                db.query(query, (err, res, fields) => {
                     if (err) return reject(err)
-                    resolve({ username, token })
+
+                    return resolve(res)
                 })
-            })
+            } else return reject('Invalid token')
         })
-    }
+    })
+}
 
-    static getUserProfile(username) {
-        return new Promise((resolve, reject) => {
-            let query = Database.prepareQuery(
-                `SELECT *
-            FROM User WHERE username = ?`,
-                [username]
+function login(username, password) {
+    return new Promise(async (resolve, reject) => {
+        let hashedPassword
+
+        try {
+            hashedPassword = await this.getUserPassword(username)
+        } catch (error) {
+            return reject('User does not exist')
+        }
+
+        if (!bcrypt.compareSync(password, hashedPassword))
+            return reject('Invalid password')
+
+        let query = prepareQuery(
+            `SELECT username, token
+            FROM User WHERE (username = ? OR email = ?) AND password = ?`,
+            [username, username, hashedPassword]
+        )
+
+        db.query(query, (err, res, fields) => {
+            if (err) return reject(err)
+
+            if (res.length != 0) {
+                return resolve({
+                    username: res[0].username,
+                    token: res[0].token
+                })
+            }
+        })
+    })
+}
+
+function register(email, username, password) {
+    return new Promise((resolve, reject) => {
+        let check = prepareQuery(
+            `SELECT email, username
+            FROM User WHERE username = ? OR email = ?`,
+            [username, email]
+        )
+
+        db.query(check, (err, res, fields) => {
+            if (res.length != 0) {
+                return reject('User already exists')
+            }
+            let hashedPassword = bcrypt.hashSync(
+                password,
+                parseInt(process.env.SALT_ROUNDS)
             )
-
-            Database.db.query(query, (err, res, fields) => {
+            let token = generateToken()
+            let query = prepareQuery(
+                `INSERT INTO User
+                VALUES (default, ?, ?, ?, ?, null, null)`,
+                [username, email, hashedPassword, token]
+            )
+            db.query(query, (err, res, fields) => {
                 if (err) return reject(err)
-
-                if (res.length != 0) {
-                    return resolve(res[0])
-                }
-
-                reject('User does not exist')
+                resolve({ username, token })
             })
         })
-    }
+    })
+}
 
-    static generateToken() {
-        return crypto
-            .randomBytes(parseInt(process.env.AUTH_TOKEN_LENGTH) / 2)
-            .toString('hex')
-    }
+function getUserProfile(username) {
+    return new Promise((resolve, reject) => {
+        let query = prepareQuery(
+            `SELECT *
+            FROM User WHERE username = ?`,
+            [username]
+        )
 
-    static prepareQuery(statement, params) {
-        return mysql.format(statement, params)
-    }
+        db.query(query, (err, res, fields) => {
+            if (err) return reject(err)
+
+            if (res.length != 0) {
+                return resolve(res[0])
+            }
+
+            reject('User does not exist')
+        })
+    })
+}
+
+function generateToken() {
+    return crypto
+        .randomBytes(parseInt(process.env.AUTH_TOKEN_LENGTH) / 2)
+        .toString('hex')
+}
+
+function prepareQuery(statement, params) {
+    return mysql.format(statement, params)
+}
+
+module.exports = {
+    getInstance,
+    prepareQuery
 }

@@ -1,4 +1,4 @@
-const Database = require('../../database/index.js')
+const { getInstance, prepareQuery } = require('../../database')
 
 module.exports = async function (fastify, options) {
     fastify.get(
@@ -24,7 +24,15 @@ module.exports = async function (fastify, options) {
             }
         },
         async (req, res) => {
-            res.send(await Database.getAnimeList()).code(200)
+            const db = await getInstance()
+            const [rows] = await db.query('SELECT * FROM Anime')
+
+            if (rows.length == 0) {
+                res.code(404).send({error: 'No anime is available'})
+                return
+            }
+
+            res.code(200).send(rows)
         }
     )
 }

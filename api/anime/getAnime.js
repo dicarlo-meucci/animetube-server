@@ -1,4 +1,4 @@
-const Database = require('../../database/index.js')
+const { getInstance, prepareQuery } = require('../../database')
 
 module.exports = async function (fastify, options) {
     fastify.get(
@@ -22,8 +22,8 @@ module.exports = async function (fastify, options) {
                         properties: {
                             id: { type: 'number' },
                             name: { type: 'string' },
-                            studio: {type: 'string'},
-                            description: {type: 'string'},
+                            studio: { type: 'string' },
+                            description: { type: 'string' },
                             date: { type: 'string' },
                             cover: { type: 'string' },
                             episodes: {
@@ -37,7 +37,7 @@ module.exports = async function (fastify, options) {
                             }
                         }
                     },
-                    403: {
+                    404: {
                         description: 'anime does not exist',
                         type: 'object',
                         properties: {
@@ -48,12 +48,18 @@ module.exports = async function (fastify, options) {
             }
         },
         async (req, res) => {
+            const db = await getInstance()
             const id = req.params['*']
-            try {
-                res.code(200).send(await Database.getAnime(id))
-            } catch (error) {
-                res.code(403).send({ error })
+            const query = prepareQuery(`SELECT * FROM Anime WHERE id = ?`, [id])
+            const [rows] = await db.query(query)
+            const result = rows[0]
+
+            if (!result) {
+                res.code(404).send({error: 'Anime doesn\'t exist'})
+                return
             }
+
+            res.code(200).send(result)
         }
     )
 }
