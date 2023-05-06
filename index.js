@@ -2,6 +2,7 @@ const fastify = require('fastify')()
 const autoload = require('@fastify/autoload')
 const path = require('path')
 const dotenv = require('dotenv')
+const { getInstance } = require('./database')
 dotenv.config()
 
 fastify.register(require('@fastify/swagger'), {
@@ -77,5 +78,12 @@ fastify.listen(
             process.exit(1)
         }
         console.log('🚀 WebServer ready on ' + address)
+        try {
+            await getInstance()
+            console.log('🚀 Database ready')
+        } catch (error) {
+            console.log('Database is unreachable')
+            process.exit(1)
+        }
     }
 )

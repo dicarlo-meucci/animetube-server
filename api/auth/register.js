@@ -1,4 +1,6 @@
-const Database = require('../../database')
+const { getInstance, prepareQuery } = require('../../database')
+const crypto = require('crypto')
+const bcrypt = require('bcrypt')
 
 module.exports = async function (fastify, options) {
     fastify.post(
@@ -36,7 +38,7 @@ module.exports = async function (fastify, options) {
                         description: 'User registered successfully',
                         type: 'object',
                         properties: {
-                            username: { type: 'string' }
+                            token: { type: 'string' }
                         }
                     },
                     403: {
@@ -50,13 +52,45 @@ module.exports = async function (fastify, options) {
             }
         },
         async (req, res) => {
-            let { email, username, password } = req.body
-            try {
-                let result = await Database.register(email, username, password)
-                res.code(200).send(result)
-            } catch (error) {
-                res.code(403).send({ error })
+            const db = await getInstance()
+            const { email, username, password } = req.body
+
+            let checkQuery = prepareQuery(
+                `SELECT email, username
+                    FROM User WHERE username = ? OR email = ?`,
+                [username, email]
+            )
+
+            const [rows] = await db.query(checkQuery)
+            const checkResult = rows[0]
+
+            if (checkResult) {
+                res.code(403).send({error: 'User already exists'})
+                return
             }
+
+            const hashedPassword = bcrypt.hashSync(
+                password,
+                parseInt(process.env.SALT_ROUNDS)
+            )
+
+            const token = generateToken()
+
+            const registerQuery = prepareQuery(
+                `INSERT INTO User
+                        VALUES (default, ?, ?, ?, ?, null, null)`,
+                [username, email, hashedPassword, token]
+            )
+            
+            await db.query(registerQuery)
+
+            res.code(200).send({token})
         }
     )
+}
+
+function generateToken() {
+    return crypto
+        .randomBytes(parseInt(process.env.AUTH_TOKEN_LENGTH) / 2)
+        .toString('hex')
 }

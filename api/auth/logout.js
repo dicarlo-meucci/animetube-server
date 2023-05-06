@@ -1,4 +1,5 @@
-const Database = require('../../database')
+const { getInstance, prepareQuery } = require('../../database')
+const crypto = require('crypto')
 
 module.exports = async function (fastify, options) {
     fastify.post(
@@ -47,4 +48,10 @@ module.exports = async function (fastify, options) {
             }
         }
     )
+}
+
+function generateToken() {
+    return crypto
+        .randomBytes(parseInt(process.env.AUTH_TOKEN_LENGTH) / 2)
+        .toString('hex')
 }

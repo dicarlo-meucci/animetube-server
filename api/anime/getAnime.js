@@ -55,7 +55,7 @@ module.exports = async function (fastify, options) {
             const result = rows[0]
 
             if (!result) {
-                res.code(404).send({error: 'Anime doesn\'t exist'})
+                res.code(404).send({ error: "Anime doesn't exist" })
                 return
             }
 
