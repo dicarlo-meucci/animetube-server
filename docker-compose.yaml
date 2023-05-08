@@ -1,0 +1,21 @@
+version: '3.1'
+
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: pw
+      MYSQL_ROOT_HOST: '%'
+    volumes:
+      - ./db.dump.sql:/docker-entrypoint-initdb.d/db.dump.sql
+    network_mode: "bridge"
+    ports:
+      - 3306:3306
+  webserver:
+    build: .
+    restart: always
+    ports:
+      - 3000:3000
+    network_mode: "bridge"
