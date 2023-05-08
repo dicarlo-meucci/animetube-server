@@ -35,7 +35,7 @@ module.exports = async function (fastify, options) {
                             token: { type: 'string' }
                         }
                     },
-                    403: {
+                    401: {
                         description: 'Wrong credentials were provided',
                         type: 'object',
                         properties: {
@@ -63,7 +63,7 @@ module.exports = async function (fastify, options) {
             }
 
             if (!bcrypt.compareSync(password, hashedPassword)) {
-                res.code(403).send({ error: 'Invalid password' })
+                res.code(401).send({ error: 'Invalid password' })
                 return
             }
 
@@ -73,8 +73,7 @@ module.exports = async function (fastify, options) {
                 [username, username, hashedPassword]
             )
 
-            const [rows] = await db.query(query)
-            const result = rows[0]
+            const result = (await db.query(query))[0]
 
             if (result) {
                 res.code(200).send({

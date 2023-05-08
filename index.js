@@ -44,7 +44,8 @@ fastify.register(require('@fastify/swagger-ui'), {
 fastify.register(autoload, {
     dir: `${__dirname}/api`,
     dirNameRoutePrefix: true,
-    options: { prefix: '/api' }
+    options: { prefix: '/api' },
+    matchFilter: (path) => console.log(`[LOADED] ${path}`)
 })
 
 fastify.register(require('@fastify/static'), {
@@ -61,7 +62,8 @@ fastify.addHook('onRequest', (request, reply, done) => {
         return
     }
 
-    let now = new Date()
+    const now = new Date()
+    
     console.log(
         `[${now.toLocaleDateString('it')} - ${now.toLocaleTimeString('it')}] ${
             request.method
@@ -77,10 +79,10 @@ fastify.listen(
             console.error(err)
             process.exit(1)
         }
-        console.log('🚀 WebServer ready on ' + address)
+        console.log('[READY] WebServer on ' + address)
         try {
             await getInstance()
-            console.log('🚀 Database ready')
+            console.log('[READY] Database on port ' + process.env.DB_PORT)
         } catch (error) {
             console.log('Database is unreachable')
             process.exit(1)

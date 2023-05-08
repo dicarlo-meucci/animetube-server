@@ -23,21 +23,6 @@ async function getInstance() {
     return this.instance ?? (await createInstance())
 }
 
-function searchAnime(title) {
-    return new Promise((resolve, reject) => {
-        let query = prepareQuery(
-            `SELECT * FROM Anime WHERE name LIKE ? LIMIT 5`,
-            [`%${title}%`]
-        )
-
-        db.query(query, (err, res, fields) => {
-            if (err) return reject(err)
-
-            resolve(res)
-        })
-    })
-}
-
 function postReview(token, text, score, anime) {}
 
 function updatePfp(token, link) {}

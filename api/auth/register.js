@@ -41,8 +41,8 @@ module.exports = async function (fastify, options) {
                             token: { type: 'string' }
                         }
                     },
-                    403: {
-                        description: 'Registration failed',
+                    409: {
+                        description: 'Registration failed because user is already registered',
                         type: 'object',
                         properties: {
                             error: { type: 'string' }
@@ -65,7 +65,7 @@ module.exports = async function (fastify, options) {
             const checkResult = rows[0]
 
             if (checkResult) {
-                res.code(403).send({error: 'User already exists'})
+                res.code(409).send({ error: 'User already exists' })
                 return
             }
 
@@ -81,10 +81,10 @@ module.exports = async function (fastify, options) {
                         VALUES (default, ?, ?, ?, ?, null, null)`,
                 [username, email, hashedPassword, token]
             )
-            
+
             await db.query(registerQuery)
 
-            res.code(200).send({token})
+            res.code(200).send({ token })
         }
     )
 }

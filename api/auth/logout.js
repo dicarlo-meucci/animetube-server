@@ -28,7 +28,7 @@ module.exports = async function (fastify, options) {
                         type: 'null',
                         properties: {}
                     },
-                    404: {
+                    401: {
                         description: 'Logout failed',
                         type: 'object',
                         properties: {
@@ -43,10 +43,10 @@ module.exports = async function (fastify, options) {
             const { token } = req.body
             const user = await findUserByToken(token)
             if (!user) {
-                res.code(404).send({error: 'Invalid token'})
+                res.code(401).send({ error: 'Invalid token' })
                 return
             }
-            
+
             const newToken = generateToken()
 
             const updateTokenQuery = prepareQuery(
@@ -57,24 +57,24 @@ module.exports = async function (fastify, options) {
 
             await db.query(updateTokenQuery)
 
-            res.send(200)
+            res.code(200)
         }
     )
 }
 
 async function findUserByToken(token) {
+    const db = await getInstance()
     const query = prepareQuery(
         `SELECT *
         FROM User WHERE token = ?`,
         [token]
     )
-    
-    const [rows] = await db.query(query)
-    
-    if (!rows.length)
-        return null
 
-    return [rows[0]]
+    const result = (await db.query(query))[0]
+
+    if (!result.length) return null
+
+    return result[0]
 }
 
 function generateToken() {

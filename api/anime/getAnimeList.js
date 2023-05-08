@@ -25,14 +25,14 @@ module.exports = async function (fastify, options) {
         },
         async (req, res) => {
             const db = await getInstance()
-            const [rows] = await db.query('SELECT * FROM Anime')
+            const result = (await db.query('SELECT * FROM Anime'))[0]
 
-            if (rows.length == 0) {
+            if (!result.length) {
                 res.code(404).send({ error: 'No anime is available' })
                 return
             }
 
-            res.code(200).send(rows)
+            res.code(200).send(result)
         }
     )
 }
