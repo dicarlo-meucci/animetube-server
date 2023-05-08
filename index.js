@@ -74,7 +74,7 @@ fastify.listen(
     { host: '0.0.0.0', port: process.env.SERVER_PORT ?? 3000 },
     async (err, address) => {
         if (err) {
-            fastify.log.error(err)
+            console.error(err)
             process.exit(1)
         }
         console.log('🚀 WebServer ready on ' + address)

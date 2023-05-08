@@ -7,3 +7,19 @@ module.exports = async function (fastify, options) {
         const { user } = req.body
     })
 }
+
+// let query = prepareQuery(
+//     `SELECT *
+//     FROM User WHERE username = ?`,
+//     [username]
+// )
+
+// db.query(query, (err, res, fields) => {
+//     if (err) return reject(err)
+
+//     if (res.length != 0) {
+//         return resolve(res[0])
+//     }
+
+//     reject('User does not exist')
+// })

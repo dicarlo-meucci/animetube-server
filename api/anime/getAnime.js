@@ -52,13 +52,19 @@ module.exports = async function (fastify, options) {
             const id = req.params['*']
             const query = prepareQuery(`SELECT * FROM Anime WHERE id = ?`, [id])
             const [rows] = await db.query(query)
-            const result = rows[0]
+            let anime = rows[0]
 
-            if (!result) {
-                res.code(404).send({ error: "Anime doesn't exist" })
+            if (!anime)
+            {
+                res.code(404).send('Anime doesn\'t exist')
                 return
             }
 
+            const episodesQuery = prepareQuery(`SELECT link FROM Episode WHERE anime = ?`, [id])
+            const episodes = (await db.query(episodesQuery))[0]
+            anime.episodes = episodes
+            const result = anime
+            
             res.code(200).send(result)
         }
     )

@@ -27,6 +27,7 @@ DB_NAME=animetube
 DB_PORT=3306
 AUTH_TOKEN_LENGTH=2048
 SALT_ROUNDS=10
+SERVER_PORT=3000
 ```
 
 -   run the queries present in the `db.dump.sql` file on your MariaDB instance
