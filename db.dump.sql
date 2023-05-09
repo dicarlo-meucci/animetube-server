@@ -42,8 +42,8 @@ CREATE TABLE List (
 CREATE TABLE Tag (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    user INT,
-    FOREIGN KEY (user) REFERENCES User(id)    
+    anime INT,
+    FOREIGN KEY (anime) REFERENCES Tag(id)
 );
 
 CREATE TABLE Episode (
@@ -51,13 +51,6 @@ CREATE TABLE Episode (
     link VARCHAR(512) NOT NULL,
     anime INT,
     FOREIGN KEY (anime) REFERENCES Anime(id)
-);
-
-CREATE TABLE Filter (
-    id INT,
-    FOREIGN KEY (id) REFERENCES Anime(id),
-    tag INT,
-    FOREIGN KEY (tag) REFERENCES Tag(id)
 );
 
 CREATE TABLE Carousel (

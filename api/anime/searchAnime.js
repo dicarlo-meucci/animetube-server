@@ -8,7 +8,6 @@ module.exports = async function (fastify, options) {
             `SELECT * FROM Anime WHERE name LIKE ? LIMIT 5`,
             [`%${title}%`]
         )
-
         const result = (await db.query(query))[0]
 
         res.send(result)

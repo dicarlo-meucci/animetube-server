@@ -45,7 +45,6 @@ fastify.register(autoload, {
     dir: `${__dirname}/api`,
     dirNameRoutePrefix: true,
     options: { prefix: '/api' },
-    matchFilter: (path) => console.log(`[LOADED] ${path}`)
 })
 
 fastify.register(require('@fastify/static'), {
