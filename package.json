@@ -4,11 +4,12 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build-docker": "docker compose build --nocache",
+        "deploy-docker": "docker compose up"
     },
     "keywords": [],
     "author": "",
-    "license": "ISC",
+    "license": "GPL",
     "dependencies": {
         "@fastify/autoload": "^5.7.1",
         "@fastify/cors": "^8.2.1",

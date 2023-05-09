@@ -38,7 +38,20 @@ SERVER_PORT=3000
 node .
 ```
 
-at this point, all API endpoints hits will be logged to `stdout`
+At this point, all API endpoints hits will be logged to `stdout`
+
+## Docker
+It is also possible to run the server using docker and docker compose.
+You will need to run the following command
+```
+npm run build-docker
+```
+This command will start the docker compose build process for the server image.
+Once it is done you can run the final command
+```
+npm run deploy-docker
+```
+This command will deploy the containers using docker compose and everything will be ready in about 30 seconds
 
 ## Documentation
 
