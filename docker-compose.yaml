@@ -1,21 +1,20 @@
 version: '3.1'
 
 services:
-  db:
-    image: mariadb:latest
-    restart: always
-    environment:
-      MYSQL_USER: animetube
-      MYSQL_PASSWORD: pw
-      MYSQL_ROOT_PASSWORD: pw
-      MYSQL_DATABASE: animetube
-    volumes:
-      - ./db.dump.sql:/docker-entrypoint-initdb.d/db.dump.sql
-    ports:
-      - 3306:3306
-  webserver:
-    build: .
-    restart: always
-    ports:
-      - 3000:3000
-
+    db:
+        image: mariadb:latest
+        restart: always
+        environment:
+            MYSQL_USER: animetube
+            MYSQL_PASSWORD: pw
+            MYSQL_ROOT_PASSWORD: pw
+            MYSQL_DATABASE: animetube
+        volumes:
+            - ./db.dump.sql:/docker-entrypoint-initdb.d/db.dump.sql
+        ports:
+            - 3306:3306
+    webserver:
+        build: .
+        restart: always
+        ports:
+            - 3000:3000

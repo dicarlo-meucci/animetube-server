@@ -42,7 +42,8 @@ module.exports = async function (fastify, options) {
                         }
                     },
                     409: {
-                        description: 'Registration failed because user is already registered',
+                        description:
+                            'Registration failed because user is already registered',
                         type: 'object',
                         properties: {
                             error: { type: 'string' }

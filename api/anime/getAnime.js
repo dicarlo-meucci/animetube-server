@@ -1,7 +1,6 @@
 const { getInstance, prepareQuery } = require('../../database')
 
-module.exports = async function (fastify, options)
-{
+module.exports = async function (fastify, options) {
     fastify.get(
         '/view/*',
         {
@@ -48,15 +47,13 @@ module.exports = async function (fastify, options)
                 }
             }
         },
-        async (req, res) =>
-        {
+        async (req, res) => {
             const db = await getInstance()
             const id = req.params['*']
             const query = prepareQuery(`SELECT * FROM Anime WHERE id = ?`, [id])
             const anime = (await db.query(query))[0][0]
 
-            if (!anime)
-            {
+            if (!anime) {
                 res.code(404).send("Anime doesn't exist")
                 return
             }

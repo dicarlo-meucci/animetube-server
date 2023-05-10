@@ -6,7 +6,7 @@ module.exports = async function (fastify, options) {
         const result = await getUserInfo(token)
 
         if (!result) {
-            res.code(401).send({error: 'Invalid token'})
+            res.code(401).send({ error: 'Invalid token' })
         }
 
         res.code(200).send(result)

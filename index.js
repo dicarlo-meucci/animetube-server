@@ -44,7 +44,7 @@ fastify.register(require('@fastify/swagger-ui'), {
 fastify.register(autoload, {
     dir: `${__dirname}/api`,
     dirNameRoutePrefix: true,
-    options: { prefix: '/api' },
+    options: { prefix: '/api' }
 })
 
 fastify.register(require('@fastify/static'), {
@@ -62,7 +62,7 @@ fastify.addHook('onRequest', (request, reply, done) => {
     }
 
     const now = new Date()
-    
+
     console.log(
         `[${now.toLocaleDateString('it')} - ${now.toLocaleTimeString('it')}] ${
             request.method

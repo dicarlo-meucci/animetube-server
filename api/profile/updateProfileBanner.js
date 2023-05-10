@@ -5,7 +5,10 @@ module.exports = async function (fastify, options) {
         const db = await getInstance()
         const token = req.headers['x-auth-token']
         const { banner } = req.body
-        const query = prepareQuery(`UPDATE User SET banner = ? WHERE token = ?`, [banner, token])
+        const query = prepareQuery(
+            `UPDATE User SET banner = ? WHERE token = ?`,
+            [banner, token]
+        )
         const result = (await db.query(query))[0]
 
         if (!result.affectedRows) {

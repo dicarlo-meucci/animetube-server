@@ -16,14 +16,8 @@ module.exports = async function (fastify, options) {
                         },
                         password: {
                             type: 'string',
-                            description: 'the password of the user'
-                        }
-                    }
-                },
-                body: {
-                    type: 'object',
-                    properties: {
-                        username: { type: 'string' },
+                            descripgetInstancee: 'string'
+                        },
                         password: { type: 'string' }
                     }
                 },
@@ -55,7 +49,7 @@ module.exports = async function (fastify, options) {
         async (req, res) => {
             const db = await getInstance()
             const { username, password } = req.body
-            const hashedPassword = getUserPassword(username)
+            const hashedPassword = await getUserPassword(username)
 
             if (!hashedPassword) {
                 res.code(404).send({ error: "User doesn't exist" })
@@ -68,16 +62,16 @@ module.exports = async function (fastify, options) {
             }
 
             const query = prepareQuery(
-                `SELECT username, token
+                `SELECT token
                 FROM User WHERE (username = ? OR email = ?) AND password = ?`,
                 [username, username, hashedPassword]
             )
 
-            const result = (await db.query(query))[0]
+            const result = (await db.query(query))[0][0]
 
             if (result) {
                 res.code(200).send({
-                    token: result[0].token
+                    token: result.token
                 })
             }
         }
@@ -85,16 +79,16 @@ module.exports = async function (fastify, options) {
 }
 
 async function getUserPassword(username) {
+    const db = await getInstance()
     const query = prepareQuery(
         `SELECT password
         FROM User WHERE username = ? OR email = ?`,
         [username, username]
     )
 
-    const [rows] = await db.query(query)
-    const result = rows[0]
+    const result = (await db.query(query))[0][0]
 
     if (!result) return null
 
-    return res[0].password
+    return result.password
 }

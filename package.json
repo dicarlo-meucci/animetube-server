@@ -4,8 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build-docker": "docker compose build --nocache",
-        "deploy-docker": "docker compose up"
+        "build-docker": "docker compose build --nocache .",
+        "deploy-docker": "docker compose up",
+        "format": "prettier -w ."
     },
     "keywords": [],
     "author": "",
