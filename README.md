@@ -12,6 +12,7 @@
 ```bash
 git clone https://github.com/dicarlo-meucci/animetube-server.git
 cd animetube-server
+npm install
 mv .env.example .env
 ```
 
