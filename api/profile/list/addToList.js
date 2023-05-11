@@ -25,7 +25,7 @@ module.exports = async function (fastify, options) {
         const exists = (await db.query(checkIfExists))[0][0]
 
         if (exists) {
-            res.code(403).send({ error: 'This list already exists' })
+            res.code(403).send({ error: 'This anime is already present in your list' })
             return
         }
 

@@ -41,6 +41,11 @@ fastify.register(require('@fastify/swagger-ui'), {
     transformSpecificationClone: true
 })
 
+fastify.register(require('@fastify/rate-limit'), {
+    max: 200,
+    timeWindow: '1 minute'
+})
+
 fastify.register(autoload, {
     dir: `${__dirname}/api`,
     dirNameRoutePrefix: true,
@@ -83,7 +88,7 @@ fastify.listen(
             await getInstance()
             console.log('[READY] Database on port ' + process.env.DB_PORT)
         } catch (error) {
-            console.log('Database is unreachable')
+            console.error('Database is unreachable')
             process.exit(1)
         }
     }

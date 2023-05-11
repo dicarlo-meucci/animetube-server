@@ -6,6 +6,7 @@
     "scripts": {
         "build-docker": "docker compose build --no-cache",
         "deploy-docker": "docker compose up",
+        "stop-docker": "docker compose down",
         "format": "prettier -w ."
     },
     "keywords": [],
@@ -14,6 +15,7 @@
     "dependencies": {
         "@fastify/autoload": "^5.7.1",
         "@fastify/cors": "^8.2.1",
+        "@fastify/rate-limit": "^8.0.0",
         "@fastify/static": "^6.10.1",
         "@fastify/swagger": "^8.3.1",
         "@fastify/swagger-ui": "^1.8.0",

@@ -1,10 +1,9 @@
 const { getInstance, prepareQuery } = require('../../../database')
 
 module.exports = async function (fastify, options) {
-    fastify.post('/add', async (req, res) => {
+    fastify.get('/view', async (req, res) => {
         const db = await getInstance()
         const token = req.headers['x-auth-token']
-        const { anime } = req.body
 
         if (!token) {
             res.code(401).send({ error: 'Authentication token not provided' })
@@ -18,29 +17,19 @@ module.exports = async function (fastify, options) {
             return
         }
 
-        const checkIfExists = prepareQuery(
-            'SELECT * FROM List WHERE anime = ? AND user = ?',
-            [anime, user.id]
+        const query = prepareQuery(
+            'SELECT a.* FROM List l JOIN Anime a ON (l.anime = a.id) JOIN Tag t ON (t.anime = a.id) WHERE l.user = ?',
+            [user.id]
         )
-        const exists = (await db.query(checkIfExists))[0][0]
 
-        if (exists) {
-            res.code(403).send({ error: 'This list already exists' })
+        const result = (await db.query(query))[0]
+
+        if (!result.length) {
+            res.code(204).send({ error: 'Your list is empty' })
             return
         }
 
-        const query = prepareQuery('INSERT INTO List VALUES (?, ?)', [
-            anime,
-            user.id
-        ])
-        const result = (await db.execute(query))[0]
-
-        if (result.affectedRows != 1) {
-            res.code(500).send({ error: 'Could not create list' })
-            return
-        }
-
-        res.code(200)
+        res.code(200).send(result)
     })
 }
 

@@ -24,13 +24,16 @@ module.exports = async function (fastify, options) {
         const exists = (await db.query(checkIfExists))[0][0]
 
         if (!exists) {
-            res.code(403).send({ error: 'This list does not exists' })
+            res.code(403).send({ error: 'This anime is not present in your list' })
             return
         }
 
-        const query = prepareQuery('DELETE List WHERE anime = ? AND user = ?',
+        const query = prepareQuery('DELETE FROM List WHERE anime = ? AND user = ?',
             [anime,user.id]
         )
+
+        console.log(query)
+
         const result = (await db.execute(query))[0]
 
         if (result.affectedRows != 1) {

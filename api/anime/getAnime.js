@@ -34,6 +34,12 @@ module.exports = async function (fastify, options) {
                                         link: { type: 'string' }
                                     }
                                 }
+                            },
+                            tags: {
+                                type: 'array',
+                                items: {
+                                    type: 'string'
+                                }
                             }
                         }
                     },
@@ -65,6 +71,15 @@ module.exports = async function (fastify, options) {
 
             const episodes = (await db.query(episodesQuery))[0]
             anime.episodes = episodes
+
+            const tagsQuery = prepareQuery(`SELECT name FROM Tag WHERE anime = ?`, [id])
+            const tags = (await db.query(tagsQuery))[0]
+            
+            anime.tags = []
+
+            for (const tag of tags) {
+                anime.tags.push(tag.name.trim())
+            }
 
             const result = anime
             res.code(200).send(result)
