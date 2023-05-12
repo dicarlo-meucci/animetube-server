@@ -16,7 +16,7 @@ module.exports = async function (fastify, options) {
                         },
                         password: {
                             type: 'string',
-                            descripgetInstancee: 'string'
+                            description: 'the password of the user'
                         },
                         password: { type: 'string' }
                     }
