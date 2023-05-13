@@ -23,10 +23,6 @@ async function getInstance() {
     return this.instance ?? (await createInstance())
 }
 
-function postReview(token, text, score, anime) {}
-
-function updatePfp(token, link) {}
-
 function getCarouselImages() {
     return new Promise((resolve, reject) => {
         let query = db.query(`SELECT trailer
