@@ -164,7 +164,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2255-Abenobashi---Il-quartiere-commerciale-di-magia/11/', (SELECT id FROM Anime WHERE name = 'Abenobashi - Il quartiere commerciale di magia'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2255-Abenobashi---Il-quartiere-commerciale-di-magia/12/', (SELECT id FROM Anime WHERE name = 'Abenobashi - Il quartiere commerciale di magia'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2255-Abenobashi---Il-quartiere-commerciale-di-magia/13/', (SELECT id FROM Anime WHERE name = 'Abenobashi - Il quartiere commerciale di magia'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Award WiningAward Wining', (SELECT id FROM Anime WHERE name = 'Abenobashi - Il quartiere commerciale di magia'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Award Winning', (SELECT id FROM Anime WHERE name = 'Abenobashi - Il quartiere commerciale di magia'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Comedy', (SELECT id FROM Anime WHERE name = 'Abenobashi - Il quartiere commerciale di magia'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Fantasy', (SELECT id FROM Anime WHERE name = 'Abenobashi - Il quartiere commerciale di magia'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Ecchi', (SELECT id FROM Anime WHERE name = 'Abenobashi - Il quartiere commerciale di magia'));
@@ -286,7 +286,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2177-Aoi-Umi-no-Tristia/2/', (SELECT id FROM Anime WHERE name = 'Aoi Umi no Tristia'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Adventure', (SELECT id FROM Anime WHERE name = 'Aoi Umi no Tristia'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
-VALUES (default, 'Aru Tabibito no Nikki', 'None found, add some', '2003-0-1', 'Tortov Roddle è un uomo di poche parole in un viaggio attraverso una nuova terra calma e oscura, interagendo con i suoi abitanti lungo la strada. Mentre cavalca il suo maiale dalle lunghe gambe attraverso il deserto di città in città, osserva le usanze interessanti e bizzarre della gente del posto e ricorda il suo passato di lui.', 'https://www.animelove.tv/assets/img/AruTabibitonoNikki.jpg');
+VALUES (default, 'Aru Tabibito no Nikki', 'N/A', '2003-0-1', 'Tortov Roddle è un uomo di poche parole in un viaggio attraverso una nuova terra calma e oscura, interagendo con i suoi abitanti lungo la strada. Mentre cavalca il suo maiale dalle lunghe gambe attraverso il deserto di città in città, osserva le usanze interessanti e bizzarre della gente del posto e ricorda il suo passato di lui.', 'https://www.animelove.tv/assets/img/AruTabibitonoNikki.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2171-Aru-Tabibito-no-Nikki/1/', (SELECT id FROM Anime WHERE name = 'Aru Tabibito no Nikki'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2171-Aru-Tabibito-no-Nikki/2/', (SELECT id FROM Anime WHERE name = 'Aru Tabibito no Nikki'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2171-Aru-Tabibito-no-Nikki/3/', (SELECT id FROM Anime WHERE name = 'Aru Tabibito no Nikki'));
@@ -347,7 +347,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Edens Zero 2nd Season'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Adventure', (SELECT id FROM Anime WHERE name = 'Edens Zero 2nd Season'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Fantasy', (SELECT id FROM Anime WHERE name = 'Edens Zero 2nd Season'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Edens Zero 2nd Season'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Edens Zero 2nd Season'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Estab-Life: Great Escape', 'Polygon Pictures', '2022-0-1', 'In un lontano futuro la popolazione mondiale ha iniziato a ridursi dopo aver raggiunto il suo picco. Tokyo ora è divisa in vari cluster, separati tra loro da imponenti mura, dove vivono popolazioni geneticamente modificate, governate da intelligenze artificiali. La maggior parte delle persone vive nel suo quartiere incuranti su cosa succede al di fuori di esso. Tuttavia, ci sono alcuni che cercano di fuggire negli altri cluster, aiutati da una misteriosa squadra.', 'https://www.animelove.tv/assets/img/Estab-LifeGreatEscape.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2147-Estab-Life:-Great-Escape/1/', (SELECT id FROM Anime WHERE name = 'Estab-Life: Great Escape'));
@@ -362,7 +362,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2147-Estab-Life:-Great-Escape/10/', (SELECT id FROM Anime WHERE name = 'Estab-Life: Great Escape'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2147-Estab-Life:-Great-Escape/11/', (SELECT id FROM Anime WHERE name = 'Estab-Life: Great Escape'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2147-Estab-Life:-Great-Escape/12/', (SELECT id FROM Anime WHERE name = 'Estab-Life: Great Escape'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Estab-Life: Great Escape'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Sci-Fi', (SELECT id FROM Anime WHERE name = 'Estab-Life: Great Escape'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Extreme Hearts', 'Seven Arcs', '2022-0-1', 'La storia è ambientata in un futuro non troppo lontano. Gli Hyper Sport, che usano attrezzi estremi come oggetti di supporto, sono diventati delle competizioni molto popolari come hobby tra adulti e bambini. Hiwa Hayama, una cantante delle superiori, non ha nulla a che fare con gli Hyper Sport, finché un giorno un certo incidente non cambierà le cose.
 "Questa è la storia di come abbiamo incontrato i nostri migliori amici."', 'https://www.animelove.tv/assets/img/ExtremeHearts.jpg');
@@ -404,13 +404,13 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2119-Eden/3/', (SELECT id FROM Anime WHERE name = 'Eden'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2119-Eden/4/', (SELECT id FROM Anime WHERE name = 'Eden'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Fantasy', (SELECT id FROM Anime WHERE name = 'Eden'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Eden'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Eden'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Slice of LifeSlice of Life', (SELECT id FROM Anime WHERE name = 'Eden'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Boku ga Aishita Subete no Kimi e', 'Bakken Record', '2022-0-1', 'Basato sull\'omonimo romanzo di fantascienza di Yomoji Otono. Koyomi Takasaki è un ragazzo che vive con sua madre dopo il divorzio dei suoi genitori. Nella sua nuova scuola di preparazione al college tenta di fare amicizia con gli altri, ma la sua timidezza e la pesante competizione studentesca gli impediscono di socializzare. Un giorno, la sua compagna di classe Kazune Takigawa gli si avvicina e gli dice che in realtà viene dalla World Line 85, dove lei e Koyomi sono amanti...', 'https://www.animelove.tv/assets/img/BokuGaAishitaSubeteNoKimiE.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2354-Boku-ga-Aishita-Subete-no-Kimi-e/1/', (SELECT id FROM Anime WHERE name = 'Boku ga Aishita Subete no Kimi e'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Romance', (SELECT id FROM Anime WHERE name = 'Boku ga Aishita Subete no Kimi e'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Boku ga Aishita Subete no Kimi e'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Boku ga Aishita Subete no Kimi e'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Birdie Wing: Golf Girls Story Season 2', 'Bandai Namco Pictures', '2023-0-1', 'Seguito di "Birdie Wing: Golf Girls\' Story", Seconda stagione.', 'https://www.animelove.tv/assets/img/BirdieWingGolfGirlsStory2.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2345-Birdie-Wing:-Golf-Girls-Story-Season-2/1/', (SELECT id FROM Anime WHERE name = 'Birdie Wing: Golf Girls Story Season 2'));
@@ -440,7 +440,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2278-Buzzer-Beater/11/', (SELECT id FROM Anime WHERE name = 'Buzzer Beater'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2278-Buzzer-Beater/12/', (SELECT id FROM Anime WHERE name = 'Buzzer Beater'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2278-Buzzer-Beater/13/', (SELECT id FROM Anime WHERE name = 'Buzzer Beater'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Buzzer Beater'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Sci-Fi', (SELECT id FROM Anime WHERE name = 'Buzzer Beater'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Sport', (SELECT id FROM Anime WHERE name = 'Buzzer Beater'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Build Divide: Code White', 'LIDENFILMS', '2022-0-1', 'Seguito di "Build Divide: Code Black", Seconda stagione.', 'https://www.animelove.tv/assets/img/BuildDivideCodeWhite.jpg');
@@ -781,14 +781,14 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2190-Capitan-Futuro/52/', (SELECT id FROM Anime WHERE name = 'Capitan Futuro'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Capitan Futuro'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Adventure', (SELECT id FROM Anime WHERE name = 'Capitan Futuro'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Capitan Futuro'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Capitan Futuro'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Cyborg 009', 'Toei Animation', '1966-0-1', 'Durante una corsa automobilistica il pilota Joe Shimamura ha un grave incidente causato dall\'organizzazione dei Black Ghost. Essendo dotato di abilità particolari intendono trasformarlo in un cyborg. Proprio mentre sta per entrare nelle fila dei Black Ghost succede qualcosa di imprevisto...', 'https://www.animelove.tv/assets/img/Cyborg009.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2183-Cyborg-009/1/', (SELECT id FROM Anime WHERE name = 'Cyborg 009'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Cyborg 009'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Adventure', (SELECT id FROM Anime WHERE name = 'Cyborg 009'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'Cyborg 009'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Cyborg 009'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Cyborg 009'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Cue!', 'Yumeta Company, Graphinica', '2022-0-1', 'Con la nascita di una nuova agenzia dedicata al reclutamento di aspiranti doppiatrici, sedici ragazze verranno improvvisamente gettate in pasto ad uno studio di doppiaggio, per effettuare un\'audizione che potrà rivelarsi determinante per la loro tanto agognata carriera. Anche in caso di successo, però, le giovani ragazze dovranno continuare ad impegnarsi al massimo nei ruoli che gli verranno assegnati, al fine di assicurarsi dei nuovi ingaggi.', 'https://www.animelove.tv/assets/img/Cue.jpeg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2157-Cue!/1/', (SELECT id FROM Anime WHERE name = 'Cue!'));
@@ -821,7 +821,7 @@ VALUES (default, 'Code Geass: Fukkatsu no Lelouch', 'Sunrise', '2019-0-1', 'Dall
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2072-Code-Geass:-Fukkatsu-no-Lelouch/1/', (SELECT id FROM Anime WHERE name = 'Code Geass: Fukkatsu no Lelouch'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Code Geass: Fukkatsu no Lelouch'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'Code Geass: Fukkatsu no Lelouch'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Code Geass: Fukkatsu no Lelouch'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Code Geass: Fukkatsu no Lelouch'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Cardcaptor Sakura', 'Madhouse', '1998-0-1', 'Sakura Kinomoto è una studentessa del quarto anno alla scuola elementare privata Tomoeda. Un giorno, aprendo per caso un volume della biblioteca paterna, provoca accidentalmente lo scioglimento del sigillo delle Clow Cards, carte magiche create dal potente stregone anglo-cinese Clow Reed. All\'apertura del tomo, da esso fuoriesce la Bestia del Sigillo (Kero-chan/Cerberus), custode del sigillo stesso, il quale si premura di spiegare a Sakura quanto avvenuto alle carte, sparpagliatesi nei dintorni sotto altra forma allo scopo di far danni o semplicemente confusione in ragione delle loro caratteristiche di personalità. Sakura riceve da Kero-chan la Chiave del Sigillo, trasformabile in un bastone/scettro pronunciando l\'appropriata formula magica. Comincia così la missione di Sakura, volta a rintracciare le carte disperse e a riportarle al loro vero aspetto. Qualora il compito non venisse svolto, una non meglio precisata catastrofe si abbatterebbe su questo mondo.', 'https://www.animelove.tv/assets/img/CardCaptorSakura.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2043-Cardcaptor-Sakura/1/', (SELECT id FROM Anime WHERE name = 'Cardcaptor Sakura'));
@@ -918,13 +918,13 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2325-Dr.-Stone:-New-World/5/', (SELECT id FROM Anime WHERE name = 'Dr. Stone: New World'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Adventure', (SELECT id FROM Anime WHERE name = 'Dr. Stone: New World'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Comedy', (SELECT id FROM Anime WHERE name = 'Dr. Stone: New World'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Dr. Stone: New World'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Dr. Stone: New World'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Deadman Wonderland: Akai Knife Tsukai', 'Manglobe', '2011-0-1', 'Questo OVA è uscito in allegato al XI volume dell\'omonimo manga nell\'agosto del 2011. Si tratta di una prequel side story, incentrata su Kiyomasa Senji/Crow che, prima di diventare un prigioniero del Deadman Wonderland, era un poliziotto.', 'https://www.animelove.tv/assets/img/DeadmanWonderlandova.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2275-Deadman-Wonderland:-Akai-Knife-Tsukai/1/', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland: Akai Knife Tsukai'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland: Akai Knife Tsukai'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Horror', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland: Akai Knife Tsukai'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland: Akai Knife Tsukai'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland: Akai Knife Tsukai'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Deadman Wonderland', 'Manglobe', '2011-0-1', 'Tokyo - Dieci anni dopo un terribile terremoto. Lo studente Igarashi Ganta trascorre le proprie, tranquille, giornate alla scuola media con i suoi compagni. Ma un giorno, con il manifestarsi dell’”Uomo Rosso”, il destino di Ganta muta per sempre. Nonostante la sua innocenza, sul ragazzo pesa una sentenza di morte, e viene rinchiuso nella prigione nota come “Dead Man Wonderland”. Ganta trascorre giornate spaventose in carcere, motivato alla vita solo dal bisogno di vendetta che nutre verso l’uomo rosso. E’ qui che incontra l’amica d’infanzia Shiro. In breve tempo, resosi conto dei poteri sovrannaturali di cui si trova in possesso, Ganta sarà coinvolto in battaglie all’ultimo sangue per la sopravvivenza... che ne sarà di lui? L\'isolotto nella baia di Tokyo era anche conosciuto come la “Zona di Ripristino Zero” della capitale. L’unico collegamento con la terraferma è un tunnel sottomarino. Nient’altro, né ponti né traffico navale. Mi chiedo chi sia stato a progettarlo in quel modo, e soprattutto per quale motivo. Fino ad oggi il Governo e tutti coloro che erano vagamente coinvolti nell’esistenza della Zona di Ripristino Zero avevano risposto con il silenzio assoluto alle domande dei cittadini e dei media sui possessori dell’isola. Ma oggi la ragione di quel “no comment” generale verrà svelata a tutti quanti...', 'https://www.animelove.tv/assets/img/DeadmanWonderland.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2274-Deadman-Wonderland/1/', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland'));
@@ -941,7 +941,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2274-Deadman-Wonderland/12/', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Horror', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Supernatural', (SELECT id FROM Anime WHERE name = 'Deadman Wonderland'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Death Parade', 'Madhouse', '2015-0-1', 'Vi do il benvenuto al Queen Dekim. Qui due insospettabili ospiti in uno strano bar, Queen Dekim, vengono accolti da un barista dai capelli bianchi, Dekim. Da qui in poi inizierete una battaglia in cui la vostra vita è appesa a un filo, dice Dekim per presentare il Gioco Mortale. Dopo poco tempo la vera natura degli ospiti viene rilevata. E come se niente fosse, alla fine del gioco Dekim rivela di essere il giudice. Il giudizio di Dekim sui due ospiti è', 'https://www.animelove.tv/assets/img/DeathParade.jpg');
@@ -1023,7 +1023,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2117-Darwin\'s-Game/11/', (SELECT id FROM Anime WHERE name = 'Darwin\'s Game'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Darwin\'s Game'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Mystery', (SELECT id FROM Anime WHERE name = 'Darwin\'s Game'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Darwin\'s Game'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Darwin\'s Game'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Doukyonin wa Hiza, Tokidoki, Atama no Ue.', 'Zero-G', '2019-0-1', 'Lo scrittore di gialli Subaru Mikazuki non è bravo a relazionarsi con le persone, le considera solo un disturbo quando si tratta di pensare a una nuova storia da scrivere. Un giorno, dopo aver incontrato per caso un gatto randagio, gli viene l’ispirazione e così decide di portarselo a casa, per renderlo la sua musa. Osservare gli imperscrutabili comportamenti di un gatto gli fornirà materiale utile per il suo nuovo romanzo?', 'https://www.animelove.tv/assets/img/DoukyoninWaHizaTokidokiAtamaNoUe.png');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2105-Doukyonin-wa-Hiza,-Tokidoki,-Atama-no-Ue./1/', (SELECT id FROM Anime WHERE name = 'Doukyonin wa Hiza, Tokidoki, Atama no Ue.'));
@@ -1055,7 +1055,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2030-Double-Decker!-Doug-&-Kirill/12/', (SELECT id FROM Anime WHERE name = 'Double Decker! Doug & Kirill'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Double Decker! Doug & Kirill'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Comedy', (SELECT id FROM Anime WHERE name = 'Double Decker! Doug & Kirill'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Double Decker! Doug & Kirill'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Double Decker! Doug & Kirill'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'D4DJ All Mix', 'N/A', '2023-0-1', 'Seconda stagione di D4DJ: First Mix', 'https://www.animelove.tv/assets/img/D4DJAllMix.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/1987-D4DJ-All-Mix/1/', (SELECT id FROM Anime WHERE name = 'D4DJ All Mix'));
@@ -1102,7 +1102,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'FLCL'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Avant GardeAvant Garde', (SELECT id FROM Anime WHERE name = 'FLCL'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Comedy', (SELECT id FROM Anime WHERE name = 'FLCL'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'FLCL'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'FLCL'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Final Approach', 'Trinet Entertainment, Zexcs', '2004-0-1', 'Cosa fareste se una tanto avvenente quanto manesca ragazza vi piombasse in casa dichiarando che un piano governativo per incrementare il tasso di natalità vi obbliga a sposarla? È questo il tema di Final Approach, commedia di 13 episodi di durata ridotta rispetto ai canonici episodi 15 min circa. Protagonista della vicenda è Mizuhara Ryou, un 17enne, che, in seguito alla prematura scomparsa dei genitori, si trova costretto a prendersi cura della sorellina Akane di 2 anni + giovane di lui (per la quale prova sentimenti quasi + paterni che fraterni). La sua vita verrà però sconvolta dall\'arrivo imprevisto di Masuda Shizuka, misteriosa 15enne incaricata dal governo di sposare Ryou con ogni mezzo. Che fare? "Soccombere" al destino o continuare a cercare altrove l\'anima gemella?', 'https://www.animelove.tv/assets/img/FinalApproach.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2173-Final-Approach/1/', (SELECT id FROM Anime WHERE name = 'Final Approach'));
@@ -1192,7 +1192,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2091-Fight-League:-Gear-Gadget-Generators/25/', (SELECT id FROM Anime WHERE name = 'Fight League: Gear Gadget Generators'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2091-Fight-League:-Gear-Gadget-Generators/26/', (SELECT id FROM Anime WHERE name = 'Fight League: Gear Gadget Generators'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Fight League: Gear Gadget Generators'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Fight League: Gear Gadget Generators'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Fight League: Gear Gadget Generators'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Fate Kaleid Liner Prisma Illya: Prisma Phantasm', 'SILVER LINK.', '2019-0-1', 'Parodia della serie Prisma Illya. Sono rivisti in chiave ironica alcuni eventi e sono presentati alcuni personaggi che non compaiono nella serie Majokko originale con tante battute ed allusioni sessuali di ogni tipo.', 'https://www.animelove.tv/assets/img/FatePrismaIlyaPrismaPhantasm.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2085-Fate-Kaleid-Liner-Prisma-Illya:-Prisma-Phantasm/1/', (SELECT id FROM Anime WHERE name = 'Fate Kaleid Liner Prisma Illya: Prisma Phantasm'));
@@ -1311,7 +1311,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2276-Guilty-Crown/22/', (SELECT id FROM Anime WHERE name = 'Guilty Crown'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Guilty Crown'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'Guilty Crown'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Guilty Crown'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Guilty Crown'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Genshiken', 'Palm Studio', '2004-0-1', 'Genshiken è una commedia che vede come protagonisti dei ragazzi appassionati di manga e anime e che narra le loro divertimenti giornate come otaku. Ho visto i primi due episodi e ammetto che per certe cose mi posso immedesimare in alcuni di essi, anche se la mia posizione è decisamente più moderata. Proprio questo trovo possa essere il motivo per cui ha avuto un buon seguito ed è considerato una delle serie più carine della passata stagione. Per quanto mi riguardo l’ho trovato piacevole, ma per ora nulla più. Tecnicamente è realizzato benino, anche se visto il genere di certo non vi stupirà. Sebbene sia una commedia si nota da subito come lo staff abbia speso diverse energie nel bilanciare gli elementi che ci vengono offerti e le personalità dei protagonisti. Vengono prese in giro molte tematiche a cui i cartoni ci hanno abituato. La storia inizia seguendo le orme di un ragazzo che alla scelta del club scolastico entra in questo nuovo gruppo, anche se la inizialmente sembra metterlo un po’ in imbarazzo. Non è il solo nuovo membro, infatti un suo coetaneo, molto meno timido, sceglie lo stesso club. A differenza degli altri ha una bella ragazza, ed è buffo come nella sua ingenuità non le dia la dovuta attenzione. Fortunatamente lei è innamorata, ma ogni tentativo di distrarlo dai suoi hobby sembra vano… e sinceramente un po’ ricordala mia situazione ;-) Anche gli altri personaggi sono ben caratterizzati psicologicamente, soprattutto quello che sembra definirsi come il capo, un otaku allo stato puro. Vi consiglio di dargli un’occhiata, ancor più se anime e manga per voi sono una passione importante. Potrebbe prendervi e diventare una delle vostre serie preferite. Non troverete avventura né azione, solo qualche risata e vi farà passare delle mezz’orette piacevoli.', 'https://www.animelove.tv/assets/img/Genshiken.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2266-Genshiken/1/', (SELECT id FROM Anime WHERE name = 'Genshiken'));
@@ -1450,9 +1450,9 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2121-Godzilla:-S.P/12/', (SELECT id FROM Anime WHERE name = 'Godzilla: S.P'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2121-Godzilla:-S.P/13/', (SELECT id FROM Anime WHERE name = 'Godzilla: S.P'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Godzilla: S.P'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Award WiningAward Wining', (SELECT id FROM Anime WHERE name = 'Godzilla: S.P'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Award Winning', (SELECT id FROM Anime WHERE name = 'Godzilla: S.P'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Mystery', (SELECT id FROM Anime WHERE name = 'Godzilla: S.P'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Godzilla: S.P'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Godzilla: S.P'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Gokushufudou Part 2', 'J.C.Staff', '2021-0-1', 'Tatsu l\'immortale è un ex yakuza che ha abbandonato la strada della malavita per diventare un uomo onesto. Ma è possibile che anche in questa versione da devoto marito casalingo riesca a cacciarsi comunque in qualche guaio?', 'https://www.animelove.tv/assets/img/Gokushufudou2.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2120-Gokushufudou-Part-2/1/', (SELECT id FROM Anime WHERE name = 'Gokushufudou Part 2'));
@@ -1464,7 +1464,7 @@ INSERT INTO Tag (id, name, anime) VALUES (default, 'Comedy', (SELECT id FROM Ani
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Glass no Hana to Kowasu Sekai', 'A-1 Pictures', '2016-0-1', 'Uno spazio fluttuante, senza gravità, dove un’infinità di luci risplende di differenti colori: “Lo Scrigno della Conoscenza”. Al suo interno si trovano molteplici mondi e linee temporali e, una volta, anche disparati popoli. Qui è dove Dual e Dorothy combattono il loro nemico: un virus. I mondi infettati dal virus vanno eliminati. Questo è il dovere, il compito delle due ragazze. Un giorno però le due avvertono la presenza di un nuovo nemico. Arrivate sulla scena, vedono il virus attaccare una ragazza. Una volta salvata, attendono che si riprenda, così da chiederle chi sia, da dove provenga e dove sia diretta. Finalmente la ragazza riapre gli occhi rivelando il suo nome, Remo, e sussurra un’unica frase: “Devo tornare all’aiuola…”', 'https://www.animelove.tv/assets/img/GlassNoHanaToKowasuSekai.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2116-Glass-no-Hana-to-Kowasu-Sekai/1/', (SELECT id FROM Anime WHERE name = 'Glass no Hana to Kowasu Sekai'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Glass no Hana to Kowasu Sekai'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Sci-Fi', (SELECT id FROM Anime WHERE name = 'Glass no Hana to Kowasu Sekai'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Given', 'Lerche', '2019-0-1', 'Uenoyama trova ormai noiosi sia il basket, che la musica, mentre in precedenza li amava entrambi. Un giorno a scuola si imbatte in Mafuyu, intento a sonnecchiare su una scala abbracciato ad una chitarra dalle corde rotte. Uenoyama lo aiuta ad accordarla e, dal momento in cui mette le mani su quella chitarra, in Mafuyu scatta una scintilla, ne rimane completamente folgorato, tanto da chiedergli di aiutarlo ad imparare a suonare quello strumento. Quale sarà la risposta di Uenoyama?', 'https://www.animelove.tv/assets/img/Given.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2079-Given/1/', (SELECT id FROM Anime WHERE name = 'Given'));
@@ -1739,7 +1739,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2194-Hokuto-no-Ken/152/', (SELECT id FROM Anime WHERE name = 'Hokuto no Ken'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Hokuto no Ken'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'Hokuto no Ken'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Hokuto no Ken'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Hokuto no Ken'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Hikari no Ou', 'Signal.MD', '2023-0-1', 'Una grande foresta, infestata da creature in fiamme e altre bestie, copre ormai il mondo intero e l\'umanità vive in piccole comunità protette. A causa di un\'arma speciale usata nell\'Ultima Guerra, gli esseri umani prendono fuoco spontaneamente anche solo avvicinandosi a piccole fiamme. L\'unica fonte di energia sicura per l\'umanità risiede nei corpi delle fiamme e il compito di cacciarli ricade sui firecatcher, uomini armati di falce che sfidano le profondità della grande foresta. Tra i firecatcher, si raccontano storie sul leggendario "Firecatcher Lord", un individuo che sarà in grado di raccogliere il fuoco della cometa millenaria che sta tornando sulla terra. In particolare si seguono le vicende di deu persone: Touko, una giovane ragazza che si ritrova nella foresta proibita, assalita da fiammate, protetta da un firecatcher e un giovane ragazzo di nome Kōshi che protegge sua sorella minore dopo aver perso la madre a causa di un avvelenamento.', 'https://www.animelove.tv/assets/img/HikariNoOu.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2189-Hikari-no-Ou/1/', (SELECT id FROM Anime WHERE name = 'Hikari no Ou'));
@@ -2345,17 +2345,17 @@ INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Psycho Pass: Sinners of the System Case 3', 'Production I.G', '2019-0-1', 'Shinya Kougami continua a vagare per l\'Unione del sud-est asiatico (SEAUn) lontano dagli occhi del sistema Sibyl in Giappone. Durante un viaggio attraverso il Regno dell\'Alleanza Tibet-Himalayano, Kougami incontra Guillermo Garcia, comandante di un gruppo paramilitare che tenta di unire le fazioni locali e portare la pace nella nazione dilaniata dalla guerra. Diffidente all\'idea di unirsi a un altro gruppo di mercenari, Kougami rifiuta di unirsi alla sua causa, ma accetta di essere condotto nella vicina capitale tibetana da uno degli uomini di Garcia. Tuttavia, il piano di Kougami di rimanere non coinvolto ha vita breve quando un autobus di rifugiati cade in un\'imboscata da parte di guerriglieri armati. Tra loro c\'è una ragazza metà giapponese e metà tibetana di nome Tenzing Wangchuck...', 'https://www.animelove.tv/assets/img/PsychoPassSinnersOfTheSystem3.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2098-Psycho-Pass:-Sinners-of-the-System-Case-3/1/', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 3'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 3'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 3'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 3'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Psycho Pass: Sinners of the System Case 2', 'Production I.G', '2019-0-1', 'L\'esecutore Teppei Sugou, ex pilota asso della 15a task force integrata dell\'Esercito di difesa nazionale, riceve la visita di uno scout del Ministero degli affari esteri e viene invitato a rientrare nell\'esercito. Mentre valuta l\'offerta, ricorda i suoi ultimi mesi di servizio.', 'https://www.animelove.tv/assets/img/PsychoPassSinnersOfTheSystem2.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2097-Psycho-Pass:-Sinners-of-the-System-Case-2/1/', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 2'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 2'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 2'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 2'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Psycho Pass: Sinners of the System Case 1', 'Production I.G', '2019-0-1', 'Seguito di "Psycho-Pass Movie", L\'opera si compone di tre film: 1: Anno 2117; un veicolo in fuga si schianta contro il Public Safety Bureau Building. L\'autista è identificato come Izumi Yasaka, un consulente psicologico del Santuario, una struttura per l\'isolamento dei criminali nella prefettura di Aomori. Proprio prima del suo interrogatorio, Enforcer Mika Shimotsuki e l\'ispettore Nobuchika Ginoza hanno il compito di accompagnare prontamente Yasaka a Aomori. Ciò che li attende sarà un qualcosa di assolutamente inaspettato.', 'https://www.animelove.tv/assets/img/PsychoPassSinnersOfTheSystem1.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2096-Psycho-Pass:-Sinners-of-the-System-Case-1/1/', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 1'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 1'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 1'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Psycho Pass: Sinners of the System Case 1'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Piano no Mori (TV) 2nd Season', 'Gaina', '2019-0-1', 'Seguito di “Piano no Mori“, Seconda stagione. Un dolce racconto che ha come protagonisti due ragazzi molto diversi. Da un lato Kai, figlio di una prostituta, che sin da bambino è cresciuto suonando il pianoforte abbandonato nel bosco vicino casa sua; dall’altro Shuuhei che, nato e maturato in una prestigiosa famiglia di pianisti, ha praticamente avuto come unico amico un pianoforte. La loro comune passione porterà i percorsi di vita dei due ragazzi ad intrecciarsi.', 'https://www.animelove.tv/assets/img/PianoNoMori2.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2095-Piano-no-Mori-(TV)-2nd-Season/1/', (SELECT id FROM Anime WHERE name = 'Piano no Mori (TV) 2nd Season'));
@@ -2421,11 +2421,11 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2302-RahXephon/25/', (SELECT id FROM Anime WHERE name = 'RahXephon'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2302-RahXephon/26/', (SELECT id FROM Anime WHERE name = 'RahXephon'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'RahXephon'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Award WiningAward Wining', (SELECT id FROM Anime WHERE name = 'RahXephon'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Award Winning', (SELECT id FROM Anime WHERE name = 'RahXephon'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'RahXephon'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Mystery', (SELECT id FROM Anime WHERE name = 'RahXephon'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Romance', (SELECT id FROM Anime WHERE name = 'RahXephon'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'RahXephon'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'RahXephon'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Ryman\'s Club', 'LIDENFILMS', '2022-0-1', 'La storia è incentrata su Mikoto Shiratori, un giovane prodigio del badminton che però si rivelò incapace di accettare una sconfitta durante la competizione Inter-High. Ora lavora presso il reparto vendite della società Sunlight con Taturu Miyazumi, il miglior giocatore e venditore della squadra.', 'https://www.animelove.tv/assets/img/RymansClub.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2154-Ryman\'s-Club/1/', (SELECT id FROM Anime WHERE name = 'Ryman\'s Club'));
@@ -2457,7 +2457,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2031-RErideD:-Tokigoe-no-Derrida/12/', (SELECT id FROM Anime WHERE name = 'RErideD: Tokigoe no Derrida'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'RErideD: Tokigoe no Derrida'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'RErideD: Tokigoe no Derrida'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'RErideD: Tokigoe no Derrida'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'RErideD: Tokigoe no Derrida'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Reborn to Master the Blade: From Hero-King to Extraordinary Squire', 'N/A', '2023-0-1', 'Re Inglis, che ha vissuto per la sua nazione e il suo popolo, spera che nella sua prossima vita possa affinare ulteriormente le sue tecniche di cavaliere. Il desiderio viene ascoltato da una divinità, che lo fa reincarnare nel futuro, ma nei panni di una graziosa ragazza! Per di più, nonostante provenga da una stirpe di cavalieri, all\'età di sei anni è stata dichiarata incapace di divenire cavaliere!', 'https://www.animelove.tv/assets/img/EiyuuouBuWoKiwameruTameTenseisu.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/1993-Reborn-to-Master-the-Blade:-From-Hero-King-to-Extraordinary-Squire/1/', (SELECT id FROM Anime WHERE name = 'Reborn to Master the Blade: From Hero-King to Extraordinary Squire'));
@@ -2539,7 +2539,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Adventure', (SELECT id FROM Anime WHERE name = 'Shinzo (ITA)'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'Shinzo (ITA)'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Fantasy', (SELECT id FROM Anime WHERE name = 'Shinzo (ITA)'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Shinzo (ITA)'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Shinzo (ITA)'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Saikyou Onmyouji no Isekai Tenseiki', 'Studio Blanc.', '2023-0-1', 'Haruyoshi è il più forte onmyouji della sua epoca. Tradito dai propri compagni, si trova in punto di morte. L\'uomo utilizza una delle sue tecniche segrete per potersi reincarnare, finendo in un altro mondo. Il giovane, ora figlio di maghi, utilizza la conoscenza delle sue tecniche per sopravvivere nel nuovo mondo.', 'https://www.animelove.tv/assets/img/SaikyouOnmyoujiNoIsekaiTenseiki.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2242-Saikyou-Onmyouji-no-Isekai-Tenseiki/1/', (SELECT id FROM Anime WHERE name = 'Saikyou Onmyouji no Isekai Tenseiki'));
@@ -2838,7 +2838,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2187-Shinzou-Ningen-Casshern/35/', (SELECT id FROM Anime WHERE name = 'Shinzou Ningen Casshern'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Shinzou Ningen Casshern'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Adventure', (SELECT id FROM Anime WHERE name = 'Shinzou Ningen Casshern'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Shinzou Ningen Casshern'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Shinzou Ningen Casshern'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Soukyuu no Fafner: Dead Aggressor', 'Xebec', '2004-0-1', 'La Terra è stata attaccata da misteriosi invasori, e lo stesso Giapponese sembra essere stato distrutto. Il protagonista di Soukyuu No Fafner è tuttavia all’oscuro di tutto e vive pacificamente su un’isola. Un giorno tuttavia questa viene attaccata da un’invasore e viene a galla che in realtà l’intera isola è una base militare costruita appositamente per fronteggiarli. Il protagonista è messo davanti alla verità e diventerà il pilota di un robot. Il suo compito tuttavia è molto arduo, i nemici sono molto potenti e lo scontro comporta grandi perdite fra i civili. Resistere agli attacchi sembra molto dura, riusciranno a sopravvivere? A quale prezzo? E lui stesso che legami ha con il robot e quali cambiamenti comporterà nel suo corpo il diventarne il pilota?', 'https://www.animelove.tv/assets/img/SoukyuuNoFafner.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2176-Soukyuu-no-Fafner:-Dead-Aggressor/1/', (SELECT id FROM Anime WHERE name = 'Soukyuu no Fafner: Dead Aggressor'));
@@ -2868,7 +2868,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2176-Soukyuu-no-Fafner:-Dead-Aggressor/25/', (SELECT id FROM Anime WHERE name = 'Soukyuu no Fafner: Dead Aggressor'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Soukyuu no Fafner: Dead Aggressor'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'Soukyuu no Fafner: Dead Aggressor'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Soukyuu no Fafner: Dead Aggressor'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Soukyuu no Fafner: Dead Aggressor'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Sasameki Koto', 'AIC', '2009-0-1', 'La storia si svolge in un normale istituto superiore, protagonista è Sumika, una ragazza alta ben 1,75 m, proveniente da una famiglia composta quasi unicamente da uomini praticanti karate, sport in cui anche lei è un asso. Caratterialmente è un\'adolescente come tante, se non fosse che ha un "peso" che la rende spesso triste e silenziosa: Sumi è innamorata da lunga data della sua migliore amica, Ushio. Quest\'ultima, da parte sua, è una vera appassionata del gentil sesso, ma si innamora solo di ragazze piccole, fragili e soprattutto molto femminili, e, anche solo per l\'altezza e l\'abbigliamento, Sumi non rientra nei suoi canoni. Per un caso fortuito, Sumi e Ushio entreranno però a far parte di un "club per ragazze", o meglio, dei tentativi (sempre falliti) di Tomoe, una loro compagna di classe, e di Miyako, la sua ragazza, di realizzarlo. A loro si uniranno Aoi, una compagna di classe con la passione per gli yuri e per l\'amore puro ed innocente tra due donne, un qualcosa lontano dalla realtà quotidiana, e Kyori, un\'amica molto solare di Sumika ed Ushio, che, a differenza loro, ribadisce spesso la sua eterosessualità. Unico personaggio maschile della serie è Masaki, un ragazzo dall\'aspetto e dai modi di fare molto delicati, che viene costretto dalla sua bizzarra sorellina minore a vestire panni femminili e a lavorare come "modella" per delle riviste. Masaki è innamorato di Sumi ed è oggetto dei desideri (quando indossa abiti femminili) di Ushio...', 'https://www.animelove.tv/assets/img/SasamekiKoto.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2161-Sasameki-Koto/1/', (SELECT id FROM Anime WHERE name = 'Sasameki Koto'));
@@ -2924,7 +2924,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2348-The-Marginal-Service/2/', (SELECT id FROM Anime WHERE name = 'The Marginal Service'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2348-The-Marginal-Service/3/', (SELECT id FROM Anime WHERE name = 'The Marginal Service'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'The Marginal Service'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'The Marginal Service'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'The Marginal Service'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Tonikaku Kawaii 2', 'Seven Arcs', '2023-0-1', 'Seguito di "Tonikaku Kawaii: Seifuku", Seconda stagione.', 'https://www.animelove.tv/assets/img/TonikakuKawaii2.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2341-Tonikaku-Kawaii-2/1/', (SELECT id FROM Anime WHERE name = 'Tonikaku Kawaii 2'));
@@ -2949,7 +2949,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2321-Tokyo-Mew-Mew-New-2nd-Season/6/', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew New 2nd Season'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Fantasy', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew New 2nd Season'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Romance', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew New 2nd Season'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew New 2nd Season'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew New 2nd Season'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Tengoku Daimakyou', 'Production I.G', '2023-0-1', 'Al sicuro dentro le mura, i giovani umani sono allevati da robot come in un grande asilo nido. Sebbene lì la vita possa sembrare monotona, i bambini sono comunque pieni di talento e curiosità. Per molti versi, quello, è un piccolo angolo di paradiso. Il mondo esterno, infatti, è ormai un paesaggio quasi infernale. Non c’è quasi più traccia di meccanizzazione ed è ora abitato da bizzarri e potenti esseri sovrannaturali.', 'https://www.animelove.tv/assets/img/TengokuDaimakyou.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2306-Tengoku-Daimakyou/1/', (SELECT id FROM Anime WHERE name = 'Tengoku Daimakyou'));
@@ -2959,7 +2959,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2306-Tengoku-Daimakyou/5/', (SELECT id FROM Anime WHERE name = 'Tengoku Daimakyou'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2306-Tengoku-Daimakyou/6/', (SELECT id FROM Anime WHERE name = 'Tengoku Daimakyou'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Adventure', (SELECT id FROM Anime WHERE name = 'Tengoku Daimakyou'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Tengoku Daimakyou'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Tengoku Daimakyou'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Tokyo Mew Mew', 'Pierrot', '2002-0-1', 'Protagonista della storia è Strawberry Momomiya (Ichigo Momomiya), una ragazza di 13 anni. Durante il suo primo appuntamento con Mark Aoyama (Masaya Aoyama), a una mostra sugli animali in via d’estinzione, viene colpita da un misterioso raggio che trasferisce nel suo patrimonio genetico il DNA di una specie animale molto rara, il gatto selvatico di Iriomote. Da quel momento Strawberry è in grado di trasformarsi in Mew Berry (Mew Ichigo). I responsabili dell’accaduto sono due ragazzi, Ryan Shirogane (Ryo Shirogane) e Kyle Akasaka (Keiichiro Akasaka), i quali la invitano a lavorare nel loro locale, il Caffè Mew Mew, usato come copertura per il loro importantissimo progetto segreto: il Progetto Mew.', 'https://www.animelove.tv/assets/img/TokyoMewMew.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2305-Tokyo-Mew-Mew/1/', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew'));
@@ -3016,7 +3016,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2305-Tokyo-Mew-Mew/52/', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Fantasy', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Romance', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Tokyo Mew Mew'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Tenkuu Shinpan (ITA)', 'Zero-G', '2021-0-1', 'La liceale Yuri si sveglia improvvisamente in un mondo bizzarro: un universo fatto di grattacieli uniti da ponti sospesi, dove tutti i piani inferiori degli edifici sono sbarrati e irraggiungibili. Per questa strana città vagano degli uomini in maschera, armati, pronti a uccidere o a buttare giù dagli edifici chiunque non sia abbastanza veloce da scappare. Con sorpresa, Yuri riesce con il suo cellulare a chiamare il fratello maggiore, il quale l’avverte (prima che cada la linea) di raggiungere la torre più alta della città: lì si sarebbero incontrati e avrebbe avuto delle spiegazioni. Ora Yuri deve solo avanzare e sopravvivere fino alla torre…', 'https://www.animelove.tv/assets/img/TenkuuShinpanITA.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2293-Tenkuu-Shinpan-(ITA)/1/', (SELECT id FROM Anime WHERE name = 'Tenkuu Shinpan (ITA)'));
@@ -3231,14 +3231,14 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2300-Vandread:-The-Second-Stage/12/', (SELECT id FROM Anime WHERE name = 'Vandread: The Second Stage'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2300-Vandread:-The-Second-Stage/13/', (SELECT id FROM Anime WHERE name = 'Vandread: The Second Stage'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Vandread: The Second Stage'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Vandread: The Second Stage'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Vandread: The Second Stage'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Ecchi', (SELECT id FROM Anime WHERE name = 'Vandread: The Second Stage'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Vampire Hunter D', 'Ashi Productions', '1985-0-1', '10.0000 anni nel futuro. Il mondo è diventato un luogo molto diverso; un posto dove i mostri vagano liberamente e le persone, nonostante l\'utilizzo di armi altamente tecnologiche e cavalli robot, trascorrono una vita semplice pensando ai fasti di un tempo. Da migliaia di anni Il Conte Magnus Lee domina sulle sue terre spargendo il terrore sugli abitanti terrore. Un giorno morde una ragazza di un villaggio, Doris, per renderla sua moglie. Un vagabondo errante arriva in soccorso della ragazza: è D, un vampire hunter, che inzierà la sua battaglia per mettere fine al dominio del Conte.', 'https://www.animelove.tv/assets/img/VampireHunterD.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2249-Vampire-Hunter-D/1/', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Horror', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Supernatural', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Vampire Hunter D: Bloodlust (ITA)', 'Madhouse', '2000-0-1', 'La storia è ambientata in un futuro controllato dai vampiri. Sono molte le persone che hanno subito delle violenze da parte loro, tra cui una ragazza di nome Charlotte che è stata rapita recentemente. Nel disperato tentativo di salvarla, suo padre ha assoldato dei cacciatori di vampiri e D, un mezzosangue nato da una relazione tra un vampiro e un\'umana. Quest\'ultimo avrà il compito di uccidere la ragazza nel caso in cui questa fosse già stata tramutata in un vampiro, ma il suo piano subirà delle complicazioni. Le persone che avrebbero dovuto collaborar con lui, infatti, cercheranno inaspettatamente di ostacolarlo.', 'https://www.animelove.tv/assets/img/VampireHunterDBloodlust.jpg');
@@ -3248,7 +3248,7 @@ INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Ani
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Fantasy', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D: Bloodlust (ITA)'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Horror', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D: Bloodlust (ITA)'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Romance', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D: Bloodlust (ITA)'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D: Bloodlust (ITA)'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Vampire Hunter D: Bloodlust (ITA)'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Vinland Saga 2', 'N/A', '2023-0-1', 'Seconda stagione di Vinland Saga', 'https://www.animelove.tv/assets/img/VinlandSaga2.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/1990-Vinland-Saga-2/1/', (SELECT id FROM Anime WHERE name = 'Vinland Saga 2'));
@@ -3310,12 +3310,12 @@ INSERT INTO Tag (id, name, anime) VALUES (default, 'Drama', (SELECT id FROM Anim
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Romance', (SELECT id FROM Anime WHERE name = 'W: Wish'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Slice of LifeSlice of Life', (SELECT id FROM Anime WHERE name = 'W: Wish'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
-VALUES (default, 'Wonderful Days', 'None found, add some', '2003-0-1', 'In un futuro non molto prossimo due diverse fazioni convivono in una piccola isola, Gibraltar. Il primo gruppo, chiamato ECOBAN, vive nell’agiatezza ed ha dalla sua parte la tecnologia e l’energia creata sfruttando l’inquinamento presente nell’atmosfera. Proprio questa peculiarità fa sì che i cieli dell’isola siano sempre grigi e l’aria non respirabile. La seconda fazione, i Marrians, vivono in una città decadente e sono in pratica la classe manovale di Ecoban. Tuttavia sono superiori di numero e visto come vengono trattati non tarderanno molto a ribellarsi. Le vicende ruotano intorno a tre personaggi, amici nell’infanzia ma poi separati a seguito di un tragico evento. Un giorno Jay durante un pattugliamento incontra Shua che credeva morto. Nel pedinarlo scopre che vive a Marrians e che continua a seguire il suo sogno… quello di poter rivedere l’azzurro cielo che vide nella sua infanzia proprio insieme a Jay.', 'https://www.animelove.tv/assets/img/WonderfulDays.jpg');
+VALUES (default, 'Wonderful Days', 'N/A', '2003-0-1', 'In un futuro non molto prossimo due diverse fazioni convivono in una piccola isola, Gibraltar. Il primo gruppo, chiamato ECOBAN, vive nell’agiatezza ed ha dalla sua parte la tecnologia e l’energia creata sfruttando l’inquinamento presente nell’atmosfera. Proprio questa peculiarità fa sì che i cieli dell’isola siano sempre grigi e l’aria non respirabile. La seconda fazione, i Marrians, vivono in una città decadente e sono in pratica la classe manovale di Ecoban. Tuttavia sono superiori di numero e visto come vengono trattati non tarderanno molto a ribellarsi. Le vicende ruotano intorno a tre personaggi, amici nell’infanzia ma poi separati a seguito di un tragico evento. Un giorno Jay durante un pattugliamento incontra Shua che credeva morto. Nel pedinarlo scopre che vive a Marrians e che continua a seguire il suo sogno… quello di poter rivedere l’azzurro cielo che vide nella sua infanzia proprio insieme a Jay.', 'https://www.animelove.tv/assets/img/WonderfulDays.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2166-Wonderful-Days/1/', (SELECT id FROM Anime WHERE name = 'Wonderful Days'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'Wonderful Days'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'Wonderful Days'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Romance', (SELECT id FROM Anime WHERE name = 'Wonderful Days'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Wonderful Days'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Wonderful Days'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'W\'z', 'GoHands', '2019-0-1', 'Yukiya, che si dice abbia 14 anni, ha una passione per la musica house, che gli è stata trasmessa sin dalla primissima infanzia dal padre DJ. Egli passa il suo tempo a mixare in solitudine e carica i suoi pezzi online su dei video. Vuole trasmettere la sua passione al pubblico, spera che il suo talento venga riconosciuto e mira a diventare famoso. Ma il mondo di internet non è tenero, pullula di leoni da tastiera, veloci a criticare ed insultate; rimanere delusi è feriti è facilissimo. Venire feriti nell’orgoglio è davvero spaventoso, così un giorno, per tentare di ottenere più visualizzazioni, Yukiya fa qualcosa che non può più essere disfatto… assiste ad una diretta live da “quel mondo”…', 'https://www.animelove.tv/assets/img/Wz.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2107-W\'z/1/', (SELECT id FROM Anime WHERE name = 'W\'z'));
@@ -3561,7 +3561,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2100-Yakusoku-no-Neverland/11/', (SELECT id FROM Anime WHERE name = 'Yakusoku no Neverland'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2100-Yakusoku-no-Neverland/12/', (SELECT id FROM Anime WHERE name = 'Yakusoku no Neverland'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Mystery', (SELECT id FROM Anime WHERE name = 'Yakusoku no Neverland'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-FiSci-Fi', (SELECT id FROM Anime WHERE name = 'Yakusoku no Neverland'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'Yakusoku no Neverland'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Suspense', (SELECT id FROM Anime WHERE name = 'Yakusoku no Neverland'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Yubisaki kara Honki no Netsujou: Osananajimi wa Shouboushi', 'Studio Hokiboshi', '2019-0-1', 'Ryou Fujihashi è un\'impiegata di 24 anni che di tanto in tanto partecipa ad alcune serate in compagnia di alcune amiche e di Souma, un suo amico d\'infanzia che ha una cotta per lei. Una notte, però, scoppia un incendio nella sua abitazione e dopo qualche attimo di paura, viene tempestivamente salvata da un aitante vigile del fuoco che si rivelerà essere il suo amico. Non avendo più una casa in cui tornare e avendo perso i numeri di telefono di tutte le sue amiche, Ryou accetterà di stabilirsi temporaneamente a casa di Souma, dando così inizio a un\'estate rovente...', 'https://www.animelove.tv/assets/img/YubisakiKaraHonkiNoNetsujou.jpg');
