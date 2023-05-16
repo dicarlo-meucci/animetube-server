@@ -18,7 +18,7 @@ module.exports = async function (fastify, options) {
         }
 
         const query = prepareQuery(
-            'SELECT a.* FROM List l JOIN Anime a ON (l.anime = a.id) JOIN Tag t ON (t.anime = a.id) WHERE l.user = ?',
+            'SELECT DISTINCT a.*, COUNT(e.id) AS episodes FROM List l JOIN Anime a ON (l.anime = a.id) JOIN Episode e ON (e.anime = a.id) WHERE l.user = ?',
             [user.id]
         )
 
