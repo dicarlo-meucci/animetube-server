@@ -20,25 +20,26 @@ module.exports = async function (fastify, options) {
                         description: 'anime object',
                         type: 'object',
                         properties: {
-                            id: { type: 'number' },
-                            name: { type: 'string' },
-                            studio: { type: 'string' },
-                            description: { type: 'string' },
-                            date: { type: 'string' },
-                            cover: { type: 'string' },
+                            id: { type: 'number', example: 0 },
+                            name: { type: 'string', example: 'Naruto'  },
+                            studio: { type: 'string', example: 'Nippon Animation' },
+                            description: { type: 'string', example: 'Juntang, uno studente universitario pronto a ricominciare la sua vita in un nuovo appartamento...' },
+                            date: { type: 'string', example: '2023-01-01' },
+                            cover: { type: 'string', example: 'https://www.animelove.tv/assets/img/KawaisugiCrisis.jpg' },
                             episodes: {
                                 type: 'array',
                                 items: {
                                     type: 'object',
                                     properties: {
-                                        link: { type: 'string' }
+                                        link: { type: 'string', example: 'https://www.animelove.tv/anime/2362-Kawaisugi-Crisis/1/' }
                                     }
                                 }
                             },
                             tags: {
                                 type: 'array',
                                 items: {
-                                    type: 'string'
+                                    type: 'string',
+                                    example: ['Drama',"Fantasy"]
                                 }
                             }
                         }

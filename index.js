@@ -33,12 +33,6 @@ fastify.register(require('@fastify/swagger-ui'), {
             next()
         }
     },
-    staticCSP: true,
-    transformStaticCSP: (header) => header,
-    transformSpecification: (swaggerObject, request, reply) => {
-        return swaggerObject
-    },
-    transformSpecificationClone: true
 })
 
 fastify.register(require('@fastify/rate-limit'), {
