@@ -1343,7 +1343,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2247-Gravitation/11/', (SELECT id FROM Anime WHERE name = 'Gravitation'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2247-Gravitation/12/', (SELECT id FROM Anime WHERE name = 'Gravitation'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2247-Gravitation/13/', (SELECT id FROM Anime WHERE name = 'Gravitation'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys LoveBoys Love', (SELECT id FROM Anime WHERE name = 'Gravitation'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys Love', (SELECT id FROM Anime WHERE name = 'Gravitation'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Comedy', (SELECT id FROM Anime WHERE name = 'Gravitation'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Gyakkyou Burai Kaiji: Hakairoku-hen', 'Madhouse', '2011-0-1', 'L\'Episodio 14 non è mai stato subbato essendo un recap degli episodi precedenti. Seguito di Gyakkyou Burai Kaiji: Ultimate Survivor', 'https://www.animelove.tv/assets/img/GyakkyouBuraiKaijiHakairokuHen.jpg');
@@ -1478,7 +1478,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2079-Given/9/', (SELECT id FROM Anime WHERE name = 'Given'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2079-Given/10/', (SELECT id FROM Anime WHERE name = 'Given'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2079-Given/11/', (SELECT id FROM Anime WHERE name = 'Given'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys LoveBoys Love', (SELECT id FROM Anime WHERE name = 'Given'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys Love', (SELECT id FROM Anime WHERE name = 'Given'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'Given'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Romance', (SELECT id FROM Anime WHERE name = 'Given'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
@@ -2339,7 +2339,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2106-Papa-datte,-Shitai/6/', (SELECT id FROM Anime WHERE name = 'Papa datte, Shitai'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2106-Papa-datte,-Shitai/7/', (SELECT id FROM Anime WHERE name = 'Papa datte, Shitai'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2106-Papa-datte,-Shitai/8/', (SELECT id FROM Anime WHERE name = 'Papa datte, Shitai'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys LoveBoys Love', (SELECT id FROM Anime WHERE name = 'Papa datte, Shitai'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys Love', (SELECT id FROM Anime WHERE name = 'Papa datte, Shitai'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Hentai', (SELECT id FROM Anime WHERE name = 'Papa datte, Shitai'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Psycho Pass: Sinners of the System Case 3', 'Production I.G', '2019-0-1', 'Shinya Kougami continua a vagare per l\'Unione del sud-est asiatico (SEAUn) lontano dagli occhi del sistema Sibyl in Giappone. Durante un viaggio attraverso il Regno dell\'Alleanza Tibet-Himalayano, Kougami incontra Guillermo Garcia, comandante di un gruppo paramilitare che tenta di unire le fazioni locali e portare la pace nella nazione dilaniata dalla guerra. Diffidente all\'idea di unirsi a un altro gruppo di mercenari, Kougami rifiuta di unirsi alla sua causa, ma accetta di essere condotto nella vicina capitale tibetana da uno degli uomini di Garcia. Tuttavia, il piano di Kougami di rimanere non coinvolto ha vita breve quando un autobus di rifugiati cade in un\'imboscata da parte di guerriglieri armati. Tra loro c\'è una ragazza metà giapponese e metà tibetana di nome Tenzing Wangchuck...', 'https://www.animelove.tv/assets/img/PsychoPassSinnersOfTheSystem3.jpg');
@@ -3198,7 +3198,7 @@ INSERT INTO Tag (id, name, anime) VALUES (default, ' Ecchi', (SELECT id FROM Ani
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Umibe no Étranger Movie', 'Studio Hibari', '2020-0-1', 'Su un\'isola al largo della costa di Okinawa, due giovani si incontrano su una spiaggia. Shun Hashimoto è un giovane scrittore omosessuale che soggiorna nella pensione di proprietà della zia da quando è fuggito dalla sua famiglia dopo aver fatto coming out. Mio Chibana è un adolescente che trascorrere il suo tempo su una panchina osservando, con sguardo malinconico, il mare. Shun è incuriosito dal malinconico Mio e proprio mentre tra i due sta incominciando a nascere un\'amicizia, Mio deve trasferirsi sull\'isola principale dell\'arcipelago per motivi di studi. Dopo tre anni Mio fa improvvisamente ritorno per affrontare i suoi sentimenti.', 'https://www.animelove.tv/assets/img/UmibeNoEtranger.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2007-Umibe-no-tranger-Movie/1/', (SELECT id FROM Anime WHERE name = 'Umibe no Étranger Movie'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys LoveBoys Love', (SELECT id FROM Anime WHERE name = 'Umibe no Étranger Movie'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys Love', (SELECT id FROM Anime WHERE name = 'Umibe no Étranger Movie'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Romance', (SELECT id FROM Anime WHERE name = 'Umibe no Étranger Movie'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'UniteUp!', 'N/A', '2023-0-1', 'Akira Kiyose canta su un sito di streaming video con il nome del cantante "KIKUNOYU". Un giorno l\'agenzia di talenti sMiLea Production lo scova. sMiLea è un\'agenzia fondata dalla leggendaria coppia di idol in pensione AneLa per addestrare nuovi idol in erba. Akira forma quindi un gruppo idol con Banri Naoe e Chihiro Isuzugawa, anch\'essi scoperti dall\'agenzia. Il loro nuovo gruppo, Protostar, farà il suo debutto insieme ad altri nuovi gruppi idol con sMiLea Production: Legit e Jaxx Jaxx.', 'https://www.animelove.tv/assets/img/UniteUp.jpg');
@@ -3346,7 +3346,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2093-Wei,-Kanjian-Erduo-La!/10/', (SELECT id FROM Anime WHERE name = 'Wei, Kanjian Erduo La!'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2093-Wei,-Kanjian-Erduo-La!/11/', (SELECT id FROM Anime WHERE name = 'Wei, Kanjian Erduo La!'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2093-Wei,-Kanjian-Erduo-La!/12/', (SELECT id FROM Anime WHERE name = 'Wei, Kanjian Erduo La!'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys LoveBoys Love', (SELECT id FROM Anime WHERE name = 'Wei, Kanjian Erduo La!'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys Love', (SELECT id FROM Anime WHERE name = 'Wei, Kanjian Erduo La!'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Comedy', (SELECT id FROM Anime WHERE name = 'Wei, Kanjian Erduo La!'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Slice of LifeSlice of Life', (SELECT id FROM Anime WHERE name = 'Wei, Kanjian Erduo La!'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
@@ -3595,7 +3595,7 @@ INSERT INTO Tag (id, name, anime) VALUES (default, ' Fantasy', (SELECT id FROM A
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Zetsuai 1989', 'Madhouse', '1992-0-1', 'Koji Nanjo è una super famosa pop star, di bell’aspetto, ricco e pieno di donne; da ragazzino era stato colpito dallo sguardo penetrante di un altro ragazzino, che non aveva mai più incontrato, almeno sino ad ora: il ragazzo in questione è il calciatore Takuto Izumi. Quando lo rincontra, in Koji si scatenano strane emozioni in conflitto, è attratto da un uomo, ma allo stesso tempo non riesce a pieno ad accettare questo amore. Takuto, dal canto suo, non accetta le attenzioni di Koji perché da un lato non sa quel che vuole, e dall’altro vuole rimanere solo e non legarsi a nessuno, per via del suo traumatico passato e soprattutto vuole a tutti costi evitare scandali ed essere sotto i riflettori, che inevitabilmente Koji porta con se.', 'https://www.animelove.tv/assets/img/Zetsuai1989.jpg');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2241-Zetsuai-1989/1/', (SELECT id FROM Anime WHERE name = 'Zetsuai 1989'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys LoveBoys Love', (SELECT id FROM Anime WHERE name = 'Zetsuai 1989'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Boys Love', (SELECT id FROM Anime WHERE name = 'Zetsuai 1989'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'Zetsuai 1989'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Romance', (SELECT id FROM Anime WHERE name = 'Zetsuai 1989'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Sport', (SELECT id FROM Anime WHERE name = 'Zetsuai 1989'));

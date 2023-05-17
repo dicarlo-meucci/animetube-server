@@ -12,7 +12,7 @@ module.exports = async function (fastify, options) {
         const result = (await db.query(query))[0][0]
 
         if (!result.score) {
-            res.code(404).send({ error: 'No score was registered' })
+            res.code(204).send({ error: 'No score was registered' })
             return
         }
 
