@@ -1,7 +1,7 @@
 const { getInstance, prepareQuery } = require('../../../database')
 
 module.exports = async function (fastify, options) {
-    fastify.post('/remove', async (req, res) => {
+    fastify.delete('/', async (req, res) => {
         const db = await getInstance()
         const token = req.headers['x-auth-token']
         const { anime } = req.body
@@ -24,15 +24,16 @@ module.exports = async function (fastify, options) {
         const exists = (await db.query(checkIfExists))[0][0]
 
         if (!exists) {
-            res.code(403).send({ error: 'This anime is not present in your list' })
+            res.code(403).send({
+                error: 'This anime is not present in your list'
+            })
             return
         }
 
-        const query = prepareQuery('DELETE FROM List WHERE anime = ? AND user = ?',
-            [anime,user.id]
+        const query = prepareQuery(
+            'DELETE FROM List WHERE anime = ? AND user = ?',
+            [anime, user.id]
         )
-
-        console.log(query)
 
         const result = (await db.execute(query))[0]
 

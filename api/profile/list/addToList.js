@@ -1,7 +1,7 @@
 const { getInstance, prepareQuery } = require('../../../database')
 
 module.exports = async function (fastify, options) {
-    fastify.post('/add', async (req, res) => {
+    fastify.post('/', async (req, res) => {
         const db = await getInstance()
         const token = req.headers['x-auth-token']
         const { anime } = req.body
@@ -25,7 +25,9 @@ module.exports = async function (fastify, options) {
         const exists = (await db.query(checkIfExists))[0][0]
 
         if (exists) {
-            res.code(403).send({ error: 'This anime is already present in your list' })
+            res.code(403).send({
+                error: 'This anime is already present in your list'
+            })
             return
         }
 

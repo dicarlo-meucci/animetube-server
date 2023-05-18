@@ -72,7 +72,7 @@ module.exports = async function (fastify, options) {
 
             const hashedPassword = bcrypt.hashSync(
                 password,
-                parseInt(process.env.SALT_ROUNDS)
+                10
             )
 
             const token = generateToken()

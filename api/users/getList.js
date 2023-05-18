@@ -7,7 +7,7 @@ module.exports = async function (fastify, options) {
         const user = await getUser(username)
 
         if (!user) {
-            res.code(401).send({ error: 'User doesn\'t exist' })
+            res.code(401).send({ error: "User doesn't exist" })
             return
         }
 
@@ -17,7 +17,7 @@ module.exports = async function (fastify, options) {
         )
 
         const result = (await db.query(query))[0][0]
-            console.log(result)
+        console.log(result)
         if (!result.length) {
             res.code(204).send({ error: 'Your list is empty' })
             return
@@ -29,7 +29,9 @@ module.exports = async function (fastify, options) {
 
 async function getUser(username) {
     const db = await getInstance()
-    const query = prepareQuery('SELECT * FROM User WHERE username = ?', [username])
+    const query = prepareQuery('SELECT * FROM User WHERE username = ?', [
+        username
+    ])
     const result = (await db.query(query))[0][0]
     return result
 }

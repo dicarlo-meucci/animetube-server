@@ -1,10 +1,8 @@
 const { getInstance, prepareQuery } = require('../../database')
-// write a description object based on the code you see
-// follow this template
 
 module.exports = async function (fastify, options) {
     fastify.post(
-        '/review',
+        '/:id/review',
         {
             schema: {
                 description: 'Post a review',
@@ -59,7 +57,8 @@ module.exports = async function (fastify, options) {
                         }
                     },
                     500: {
-                        description: 'An error has occurred while uploading the review',
+                        description:
+                            'An error has occurred while uploading the review',
                         type: 'object',
                         properties: {
                             error: { type: 'string' }
@@ -71,7 +70,8 @@ module.exports = async function (fastify, options) {
         async (req, res) => {
             const db = await getInstance()
             const token = req.headers['x-auth-token']
-            const { anime, text, score } = req.body
+            const { text, score } = req.body
+            const anime = req.params['id']
 
             if (score == null || anime == null) {
                 res.code(400).send({

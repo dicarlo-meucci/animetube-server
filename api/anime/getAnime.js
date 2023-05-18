@@ -2,7 +2,7 @@ const { getInstance, prepareQuery } = require('../../database')
 
 module.exports = async function (fastify, options) {
     fastify.get(
-        '/view/*',
+        '/:id',
         {
             schema: {
                 description: 'get the details of a specific anime',
@@ -21,17 +21,32 @@ module.exports = async function (fastify, options) {
                         type: 'object',
                         properties: {
                             id: { type: 'number', example: 0 },
-                            name: { type: 'string', example: 'Naruto'  },
-                            studio: { type: 'string', example: 'Nippon Animation' },
-                            description: { type: 'string', example: 'Juntang, uno studente universitario pronto a ricominciare la sua vita in un nuovo appartamento...' },
+                            name: { type: 'string', example: 'Naruto' },
+                            studio: {
+                                type: 'string',
+                                example: 'Nippon Animation'
+                            },
+                            description: {
+                                type: 'string',
+                                example:
+                                    'Juntang, uno studente universitario pronto a ricominciare la sua vita in un nuovo appartamento...'
+                            },
                             date: { type: 'string', example: '2023-01-01' },
-                            cover: { type: 'string', example: 'https://www.animelove.tv/assets/img/KawaisugiCrisis.jpg' },
+                            cover: {
+                                type: 'string',
+                                example:
+                                    'https://www.animelove.tv/assets/img/KawaisugiCrisis.jpg'
+                            },
                             episodes: {
                                 type: 'array',
                                 items: {
                                     type: 'object',
                                     properties: {
-                                        link: { type: 'string', example: 'https://www.animelove.tv/anime/2362-Kawaisugi-Crisis/1/' }
+                                        link: {
+                                            type: 'string',
+                                            example:
+                                                'https://www.animelove.tv/anime/2362-Kawaisugi-Crisis/1/'
+                                        }
                                     }
                                 }
                             },
@@ -39,7 +54,7 @@ module.exports = async function (fastify, options) {
                                 type: 'array',
                                 items: {
                                     type: 'string',
-                                    example: ['Drama',"Fantasy"]
+                                    example: ['Drama', 'Fantasy']
                                 }
                             }
                         }
@@ -56,7 +71,7 @@ module.exports = async function (fastify, options) {
         },
         async (req, res) => {
             const db = await getInstance()
-            const id = req.params['*']
+            const id = req.params['id']
             const query = prepareQuery(`SELECT * FROM Anime WHERE id = ?`, [id])
             const anime = (await db.query(query))[0][0]
 
@@ -73,9 +88,12 @@ module.exports = async function (fastify, options) {
             const episodes = (await db.query(episodesQuery))[0]
             anime.episodes = episodes
 
-            const tagsQuery = prepareQuery(`SELECT name FROM Tag WHERE anime = ?`, [id])
+            const tagsQuery = prepareQuery(
+                `SELECT name FROM Tag WHERE anime = ?`,
+                [id]
+            )
             const tags = (await db.query(tagsQuery))[0]
-            
+
             anime.tags = []
 
             for (const tag of tags) {

@@ -1,7 +1,7 @@
 const { getInstance, prepareQuery } = require('../../../database')
 
 module.exports = async function (fastify, options) {
-    fastify.get('/view', async (req, res) => {
+    fastify.get('/', async (req, res) => {
         const db = await getInstance()
         const token = req.headers['x-auth-token']
 

@@ -1,12 +1,12 @@
 const { getInstance, prepareQuery } = require('../../database')
 
 module.exports = async function (fastify, options) {
-    fastify.get('/score/*', async (req, res) => {
+    fastify.get('/:id/score', async (req, res) => {
         const db = await getInstance()
-        const id = req.params['*']
+        const anime = req.params['id']
         const query = prepareQuery(
             `SELECT ((SUM(score)/COUNT(*))) as score FROM Review WHERE anime = ?`,
-            [id]
+            [anime]
         )
 
         const result = (await db.query(query))[0][0]

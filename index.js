@@ -22,8 +22,11 @@ fastify.register(require('@fastify/swagger'), {
 fastify.register(require('@fastify/swagger-ui'), {
     routePrefix: '/docs',
     uiConfig: {
-        docExpansion: 'full',
-        deepLinking: false
+        deepLinking: false,
+        syntaxHighlight: {
+            activate: true,
+            theme: 'nord'
+        }
     },
     uiHooks: {
         onRequest: function (request, reply, next) {
@@ -32,7 +35,7 @@ fastify.register(require('@fastify/swagger-ui'), {
         preHandler: function (request, reply, next) {
             next()
         }
-    },
+    }
 })
 
 fastify.register(require('@fastify/rate-limit'), {
