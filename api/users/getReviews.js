@@ -1,12 +1,66 @@
 const { getInstance, prepareQuery } = require('../../database')
 
-module.exports = async function (fastify, options) {
-    fastify.get('/:username/reviews', async (req, res) => {
+module.exports = async function (fastify, options)
+{
+    fastify.get('/:username/reviews', {
+        schema: {
+            description: 'Get user reviews',
+            params: {
+                type: 'object',
+                properties: {
+                    username: {
+                        type: 'string',
+                        description: 'The username of the user whose reviews are being requested'
+                    }
+                },
+                required: ['username']
+            },
+            response: {
+                200: {
+                    description: 'User reviews',
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            text: { type: 'string' },
+                            score: { type: 'number' },
+                            anime: {
+                                type: 'object',
+                                properties: {
+                                    id: { type: 'integer' },
+                                    name: { type: 'string' },
+                                    cover: { type: 'string' },
+                                    episodes: { type: 'integer' }
+                                }
+                            },
+                            user: { type: 'string' }
+                        }
+                    }
+                },
+                204: {
+                    description: 'User has no reviews',
+                    type: 'object',
+                    properties: {
+                        error: { type: 'string' }
+                    }
+                },
+                401: {
+                    description: "User doesn't exist",
+                    type: 'object',
+                    properties: {
+                        error: { type: 'string' }
+                    }
+                }
+            }
+        }
+    }, async (req, res) =>
+    {
         const db = await getInstance()
         const username = req.params['username']
         const user = await getUser(username)
 
-        if (!user) {
+        if (!user)
+        {
             res.code(401).send({ error: "User doesn't exist" })
             return
         }
@@ -25,12 +79,14 @@ module.exports = async function (fastify, options) {
 
         const result = (await db.query(query))[0]
 
-        if (result[0].text == null && result[0].score == null) {
+        if (result[0].text == null && result[0].score == null)
+        {
             res.code(204)
             return
         }
 
-        for (const review of result) {
+        for (const review of result)
+        {
             review.anime = {
                 id: review.animeId,
                 name: review.animeName,
@@ -48,7 +104,8 @@ module.exports = async function (fastify, options) {
     })
 }
 
-async function getUser(username) {
+async function getUser(username)
+{
     const db = await getInstance()
     const query = prepareQuery('SELECT * FROM User WHERE username = ?', [
         username
