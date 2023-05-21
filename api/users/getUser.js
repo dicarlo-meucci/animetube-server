@@ -1,7 +1,39 @@
 const { getInstance, prepareQuery } = require('../../database')
 
 module.exports = async function (fastify, options) {
-    fastify.get('/:username', async (req, res) => {
+    fastify.get('/:username',{
+        schema: {
+            description: 'Get user profile',
+            params: {
+                type: 'object',
+                properties: {
+                    username: {
+                        type: 'string',
+                        description: 'The username of the user whose profile is being requested'
+                    }
+                },
+                required: ['username']
+            },
+            response: {
+                200: {
+                    description: 'User profile',
+                    type: 'object',
+                    properties: {
+                        username: { type: 'string' },
+                        banner: { type: 'string' },
+                        pfp: { type: 'string' }
+                    }
+                },
+                404: {
+                    description: "User doesn't exist",
+                    type: 'object',
+                    properties: {
+                        error: { type: 'string' }
+                    }
+                }
+            }
+        }
+    }, async (req, res) => {
         const db = await getInstance()
         const username = req.params['username']
         const query = prepareQuery(

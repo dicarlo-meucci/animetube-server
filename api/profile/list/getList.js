@@ -1,7 +1,51 @@
 const { getInstance, prepareQuery } = require('../../../database')
 
 module.exports = async function (fastify, options) {
-    fastify.get('/', async (req, res) => {
+    fastify.get('/',{
+        schema: {
+            description: 'Get the user list',
+            headers: {
+                type: 'object',
+                properties: {
+                    'x-auth-token': {
+                        type: 'string',
+                        description: 'The authentication token of the user'
+                    }
+                },
+                required: ['x-auth-token']
+            },
+            response: {
+                200: {
+                    description: 'A list of anime objects',
+                    type: 'object',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            id: { type: 'integer' },
+                            title: { type: 'string' },
+                            description: { type: 'string' },
+                            episodes: { type: 'integer' },
+                            cover: { type: 'string' }
+                        }
+                    }
+                },
+                204: {
+                    description: 'User list is empty',
+                    type: 'object',
+                    properties: {
+                        error: { type: 'string' }
+                    }
+                },
+                401: {
+                    description: 'Invalid or missing authentication token',
+                    type: 'object',
+                    properties: {
+                        error: { type: 'string' }
+                    }
+                }
+            }
+        }
+    }, async (req, res) => {
         const db = await getInstance()
         const token = req.headers['x-auth-token']
 
