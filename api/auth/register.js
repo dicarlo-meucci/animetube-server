@@ -70,10 +70,7 @@ module.exports = async function (fastify, options) {
                 return
             }
 
-            const hashedPassword = bcrypt.hashSync(
-                password,
-                10
-            )
+            const hashedPassword = bcrypt.hashSync(password, 10)
 
             const token = generateToken()
 

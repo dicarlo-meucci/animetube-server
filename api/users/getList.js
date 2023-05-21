@@ -12,14 +12,17 @@ module.exports = async function (fastify, options) {
         }
 
         const query = prepareQuery(
-            'SELECT DISTINCT a.*, COUNT(e.id) AS episodes FROM List l JOIN Anime a ON (l.anime = a.id) JOIN Episode e ON (e.anime = a.id) WHERE l.user = ?',
+            `SELECT DISTINCT a.*, COUNT(e.id) AS episodes
+            FROM List l JOIN Anime a ON (l.anime = a.id)
+            JOIN Episode e ON (e.anime = a.id)
+            WHERE l.user = ?`,
             [user.id]
         )
 
-        const result = (await db.query(query))[0][0]
-        console.log(result)
+        const result = (await db.query(query))[0]
+
         if (!result.length) {
-            res.code(204).send({ error: 'Your list is empty' })
+            res.code(204)
             return
         }
 

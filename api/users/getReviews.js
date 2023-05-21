@@ -35,7 +35,7 @@ module.exports = async function (fastify, options) {
                 id: review.animeId,
                 name: review.animeName,
                 cover: review.animeCover,
-                episodes: review.animeEpisodes,
+                episodes: review.animeEpisodes
             }
 
             delete review.animeCover

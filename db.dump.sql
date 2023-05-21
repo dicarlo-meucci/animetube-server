@@ -27,7 +27,7 @@ CREATE TABLE Review (
     score DOUBLE NOT NULL,
     user INT,
     anime INT,
-    date DATE,
+    date DATETIME,
     FOREIGN KEY (user) REFERENCES User(id),
     FOREIGN KEY (anime) REFERENCES Anime(id)
 );

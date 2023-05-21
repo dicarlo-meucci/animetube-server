@@ -39,7 +39,7 @@ fastify.register(require('@fastify/swagger-ui'), {
 })
 
 fastify.register(require('@fastify/rate-limit'), {
-    max: 200,
+    max: 300,
     timeWindow: '1 minute'
 })
 
