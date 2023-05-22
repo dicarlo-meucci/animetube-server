@@ -55,9 +55,17 @@ CREATE TABLE Episode (
 
 CREATE TABLE Trailer (
     link VARCHAR(512) NOT NULL,
-    img VARCHAR(512) NOT NULL
+    thumbnail VARCHAR(512) NOT NULL
 );
 
+INSERT INTO Trailer (link, thumbnail) VALUES ('https://youtu.be/aybr_9MzKXI', 'https://i.ytimg.com/vi/aybr_9MzKXI/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAf18b7DcIbpouirqJ5nGT9tlecxg');
+INSERT INTO Trailer (link, thumbnail) VALUES ('https://youtu.be/euynnAiGf1o', 'https://i.ytimg.com/vi/euynnAiGf1o/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBEwjaVg6ih7SUvDp-t4d-B1U4qpA');
+INSERT INTO Trailer (link, thumbnail) VALUES ('https://youtu.be/5-1wTVWKQe8', 'https://i.ytimg.com/vi/5-1wTVWKQe8/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCwYIJ265nEeh0sqXeqnJy5fVTKhQ');
+INSERT INTO Trailer (link, thumbnail) VALUES ('https://youtu.be/gquRl13WryU', 'https://i.ytimg.com/vi/gquRl13WryU/hq720.jpg?sqp=-oaymwE2COgCEMoBSFXyq4qpAygIARUAAIhCGAFwAcABBvABAfgB_gmAAtAFigIMCAAQARg-IFYoZTAP&rs=AOn4CLBYB154T1MctcjPcVGLU68jkQvVUg');
+INSERT INTO Trailer (link, thumbnail) VALUES ('https://youtu.be/STRR-YY3xkU', 'https://i.ytimg.com/vi/STRR-YY3xkU/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDdF2D77fkCCuSuYG5-yiYmL2o0Aw');
+INSERT INTO Trailer (link, thumbnail) VALUES ('https://youtu.be/eqy85AL70PU', 'https://i.ytimg.com/vi/eqy85AL70PU/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBO1tdJV5nX2C_W9sYmYWFhuiNU8g');
+INSERT INTO Trailer (link, thumbnail) VALUES ('https://youtu.be/PrgxJ1_sUcs', 'https://i.ytimg.com/vi/PrgxJ1_sUcs/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAGFpNrjIEPShipyy2GRiyo6EEqgw');
+INSERT INTO Trailer (link, thumbnail) VALUES ('https://youtu.be/R4VtTAkBxRE', 'https://i.ytimg.com/vi/R4VtTAkBxRE/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAgqj887A8AHw0ahVp4xOiuv0L6-g');
 INSERT INTO Anime (id, name, studio, date, description, cover)
 VALUES (default, 'Aishang Ta de Liyou', 'Red Dog Culture House', '2023-0-1', 'Juntang, uno studente universitario pronto a ricominciare la sua vita in un nuovo appartamento. Riuscito ad entrare nella Minsong University per rivedere una sua amica di vecchia data, di cui è fortemente cotto. Ma tutto cambia quando incontra la sua nuova vicina. Parliamo di un ex-idol, Shiya Li, una donna forte dal grande fascino e talento che farà subito colpo sul nostro protagonista.', 'https://www.animelove.tv/assets/img/AishangTaDeLiyou.png');
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2361-Aishang-Ta-de-Liyou/1/', (SELECT id FROM Anime WHERE name = 'Aishang Ta de Liyou'));
