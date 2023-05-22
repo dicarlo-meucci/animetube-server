@@ -22,7 +22,7 @@ module.exports = async function (fastify, options) {
                         type: 'object',
                         properties: {
                             id: { type: 'integer' },
-                            title: { type: 'string' },
+                            name: { type: 'string' },
                             description: { type: 'string' },
                             episodes: { type: 'integer' },
                             cover: { type: 'string' }
@@ -36,7 +36,7 @@ module.exports = async function (fastify, options) {
         const { title } = req.body
         const query = prepareQuery(
             `SELECT * FROM Anime WHERE name LIKE ? LIMIT 5`,
-            [`%${title}%`]
+            [`${title}%`]
         )
         const result = (await db.query(query))[0]
 

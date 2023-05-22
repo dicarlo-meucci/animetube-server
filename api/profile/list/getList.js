@@ -1,7 +1,8 @@
 const { getInstance, prepareQuery } = require('../../../database')
 
-module.exports = async function (fastify, options) {
-    fastify.get('/',{
+module.exports = async function (fastify, options)
+{
+    fastify.get('/', {
         schema: {
             description: 'Get the user list',
             headers: {
@@ -17,15 +18,16 @@ module.exports = async function (fastify, options) {
             response: {
                 200: {
                     description: 'A list of anime objects',
-                    type: 'object',
+                    type: 'array',
                     items: {
                         type: 'object',
                         properties: {
                             id: { type: 'integer' },
-                            title: { type: 'string' },
+                            name: { type: 'string' },
                             description: { type: 'string' },
                             episodes: { type: 'integer' },
-                            cover: { type: 'string' }
+                            cover: { type: 'string' },
+                            studio: {type: 'string' }
                         }
                     }
                 },
@@ -45,18 +47,21 @@ module.exports = async function (fastify, options) {
                 }
             }
         }
-    }, async (req, res) => {
+    }, async (req, res) =>
+    {
         const db = await getInstance()
         const token = req.headers['x-auth-token']
 
-        if (!token) {
+        if (!token)
+        {
             res.code(401).send({ error: 'Authentication token not provided' })
             return
         }
 
         const user = await getUser(token)
 
-        if (!user) {
+        if (!user)
+        {
             res.code(401).send({ error: 'Invalid token' })
             return
         }
@@ -76,7 +81,8 @@ module.exports = async function (fastify, options) {
 
         const result = (await db.query(query))[0]
 
-        if (!result.length) {
+        if (!result.length)
+        {
             res.code(204).send({ error: 'Your list is empty' })
             return
         }
@@ -85,7 +91,8 @@ module.exports = async function (fastify, options) {
     })
 }
 
-async function getUser(token) {
+async function getUser(token)
+{
     const db = await getInstance()
     const query = prepareQuery('SELECT id FROM User WHERE token = ?', [token])
     const result = (await db.query(query))[0][0]

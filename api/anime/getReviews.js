@@ -10,7 +10,8 @@ module.exports = async function (fastify, options) {
         FROM Review r
         INNER JOIN User u ON r.user = u.id
         INNER JOIN Anime a ON r.anime = a.id
-        WHERE a.id = ?`,
+        WHERE a.id = ?
+        ORDER BY r.date DESC`,
             [anime]
         )
 
