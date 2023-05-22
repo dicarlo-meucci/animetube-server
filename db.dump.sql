@@ -53,8 +53,8 @@ CREATE TABLE Episode (
     FOREIGN KEY (anime) REFERENCES Anime(id)
 );
 
-CREATE TABLE Carousel (
-    trailer VARCHAR(512) NOT NULL,
+CREATE TABLE Trailer (
+    link VARCHAR(512) NOT NULL,
     img VARCHAR(512) NOT NULL
 );
 
