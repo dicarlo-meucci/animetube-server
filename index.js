@@ -3,6 +3,7 @@ const autoload = require('@fastify/autoload')
 const path = require('path')
 const dotenv = require('dotenv')
 const { getInstance } = require('./database')
+const fs = require('fs')
 dotenv.config()
 
 fastify.register(require('@fastify/swagger'), {
@@ -37,6 +38,13 @@ fastify.register(require('@fastify/swagger-ui'), {
         }
     }
 })
+
+fastify.decorate('NotFound', (req, res) => {
+    const stream = fs.createReadStream('./public/index.html')
+    res.type('text/html').send(stream)
+})
+
+fastify.setNotFoundHandler(fastify.NotFound)
 
 fastify.register(require('@fastify/rate-limit'), {
     max: 300,
