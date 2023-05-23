@@ -1,50 +1,7 @@
 const { getInstance, prepareQuery } = require('../../database')
 
 module.exports = async function (fastify, options) {
-    fastify.get('/:username/list',{
-        schema: {
-            description: 'Get user anime list',
-            params: {
-                type: 'object',
-                properties: {
-                    username: {
-                        type: 'string',
-                        description: 'The username of the user whose list is being requested'
-                    }
-                },
-                required: ['username']
-            },
-            response: {
-                200: {
-                    description: 'User anime list',
-                    type: 'object',
-                    properties: {
-                        id: { type: 'integer' },
-                        name: { type: 'string' },
-                        studio: { type: 'string' },
-                        date: { type: 'string' },
-                        description: { type: 'string' },
-                        cover: { type: 'string' },
-                        episodes: { type: 'integer' }
-                    }
-                },
-                204: {
-                    description: 'User list is empty',
-                    type: 'object',
-                    properties: {
-                        error: { type: 'string' }
-                    }
-                },
-                401: {
-                    description: "User doesn't exist",
-                    type: 'object',
-                    properties: {
-                        error: { type: 'string' }
-                    }
-                }
-            }
-        }
-    }, async (req, res) => {
+    fastify.get('/:username/list', async (req, res) => {
         const db = await getInstance()
         const username = req.params['username']
         const user = await getUser(username)
@@ -58,7 +15,8 @@ module.exports = async function (fastify, options) {
             `SELECT DISTINCT a.*, COUNT(e.id) AS episodes
             FROM List l JOIN Anime a ON (l.anime = a.id)
             JOIN Episode e ON (e.anime = a.id)
-            WHERE l.user = ?`,
+            WHERE l.user = ?
+            GROUP BY a.id`,
             [user.id]
         )
 

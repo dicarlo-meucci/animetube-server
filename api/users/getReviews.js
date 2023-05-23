@@ -24,6 +24,7 @@ module.exports = async function (fastify, options)
                         properties: {
                             text: { type: 'string' },
                             score: { type: 'number' },
+                            date: {type: 'string'},
                             anime: {
                                 type: 'object',
                                 properties: {
@@ -66,14 +67,15 @@ module.exports = async function (fastify, options)
         }
 
         const query = prepareQuery(
-            `SELECT r.text, (r.score / 20) as score,
+            `SELECT r.text, r.score as score, r.date as date,
             a.name as animeName, u.username as user,
             a.cover as animeCover, a.id as animeId, COUNT(e.id) as animeEpisodes
             FROM Review r
             INNER JOIN Anime a ON (r.anime = a.id) 
             INNER JOIN User u ON (r.user = u.id)
             INNER JOIN Episode e ON (a.id = e.anime)
-            WHERE r.user = ?`,
+            WHERE r.user = ?
+            GROUP BY r.id`,
             [user.id]
         )
 
