@@ -1108,7 +1108,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2246-FLCL/5/', (SELECT id FROM Anime WHERE name = 'FLCL'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2246-FLCL/6/', (SELECT id FROM Anime WHERE name = 'FLCL'));
 INSERT INTO Tag (id, name, anime) VALUES (default, 'Action', (SELECT id FROM Anime WHERE name = 'FLCL'));
-INSERT INTO Tag (id, name, anime) VALUES (default, ' Avant GardeAvant Garde', (SELECT id FROM Anime WHERE name = 'FLCL'));
+INSERT INTO Tag (id, name, anime) VALUES (default, ' Avant Garde', (SELECT id FROM Anime WHERE name = 'FLCL'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Comedy', (SELECT id FROM Anime WHERE name = 'FLCL'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Sci-Fi', (SELECT id FROM Anime WHERE name = 'FLCL'));
 INSERT INTO Anime (id, name, studio, date, description, cover)
@@ -2190,7 +2190,7 @@ INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2272-ParanoiaAgent/11/', (SELECT id FROM Anime WHERE name = 'ParanoiaAgent'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2272-ParanoiaAgent/12/', (SELECT id FROM Anime WHERE name = 'ParanoiaAgent'));
 INSERT INTO Episode (id, link, anime) VALUES (default, 'https://www.animelove.tv/anime/2272-ParanoiaAgent/13/', (SELECT id FROM Anime WHERE name = 'ParanoiaAgent'));
-INSERT INTO Tag (id, name, anime) VALUES (default, 'Avant GardeAvant Garde', (SELECT id FROM Anime WHERE name = 'ParanoiaAgent'));
+INSERT INTO Tag (id, name, anime) VALUES (default, 'Avant Garde', (SELECT id FROM Anime WHERE name = 'ParanoiaAgent'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Drama', (SELECT id FROM Anime WHERE name = 'ParanoiaAgent'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Mystery', (SELECT id FROM Anime WHERE name = 'ParanoiaAgent'));
 INSERT INTO Tag (id, name, anime) VALUES (default, ' Supernatural', (SELECT id FROM Anime WHERE name = 'ParanoiaAgent'));

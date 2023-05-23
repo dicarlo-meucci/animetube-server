@@ -75,7 +75,8 @@ module.exports = async function (fastify, options)
             INNER JOIN User u ON (r.user = u.id)
             INNER JOIN Episode e ON (a.id = e.anime)
             WHERE r.user = ?
-            GROUP BY r.id`,
+            GROUP BY r.id
+            ORDER BY r.date DESC`,
             [user.id]
         )
 

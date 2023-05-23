@@ -19,11 +19,9 @@
         "@fastify/static": "^6.10.1",
         "@fastify/swagger": "^8.3.1",
         "@fastify/swagger-ui": "^1.8.0",
-        "@fastify/vite": "^4.0.0",
         "bcrypt": "^5.1.0",
         "dotenv": "^16.0.3",
         "fastify": "^4.15.0",
-        "mysql2": "^3.2.4",
-        "vite": "^4.3.8"
+        "mysql2": "^3.2.4"
     }
 }
