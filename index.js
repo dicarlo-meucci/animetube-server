@@ -39,8 +39,10 @@ fastify.register(require('@fastify/swagger-ui'), {
     }
 })
 
+// This handler is needed to ensure SPA functionality
+
 fastify.decorate('NotFound', (req, res) => {
-    const stream = fs.createReadStream('./public/index.html')
+    const stream = fs.createReadStream(`${__dirname}/public/index.html`)
     res.type('text/html').send(stream)
 })
 
