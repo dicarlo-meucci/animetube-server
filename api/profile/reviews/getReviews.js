@@ -2,7 +2,53 @@ const { getInstance, prepareQuery } = require('../../../database')
 
 module.exports = async function (fastify, options)
 {
-    fastify.get('/', async (req, res) =>
+    fastify.get('/',{
+        schema: {
+            description: 'Get the reviews of the authenticated user',
+            headers: {
+                type: 'object',
+                properties: {
+                    'x-auth-token': {
+                        type: 'string',
+                        description: 'The authentication token of the user'
+                    }
+                },
+                required: ['x-auth-token']
+            },
+            response: {
+                200: {
+                    description: 'An array of review objects',
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            anime: {
+                                type: 'object',
+                                properties: {
+                                    id: { type: 'integer' },
+                                    name: { type: 'string' }
+                                }
+                            },
+                            text: { type: 'string' },
+                            score: { type: 'number' },
+                            date: { type: 'string', format: 'date-time' }
+                        }
+                    }
+                },
+                204: {
+                    description: 'No reviews found for the user',
+                    type: 'null',
+                },
+                401: {
+                    description: 'Invalid or missing authentication token',
+                    type: 'object',
+                    properties: {
+                        error: { type: 'string' }
+                    }
+                },
+            }
+        }
+    }, async (req, res) =>
     {
         const db = await getInstance()
         const token = req.headers['x-auth-token']

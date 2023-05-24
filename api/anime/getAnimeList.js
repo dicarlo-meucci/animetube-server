@@ -5,19 +5,30 @@ module.exports = async function (fastify, options) {
         '/list',
         {
             schema: {
-                description: 'get a list of all the anime',
+                description: 'Get a list of all the anime',
                 response: {
                     200: {
-                        description: 'anime list',
+                        description: 'Anime list',
                         type: 'array',
                         items: {
                             type: 'object',
                             properties: {
-                                id: { type: 'number' },
-                                name: { type: 'string' },
-                                date: { type: 'string' },
-                                cover: { type: 'string' }
+                                id: { type: 'number', example: 0 },
+                                name: { type: 'string', example: 'Naruto' },
+                                date: { type: 'string', example: '2023-01-01' },
+                                cover: {
+                                    type: 'string',
+                                    example:
+                                        'https://www.animelove.tv/assets/img/KawaisugiCrisis.jpg'
+                                }
                             }
+                        }
+                    },
+                    404: {
+                        description: 'No anime is available',
+                        type: 'object',
+                        properties: {
+                            error: { type: 'string' }
                         }
                     }
                 }

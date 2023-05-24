@@ -41,7 +41,7 @@ module.exports = async function (fastify, options) {
             response: {
                 200: {
                     description: 'The review was successfully updated',
-                    type: 'object',
+                    type: 'null',
                 },
                 400: {
                     description: 'The request is missing information or the score is out of bounds',

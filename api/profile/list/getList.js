@@ -33,10 +33,7 @@ module.exports = async function (fastify, options)
                 },
                 204: {
                     description: 'User list is empty',
-                    type: 'object',
-                    properties: {
-                        error: { type: 'string' }
-                    }
+                    type: 'null',
                 },
                 401: {
                     description: 'Invalid or missing authentication token',

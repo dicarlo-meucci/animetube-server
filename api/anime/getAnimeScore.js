@@ -24,7 +24,7 @@ module.exports = async function (fastify, options) {
                 },
                 204: {
                     description: 'No score was registered',
-                    type: 'object',
+                    type: 'null',
                 }
             }
         }

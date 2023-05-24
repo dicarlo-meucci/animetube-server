@@ -1,7 +1,36 @@
 const { getInstance, prepareQuery } = require('../../database')
 
 module.exports = async function (fastify, options) {
-    fastify.get('/:id/reviews', async (req, res) => {
+    fastify.get('/:id/reviews',{
+        schema: {
+            description: 'Get reviews for an anime',
+            params: {
+                type: 'object',
+                properties: {
+                    id: { type: 'integer', description: 'The ID of the anime' }
+                }
+            },
+            response: {
+                200: {
+                    description: 'An array of review objects',
+                    type: 'array',
+                    items: {
+                        type: 'object',
+                        properties: {
+                            user: { type: 'string' },
+                            text: { type: 'string' },
+                            score: { type: 'number' },
+                            date: { type: 'string', format: 'date-time' }
+                        }
+                    }
+                },
+                204: {
+                    description: 'No reviews found for the anime',
+                    type: 'null',
+                },
+            }
+        }
+    }, async (req, res) => {
         const db = await getInstance()
         const anime = req.params['id']
 
